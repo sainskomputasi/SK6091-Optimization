@@ -27,7 +27,13 @@
   - Approximating a Sparse Jacobian
   - Approximating the Hessian
   - Approximating a Sparse Hessian
-## 6.Nonlinear Equations
+## 6.Heuristic-Optimization
+  - Particle Swarm Optimization
+  - Simulated annealing
+  - Spiral Dynamic Optimization
+  - Differential evolution
+  - Evolutionary algorithms
+## 7.Nonlinear Equations
   - Newton's Method
   - Inexact Newton's Method
   - Broyden's Method
