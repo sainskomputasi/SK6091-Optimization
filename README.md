@@ -1,4 +1,5 @@
 # SK6091-Optimization
+  SK6091-Optim adalah sebuah module yang berguna untuk menyelesaikan permasalahan-permasalahan optimasi. Algoritma yang dikembangkan saat ini masih memiliki keterbatasan jumlah algoritma, module ini dikembangkan dengan bahasa c++ . Module ini juga berguna untuk melengkapi riset perkuliahan yang diberikan secara mandiri.
 ## 1.The optimization Problem
   - Introduction
   - The Basic Optimization Problem 
