@@ -1,7 +1,7 @@
 # SK6091-Optimization
   SK6091-Optim adalah sebuah module yang berguna untuk menyelesaikan permasalahan-permasalahan optimasi. Algoritma yang dikembangkan saat ini masih memiliki keterbatasan jumlah algoritma, module ini dikembangkan dengan bahasa c++ yang hanya berisikan header/ abstract dan implementasi dari algoritma yang dapat dijalankan pada compiler yang mendukung c++ versi c-11 . Module ini juga berguna untuk melengkapi riset perkuliahan yang diberikan secara mandiri. Berikut merupakan contoh-contoh fungsi yang dapat digunakan dalam menyelesaikan permasalahan optimasi Numerik. 
   ![This is an image](https://upload.wikimedia.org/wikipedia/commons/7/72/Max_paraboloid.svg)
-          *z = f(x, y) = −(x² + y²) + 4 *
+   *z = f(x, y) = −(x² + y²) + 4 *
 
 ## 1.The optimization Problem
   - Introduction
