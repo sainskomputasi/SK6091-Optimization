@@ -17,6 +17,8 @@ namespace MA5171 {
 
 
 	private:
+		//data member here
 	};
 }
 #endif
+//note use only for abstraction 
