@@ -14,11 +14,11 @@
   - Fibonacci Search
   - Golden-Section Search
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. 
-```ruby
-require 'redcarpet'
-markdown = Redcarpet.new("Hello World!")
-puts markdown.to_html
-```
+        ```c++
+            require 'redcarpet'
+            markdown = Redcarpet.new("Hello World!")
+            puts markdown.to_html
+        ```
     
   - Quadratic Interpolation Method
   - Cubic Interpolation 
