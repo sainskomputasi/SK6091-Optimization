@@ -15,14 +15,14 @@
   - Golden-Section Search
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. (Note : namespace for this module is SK6091 and folowed by it's class) 
         ```c++
-            #include "oneDimen/oneDimensional.hpp"
-            double objectiveFunc(double x) {
-	            return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
-            }
-            int main(){
-                SK6091::OneDimension testGolden;
-	            std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
-            }
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main(){
+            SK6091::OneDimension testGolden;
+	        std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+        }
         ```
         The Following code is golden section abstraction
         ```c++
@@ -40,7 +40,12 @@
         #include "oneDimensional.hpp"
         #endif
         ```
-    
+    The golden section function is consist of 5 parameters:
+    1. Objective Function
+    2. lower bound
+    3. upper bound
+    4. max iteration
+    5. tolerance for error
   - Quadratic Interpolation Method
   - Cubic Interpolation 
 ## 3.Multi-Dimensional Gradient Method
