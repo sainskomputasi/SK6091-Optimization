@@ -6,7 +6,7 @@
 double objectiveFunc(double);
 int main()
 {
-	SK6091::OneDimension test;
+	SK6091::OneDimension testGolden;
 	std::cout<<"nilai minimum"<<test.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
 	return 0;
 }
