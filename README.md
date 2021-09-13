@@ -40,7 +40,7 @@
         #include "oneDimensional.hpp"
         #endif
         ```
-    ** The golden section function is consist of 5 parameters: **
+    **The golden section function is consist of 5 parameters:**
     * Objective Function
     * lower bound
     * upper bound
