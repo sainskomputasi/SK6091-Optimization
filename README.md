@@ -1,6 +1,6 @@
 # SK6091-Optimization
   **SK6091-Optim** is a lightweight C++ library of numerical optimization methods, it is written by Michael sipayung. The goals are to complete an independent research project and to build an Optimization library for C++ which can provide solutions for a single variable and multi-variable optimization. The users should be able to select the algorithm to be used and also access any class abstraction. Available Algorithms: golden section search, dichotomous Search, Fibonacci Search, Steepest-Descent Method, Newton Method, Gauss-Newton Method, quasi newton method, Particle Swarm Optimization, Simulated annealing, Spiral Dynamic Optimization, Differential Evolution, Evolutionary algorithms. I also provide a benchmark for each algorithm at the end of each section that consists of the optimization algorithm. The following graph is intended to be used as a sample to compile. 
-  ![This is an image](https://1drv.ms/u/s!AvqYx9Nt8QSGmFPeJI1QTDpwMh7-)
+  ![This is an image](https://ejapiw.sn.files.1drv.com/y4p_qPNyG8gCk_lQ_veEsqgSsFO5QqBeN5VZG6eeBrmIF51zNlHd5gOoyk8U2ymHepxooAnIXFV8w91X70xa_9uPCyVfK4Hzq-5pdkYDxv_IsCYrhPrp9NSWt_PZ9f_B-DPbl-z3pP-V0dYjZDcdKNDdRa9U7UgWOAs56REXzoUGPyGCxN3CxF0tNrl5VvbdjXf9Pj52ea5pCbtT0JB7P9P_Bgfe5lucUz5LvIX2lCZ1RI/my%20head.png?psid=1)
   
   _Graph dari fungsi  f(x, y) = −(x² + y²) + 4 _
 
