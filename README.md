@@ -14,6 +14,10 @@
   - Fibonacci Search
   - Golden-Section Search
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. 
+    '''
+    SK6091::OneDimension testGolden;
+	  std::cout<<"nilai minimum"<<test.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+    '''
     
   - Quadratic Interpolation Method
   - Cubic Interpolation 
