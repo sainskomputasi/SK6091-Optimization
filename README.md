@@ -13,7 +13,8 @@
   - Dichotomous Search
   - Fibonacci Search
   - Golden-Section Search
-    golden is
+    - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. 
+    
   - Quadratic Interpolation Method
   - Cubic Interpolation 
 ## 3.Multi-Dimensional Gradient Method
