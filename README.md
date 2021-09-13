@@ -13,6 +13,7 @@
   - Dichotomous Search
   - Fibonacci Search
   - Golden-Section Search
+    golden is
   - Quadratic Interpolation Method
   - Cubic Interpolation 
 ## 3.Multi-Dimensional Gradient Method
