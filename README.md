@@ -26,14 +26,19 @@
         ```
         The Following code is golden section abstraction
         ```c++
-            #include "oneDimen/oneDimensional.hpp"
-            double objectiveFunc(double x) {
-	            return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+            #ifndef ONE_DIMENSIONAL
+            #define ONE_DIMENSIONAL
+            #include <cmath>
+            #define R ((pow(5,0.5)-1.0)/2.0)
+            namespace SK6091 {
+	            class OneDimension {
+	            public:
+		            double goldenSec(double(double), double, double, int, double);
+	            private:
+	            };
             }
-            int main(){
-                SK6091::OneDimension testGolden;
-	            std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
-            }
+            #include "oneDimensional.hpp"
+            #endif
         ```
     
   - Quadratic Interpolation Method
