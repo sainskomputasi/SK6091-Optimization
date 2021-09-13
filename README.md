@@ -41,11 +41,11 @@
         #endif
         ```
     The golden section function is consist of 5 parameters:
-    * Objective Function
-    * lower bound
-    * upper bound
-    * max iteration
-    * tolerance for error
+    > Objective Function
+    > lower bound
+    > upper bound
+    > max iteration
+    > tolerance for error
   - Quadratic Interpolation Method
   - Cubic Interpolation 
 ## 3.Multi-Dimensional Gradient Method
