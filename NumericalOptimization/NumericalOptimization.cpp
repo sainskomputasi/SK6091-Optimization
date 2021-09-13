@@ -2,10 +2,12 @@
 #include "LIneSearchAlgorithm.h"
 #include <Eigen/dense>
 #include <vector>
+#include "oneDimen/oneDimensional.hpp"
+double objectiveFunc(double);
 int main()
 {
-	MA5171::Optimization test;
-	
+	SK6091::OneDimension test;
+	std::cout<<"nilai minimum"<<test.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
@@ -148,4 +150,7 @@ double MA5171::Optimization::quadInter(double a, double fa, double fpa, double b
 	double B = (fb - D - C * db) / (std::pow(db,2.0));
 	double xmin = a - C / (2.0 * B); //solve for quad interp ...
 	return xmin;
+}
+double objectiveFunc(double x) {
+	return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
 }
