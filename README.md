@@ -49,7 +49,7 @@
     * *max iteration*
     * *tolerance for error*
   - Quadratic Interpolation Method
-  - Cubic Interpolation
+  - Parabolic Interpolation
     - Parabolic interpolation takes advantage of the fact that a second-order polynomial often provides a good approximation to the shape of f(x) near an optimum. The following code is intended to demonstrate how we can call the parabolic interpolation method through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
         #include "oneDimen/oneDimensional.hpp"
@@ -60,7 +60,8 @@
         {
 	        SK6091::OneDimension testParabolic;
 	        double x0 = 0.0, x1 = 1.0, x2 = 4.0;
-	        std::cout << "maximum occurs at x \t: " << testParabolic.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00001);
+	        std::cout << "maximum occurs at x \t: " << 
+                        testParabolic.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00001);
 	        return 0;
         }
         ```
