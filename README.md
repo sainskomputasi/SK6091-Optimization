@@ -20,11 +20,11 @@
         }
         int main(){
             SK6091::OneDimension testGolden;
-	        std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	        std::cout<<"Maximum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
         }
         ```
         After compile the program : 
-        > Minimum Value : 1.42755
+        > The maximum occurs at x : 1.42755
 
         **The Following code is golden section abstraction**
         ```c++

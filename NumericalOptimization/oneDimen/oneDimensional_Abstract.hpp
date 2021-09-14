@@ -6,6 +6,7 @@ namespace SK6091 {
 	class OneDimension {
 	public:
 		double goldenSec(double(double), double, double, int, double);
+		double parabolic(double(double), double&, double&, double&, int, double);
 	private:
 	};
 }

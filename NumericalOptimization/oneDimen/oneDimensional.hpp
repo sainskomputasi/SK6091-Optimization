@@ -57,4 +57,26 @@ double SK6091::OneDimension::goldenSec(double f(double x),double xlow, double xh
 	}
 	return xopt;
 }
+double SK6091::OneDimension::parabolic(double f(double), double &x0, double &x1, double &x2, int maxiter, double tolerance) {
+	double x3 = 0.0;
+	int beg = 0;
+	std::cout << "test 1:\t: "<< f(1)<<std::endl;
+
+	while (std::fabs(x2-x3)>tolerance) {
+		x3 = (f(x0) * (std::pow(x1, 2.0) - std::pow(x2, 2.0)) + 
+			f(x1) * (std::pow(x2, 2.0) - std::pow(x0, 2.0)) + f(x2) * (std::pow(x0, 2.0) - std::pow(x1, 2.0))) / (2.0*f(x0)*(x1-x2) +
+			2.0 * f(x1) * (x2 - x0) + 2.0 * f(x2) * (x0 - x1));
+		if ((f(x1) < f(x3)) && (x3>x1)) {
+			x0 = x1;
+			x1 = x3;
+		}
+		else {
+			x2 = x1;
+			x1 = x3;
+		}
+		++beg;
+
+	}
+	return x3;
+}
 #endif

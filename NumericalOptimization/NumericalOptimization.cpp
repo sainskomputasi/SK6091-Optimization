@@ -7,7 +7,9 @@ double objectiveFunc(double);
 int main()
 {
 	SK6091::OneDimension testGolden;
-	std::cout<<"nilai minimum\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	//std::cout<<"nilai minimum\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	double x0 = 0.0, x1 = 1.0, x2 = 4.0;
+	std::cout << "maximum value \t: " << testGolden.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00001);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
