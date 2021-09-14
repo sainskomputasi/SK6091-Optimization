@@ -5,7 +5,7 @@
   _Graph dari fungsi  f(x, y) = −(x² + y²) + 4 _
 
 ## 1.The optimization Problem
-  - Introduction
+  - **Introduction**
   - The Basic Optimization Problem 
   - How to compile 
 ## 2.One Dimensional Optimization
