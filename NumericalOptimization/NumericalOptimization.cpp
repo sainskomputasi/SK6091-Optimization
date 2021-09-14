@@ -7,7 +7,7 @@ double objectiveFunc(double);
 int main()
 {
 	SK6091::OneDimension testGolden;
-	std::cout<<"nilai minimum"<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	std::cout<<"nilai minimum\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

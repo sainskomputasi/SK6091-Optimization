@@ -12,7 +12,7 @@
   - **Dichotomous Search**
   - **Fibonacci Search**
   - **Golden-Section Search**
-    - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091 and folowed by it's class**)*. 
+    - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*. 
         ```c++
         #include "oneDimen/oneDimensional.hpp"
         double objectiveFunc(double x) {
@@ -23,6 +23,8 @@
 	        std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
         }
         ```
+        result : 
+        > Minimum Value : 1.42755
         **The Following code is golden section abstraction**
         ```c++
         #ifndef ONE_DIMENSIONAL
