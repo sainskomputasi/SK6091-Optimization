@@ -20,7 +20,7 @@
         }
         int main(){
             SK6091::OneDimension testGolden;
-	        std::cout<<"Maximum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	        std::cout<<"The maximum occurs at x \t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
         }
         ```
         After compile the program : 
@@ -49,7 +49,46 @@
     * *max iteration*
     * *tolerance for error*
   - Quadratic Interpolation Method
-  - Cubic Interpolation 
+  - Cubic Interpolation
+    - Parabolic interpolation takes advantage of the fact that a second-order polynomial often provides a good approximation to the shape of f(x) near an optimum. The following code is intended to demonstrate how we can call the parabolic interpolation method through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+        ```c++
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main()
+        {
+	        SK6091::OneDimension testParabolic;
+	        double x0 = 0.0, x1 = 1.0, x2 = 4.0;
+	        std::cout << "maximum occurs at x \t: " << testParabolic.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00001);
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The maximum occurs at x : 1.42755
+
+        **The Following code is parabolic interpolation abstraction**
+        ```c++
+        #ifndef ONE_DIMENSIONAL
+        #define ONE_DIMENSIONAL
+        #include <cmath>
+        #define R ((pow(5,0.5)-1.0)/2.0)
+        namespace SK6091 {
+	        class OneDimension {
+	        public:
+		        double parabolic(double(double), double&, double&, double&, int, double);
+	        private:
+	        };
+        }
+        #include "oneDimensional.hpp"
+        #endif
+        ```
+    **The Parabolic interpolation function is consist of 6 parameters:**
+    * *Objective Function*
+    * *lower bound*
+    * *upper bound*
+    * *max iteration*
+    * *tolerance for error*
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
   - **Steepest-Descent Method**
