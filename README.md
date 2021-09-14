@@ -20,7 +20,8 @@
         }
         int main(){
             SK6091::OneDimension testGolden;
-	        std::cout<<"The maximum occurs at x \t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
+	        std::cout<<"The maximum occurs at x \t: "<< 
+                    testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
         }
         ```
         After compile the program : 
