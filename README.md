@@ -23,8 +23,9 @@
 	        std::cout<<"Minimum Value\t: "<< testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00001);
         }
         ```
-        result : 
+        After compile the program : 
         > Minimum Value : 1.42755
+
         **The Following code is golden section abstraction**
         ```c++
         #ifndef ONE_DIMENSIONAL
