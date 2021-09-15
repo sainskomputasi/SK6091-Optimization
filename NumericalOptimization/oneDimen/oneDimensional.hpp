@@ -79,4 +79,25 @@ double SK6091::OneDimension::parabolic(double f(double), double &x0, double &x1,
 	}
 	return x3;
 }
+double SK6091::OneDimension::newton(double f(double x), double &guess, double tolerance, int maxIter) {
+	auto x0 = guess;
+	double x1 = 0.0;
+	int begin = 1;
+	auto delx = 0.01;
+	auto xi = 0.0;
+	auto secDerivative = 0.0,firstDerivative=0.0;
+	while (begin!=maxIter)
+	{
+		firstDerivative = (f(guess + delx) - f(guess - delx)) / (2.0 * delx);
+		secDerivative = (f(guess + delx) + f(guess - delx) - 2 * f(guess)) / (std::pow(delx, 2.0));
+		xi = guess;
+		guess = guess - firstDerivative / secDerivative;
+		if (std::fabs(guess - xi) < tolerance) {
+			break;
+		}
+		++begin;
+	}
+	std::cout << "iter \t : " << begin << std::endl;
+	return guess;
+}
 #endif

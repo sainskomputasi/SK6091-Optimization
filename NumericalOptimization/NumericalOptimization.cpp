@@ -6,9 +6,9 @@
 double objectiveFunc(double);
 int main()
 {
-	SK6091::OneDimension testParabolic;
-	double x0 = 0.0, x1 = 1.0, x2 = 4.0;
-	std::cout << "maximum occurs at x \t: " << testParabolic.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00001);
+	SK6091::OneDimension testNewton;
+	auto guess = 0.5;
+	std::cout << "newton method \t: " << testNewton.newton(objectiveFunc, guess, 0.00001, 100);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

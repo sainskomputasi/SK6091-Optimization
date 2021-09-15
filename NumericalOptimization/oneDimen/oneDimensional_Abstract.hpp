@@ -7,6 +7,7 @@ namespace SK6091 {
 	public:
 		double goldenSec(double(double), double, double, int, double);
 		double parabolic(double(double), double&, double&, double&, int, double);
+		double newton(double(double),double &,double,int);
 	private:
 	};
 }
