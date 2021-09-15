@@ -29,7 +29,7 @@
         After compile the program : 
         > The maximum occurs at x : 1.42755
 
-        **The Following code is golden section abstraction**
+        **The Following code is Newton abstraction**
         ```c++
         #ifndef ONE_DIMENSIONAL
         #define ONE_DIMENSIONAL
