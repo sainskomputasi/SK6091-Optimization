@@ -91,8 +91,8 @@
     * *max iteration*
     * *tolerance for error*
   - **Secant Method**
-    - Secant Method is a similiar to bisection method that require initial guesses that bracket the optimum [a,b]. The following code is intended to demonstrate how we can call the the secant method through this module/ library. The difference between secant method and the bisection method is in the secant method, both the magnitude and the sign of the derivative 
-      are used to locate the zero of f′(x). *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+    - Secant Method is a similiar to bisection method that require initial guesses that bracket the optimum [a,b]. The difference between secant method and the bisection method is in the secant method, both the magnitude and the sign of the derivative 
+      are used to locate the zero of f′(x).The following code is intended to demonstrate how we can call the the secant method through this module/ library *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
         #include "oneDimen/oneDimensional.hpp"
         double objectiveFunc(double x) {
