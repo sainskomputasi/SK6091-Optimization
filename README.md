@@ -93,6 +93,37 @@
   - **Secant Method**
     - Secant Method is a similiar to bisection method that require initial guesses that bracket the optimum [a,b]. The following code is intended to demonstrate how we can call the the secant method through this module/ library. The difference between secant method and the bisection method is in the secant method, both the magnitude and the sign of the derivative 
       are used to locate the zero of f′(x). *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+        ```c++
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main()
+        {
+	        SK6091::OneDimension testSecant;
+	        std::cout << "maximum occurs at x \t: " << testSecant.secant(objectiveFunc,0.0,4.0,0.00001, 100);
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The maximum occurs at x : 1.42755
+
+        **The Following code is parabolic interpolation abstraction**
+        ```c++
+        #ifndef ONE_DIMENSIONAL
+        #define ONE_DIMENSIONAL
+        #include <cmath>
+        #define R ((pow(5,0.5)-1.0)/2.0)
+        namespace SK6091 {
+	        class OneDimension {
+	        public:
+		        double secant(double(double), double,double, double, int);
+	        private:
+	        };
+        }
+        #include "oneDimensional.hpp"
+        #endif
+        ```
 
   - **Parabolic Interpolation**
     - Parabolic interpolation takes advantage of the fact that a second-order polynomial often provides a good approximation to the shape of f(x) near an optimum. Parabolic interpolation will be converging rapidly if we care to select the best intervals. The following code is intended to demonstrate how we can call the parabolic interpolation method through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
