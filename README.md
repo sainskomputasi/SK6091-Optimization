@@ -10,7 +10,46 @@
   - **How to compile** 
 ## 2.One Dimensional Optimization
   - **Introduction**
-  - **Dichotomous Search**
+  - **Newton Method**
+    - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.   
+        ```c++
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main()
+        {
+	        SK6091::OneDimension testNewton;
+	        auto guess = 0.5;
+	        std::cout << "maximum occurs at x \t: " << testNewton.newton(objectiveFunc, guess, 0.00001, 100);
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The maximum occurs at x : 1.42755
+
+        **The Following code is golden section abstraction**
+        ```c++
+        #ifndef ONE_DIMENSIONAL
+        #define ONE_DIMENSIONAL
+        #include <cmath>
+        #define R ((pow(5,0.5)-1.0)/2.0)
+        namespace SK6091 {
+	        class OneDimension {
+	        public:
+		        double newton(double(double),double &,double,int);
+	        private:
+	        };
+        }
+        #include "oneDimensional.hpp"
+        #endif
+        ```
+    **The Newton function is consist of 4 parameters:**
+    * *Objective Function*
+    * *initial guess (reference type)*
+    * *tolerance for error*
+    * *max iteration*
+
   - **Fibonacci Search**
   - **Golden-Section Search**
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*. 
