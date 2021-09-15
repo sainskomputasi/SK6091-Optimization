@@ -6,9 +6,8 @@
 double objectiveFunc(double);
 int main()
 {
-	SK6091::OneDimension testNewton;
-	auto guess = 0.5;
-	std::cout << "maximum occurs at x \t: " << testNewton.newton(objectiveFunc, guess, 0.00001, 100);
+	SK6091::OneDimension testSecant;
+	std::cout << "maximum occurs at x \t: " << testSecant.secant(objectiveFunc,0.0,4.0,0.00001, 100);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

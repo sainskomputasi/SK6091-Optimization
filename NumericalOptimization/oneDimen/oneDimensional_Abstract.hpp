@@ -8,6 +8,8 @@ namespace SK6091 {
 		double goldenSec(double(double), double, double, int, double);
 		double parabolic(double(double), double&, double&, double&, int, double);
 		double newton(double(double),double &,double,int);
+		double secant(double(double), double,double, double, int);
+
 	private:
 	};
 }

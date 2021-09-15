@@ -91,13 +91,52 @@ double SK6091::OneDimension::newton(double f(double x), double &guess, double to
 		firstDerivative = (f(guess + delx) - f(guess - delx)) / (2.0 * delx);
 		secDerivative = (f(guess + delx) + f(guess - delx) - 2 * f(guess)) / (std::pow(delx, 2.0));
 		xi = guess;
-		guess = guess - firstDerivative / secDerivative;
+		guess = xi - firstDerivative / secDerivative;
 		if (std::fabs(guess - xi) < tolerance) {
 			break;
 		}
 		++begin;
 	}
-	std::cout << "iter \t : " << begin << std::endl;
 	return guess;
+}
+double SK6091::OneDimension::secant(double f(double), double lo, double hi, double tolerance, int maxIter) {
+	auto sign = 0;
+	auto delx = 0.01;
+	int begin = 1;
+	auto alpha = 0.0;
+	auto dervA = 0.0;
+	auto dervB = 0.0;
+	auto derAlpha = 0.0;
+	while (begin!=maxIter)
+	{
+		alpha = (lo + hi) / 2.0;
+		dervA = (f(lo + delx) - f(lo - delx)) / (2.0 * delx);
+		derAlpha = (f(alpha + delx) - f(alpha - delx)) / (2.0 * delx);
+		dervB = (f(hi + delx) - f(hi - delx)) / (2.0 * delx);
+		if ((dervA*derAlpha)<0) {
+			hi = alpha;
+			sign = 1;
+		}
+		else {
+			lo = alpha;
+		}
+		if (sign==1)
+		{
+			alpha = hi - (dervB / ((dervB - dervA) / (hi - lo)));
+			derAlpha = (f(alpha + delx) - f(alpha - delx)) / (2.0 * delx);
+			if (derAlpha>0)
+			{
+				hi = alpha;
+			}
+			else {
+				lo = alpha;
+			}
+			if (std::fabs(derAlpha) < tolerance)
+			{
+				break;
+			}
+		}
+	}
+	return alpha;
 }
 #endif
