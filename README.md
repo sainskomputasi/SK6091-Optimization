@@ -101,14 +101,15 @@
         int main()
         {
 	        SK6091::OneDimension testSecant;
-	        std::cout << "maximum occurs at x \t: " << testSecant.secant(objectiveFunc,0.0,4.0,0.00001, 100);
+	        std::cout << "maximum occurs at x \t: " << 
+                testSecant.secant(objectiveFunc,0.0,4.0,0.00001, 100);
 	        return 0;
         }
         ```
         After compile the program : 
         > The maximum occurs at x : 1.42755
 
-        **The Following code is parabolic interpolation abstraction**
+        **The Following code is secant method abstraction**
         ```c++
         #ifndef ONE_DIMENSIONAL
         #define ONE_DIMENSIONAL
@@ -124,7 +125,12 @@
         #include "oneDimensional.hpp"
         #endif
         ```
-
+    **The Secant function is consist of 5 parameters:**
+    * *Objective Function*
+    * *x0 as lower bound (double type)*
+    * *x1 as higher bound (double type)*
+    * *tolerance for error*
+    * *max iteration*
   - **Parabolic Interpolation**
     - Parabolic interpolation takes advantage of the fact that a second-order polynomial often provides a good approximation to the shape of f(x) near an optimum. Parabolic interpolation will be converging rapidly if we care to select the best intervals. The following code is intended to demonstrate how we can call the parabolic interpolation method through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
