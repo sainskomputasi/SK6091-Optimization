@@ -1,4 +1,4 @@
-# SK6091-Optimization
+﻿# SK6091-Optimization
   **SK6091-Optim** is a lightweight C++ library of numerical optimization methods, it is written by Michael sipayung. The goals are to complete an independent research project and to build an Optimization library for C++ which can provide solutions for a single variable and multi-variable optimization. The users should be able to select the algorithm to be used and also access any class abstraction. Available Algorithms: golden section search, dichotomous Search, Fibonacci Search, Steepest-Descent Method, Newton Method, Gauss-Newton Method, quasi newton method, Particle Swarm Optimization, Simulated annealing, Spiral Dynamic Optimization, Differential Evolution, Evolutionary algorithms. I also provide a benchmark for each algorithm at the end of each section that consists of the optimization algorithm. The following graph is intended to be used as a sample to compile. 
   ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/my%20head.png)
   ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/ezgif.com-gif-maker%20(6).gif)
@@ -11,7 +11,7 @@
 ## 2.One Dimensional Optimization
   - **Introduction**
   - **Newton Method**
-    - Newton�s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
+    - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
         ```c++
         #include "oneDimen/oneDimensional.hpp"
         double objectiveFunc(double x) {
@@ -90,7 +90,10 @@
     * *upper bound*
     * *max iteration*
     * *tolerance for error*
-  - Quadratic Interpolation Method
+  - **Secant Method**
+    - Secant Method is a similiar to bisection method that require initial guesses that bracket the optimum [a,b]. The following code is intended to demonstrate how we can call the the secant method through this module/ library. The difference between secant method and the bisection method is in the secant method, both the magnitude and the sign of the derivative 
+      are used to locate the zero of f′(x). *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+
   - **Parabolic Interpolation**
     - Parabolic interpolation takes advantage of the fact that a second-order polynomial often provides a good approximation to the shape of f(x) near an optimum. Parabolic interpolation will be converging rapidly if we care to select the best intervals. The following code is intended to demonstrate how we can call the parabolic interpolation method through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
