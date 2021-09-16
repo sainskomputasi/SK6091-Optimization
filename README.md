@@ -14,6 +14,18 @@
     
         N   | Method Name   | Maximum Point | Tolerance | Iteration
         ----|---------------|---------------|-----------|----------
+        1|  Newton|
+        2|  Secant|
+        3|  Golden Section|
+        4|  Parabolic Interpolation| 
+        5|  Brent Method|
+        6|  Newton|
+        7|  Secant|
+        8|  Golden Section|
+        9|  Parabolic Interpolation| 
+        10| Brent Method|
+
+
   - **Newton Method**
     - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the  Newton method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
         ```c++
