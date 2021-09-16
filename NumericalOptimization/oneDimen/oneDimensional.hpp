@@ -55,6 +55,7 @@ double SK6091::OneDimension::goldenSec(double f(double x),double xlow, double xh
 			break;
 		}
 	}
+	std::cout << "iteration\t: " << iter << std::endl;
 	return xopt;
 }
 double SK6091::OneDimension::parabolic(double f(double), double &x0, double &x1, double &x2, int maxiter, double tolerance) {
@@ -154,6 +155,7 @@ double SK6091::OneDimension::brent(double(*f)(double), double ax, double bx, dou
 		tol2 = 2.0 * (tol1 = tolerance * std::fabs(x) + ZEPS);
 		if (std::fabs(x - xm) <= (tol2 - 0.5 * (b - a))) {
 			*xmin = x;
+			std::cout << "total iter\t:" << begin << std::endl;
 			return x;
 		}
 		if (std::fabs(e) > tol1) {
@@ -214,7 +216,7 @@ double SK6091::OneDimension::brent(double(*f)(double), double ax, double bx, dou
 		++begin;
 	}
 	*xmin = x;
-	return x;
+	return fx;
 
 }
 #endif

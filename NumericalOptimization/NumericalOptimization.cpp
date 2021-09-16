@@ -3,12 +3,21 @@
 #include <Eigen/dense>
 #include <vector>
 #include "oneDimen/oneDimensional.hpp"
+#include <chrono>
 double objectiveFunc(double);
 int main()
 {
+	auto start = std::chrono::steady_clock::now();
 	auto xmi = -1.5;
 	SK6091::OneDimension testBrent;
-	std::cout << "minimum occurs at x \t: " << testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
+	SK6091::OneDimension testGolden;
+	std::cout << "The maximum occurs at x \t: " <<
+		testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00000000001);
+	//std::cout << "minimum occurs at x \t: " << testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.00000000001, &xmi, 100)<<std::endl;
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> sec = end - start;
+	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
+	
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

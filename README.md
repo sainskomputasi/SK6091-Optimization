@@ -14,16 +14,16 @@
     
         N   | Method Name   | Maximum Point | Minimum Point |Tolerance | Total Iteration       
         ----|---------------|---------------|---------------|----------|-----------------
-        1|  Newton|
-        2|  Secant|
-        3|  Golden Section|
-        4|  Parabolic Interpolation| 
-        5|  Brent Method|
-        6|  Newton|
-        7|  Secant|
-        8|  Golden Section|
-        9|  Parabolic Interpolation| 
-        10| Brent Method|
+        1|  Newton|1.42755|*|
+        2|  Secant|1.42755|*|
+        3|  Golden Section|1.42755|-1.74633|1.00E-04|
+        4|  Parabolic Interpolation|1.42755 
+        5|  Brent Method|*|-1.74633|1.00E-04|
+        6|  Newton|1.42755|*
+        7|  Secant|1.42755|*
+        8|  Golden Section|1.42755|-1.74633||1E-11
+        9|  Parabolic Interpolation|1.42755| 
+        10| Brent Method|*|-1.74633|1E-11
 
 
   - **Newton Method**
