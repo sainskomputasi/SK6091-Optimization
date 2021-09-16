@@ -10,6 +10,10 @@
   - **How to compile** 
 ## 2.One Dimensional Optimization
   - **Introduction**
+    The following table is bechmark of each method ..
+        The following benchmark results have been generated using some numerical experiments. 
+        N   | Method Name   | Maximum Point | Tolerance | Iteration
+        -----------------------------------------------------------
   - **Newton Method**
     - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the  Newton method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
         ```c++
@@ -95,7 +99,7 @@
     * *auxiliary bound (f(lower)<f(aux)<f(upper))*
     * *upper bound*
     * *tolerance for error*
-    * *initial guess (pointer type)
+    * *initial guess (pointer type)*
     * *max iteration*
   - **Golden-Section Search**
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*. 
