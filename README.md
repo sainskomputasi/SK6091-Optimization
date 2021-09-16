@@ -62,8 +62,8 @@
         {
 	        auto xmi = -1.5;
 	        SK6091::OneDimension testBrent;
-	    std::cout << "minimum occurs at x \t: " << 
-            testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
+	        std::cout << "minimum occurs at x \t: " << 
+                testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
         }
         ```
         After compile the program : 
