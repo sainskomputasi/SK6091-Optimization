@@ -12,7 +12,7 @@
   - **Introduction**
     - The following benchmark results have been generated using some numerical experiments.
     
-        N   | Method Name   | Maximum Point | Tolerance | Iteration       
+        N   | Method Name   | Maximum Point | Tolerance | Total Iteration       
         ----|---------------|---------------|-----------|-----------------
         1|  Newton|
         2|  Secant|
