@@ -11,8 +11,10 @@ int main()
 	auto xmi = -1.5;
 	SK6091::OneDimension testBrent;
 	SK6091::OneDimension testGolden;
-	std::cout << "The maximum occurs at x \t: " <<
-		testGolden.goldenSec(objectiveFunc, 0.0, 4.0, 100, 0.00000000001);
+	SK6091::OneDimension testParabolic;
+	double x0 = 0.0, x1 = 1.0, x2 = 4.0;
+	std::cout << "maximum occurs at x \t: " <<
+		testParabolic.parabolic(objectiveFunc, x0, x1, x2, 100, 0.00000000001);
 	//std::cout << "minimum occurs at x \t: " << testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.00000000001, &xmi, 100)<<std::endl;
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> sec = end - start;

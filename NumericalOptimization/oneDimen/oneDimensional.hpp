@@ -78,6 +78,7 @@ double SK6091::OneDimension::parabolic(double f(double), double &x0, double &x1,
 		++beg;
 
 	}
+	std::cout << "Iteration \t:" << beg << std::endl;
 	return x3;
 }
 double SK6091::OneDimension::newton(double f(double x), double &guess, double tolerance, int maxIter) {
