@@ -10,8 +10,8 @@
   - **How to compile** 
 ## 2.One Dimensional Optimization
   - **Introduction**
-    - The following table is bechmark of each method ..
-        The following benchmark results have been generated using some numerical experiments. 
+    - The following benchmark results have been generated using some numerical experiments.
+    
         N   | Method Name   | Maximum Point | Tolerance | Iteration
         ----|---------------|---------------|-----------|----------
   - **Newton Method**
