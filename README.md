@@ -14,7 +14,8 @@
     multivariable algorithms. As these algorithms form a subproblem of multivariable optimization problems, numerous methods (or algorithms) have been reported in the literature, each with some unique advantage over the others. As an example, a single-variable objective function could be 
     > **f(x) = 2*sin(x)-((x^2)/10.0)** 
     Using Gnu-Plot to plot this function will look like 
-
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/ezgif.com-gif-maker%20(6).gif)
+    
  
     The following benchmark results have been generated using some numerical experiments.
     
