@@ -13,7 +13,7 @@
     - The following benchmark results have been generated using some numerical experiments.
     
         N   | Method Name   | Maximum Point | Minimum Point |Tolerance |Iteration|Time       
-        ----|---------------|---------------|---------------|----------|---------|-------
+        ----|---------------|---------------|---------------|----------|---------|-------------
         1|  Newton|1.42755| *|1.00E-04|
         2|  Secant|1.42755| *|1.00E-04|
         3|  Golden Section|1.42755|-1.74633|1.00E-04|(35,35)|0.1831 s
