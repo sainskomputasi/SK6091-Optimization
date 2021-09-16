@@ -12,18 +12,18 @@
   - **Introduction**
     - The following benchmark results have been generated using some numerical experiments.
     
-        N   | Method Name   | Maximum Point | Minimum Point |Tolerance | Total Iteration       
-        ----|---------------|---------------|---------------|----------|-----------------
+        N   | Method Name   | Maximum Point | Minimum Point |Tolerance |Iteration|Time       
+        ----|---------------|---------------|---------------|----------|---------|----
         1|  Newton|1.42755|*|
         2|  Secant|1.42755|*|
-        3|  Golden Section|1.42755|-1.74633|1.00E-04|
+        3|  Golden Section|1.42755|-1.74633|1.00E-04|(35,35)|
         4|  Parabolic Interpolation|1.42755 
-        5|  Brent Method|*|-1.74633|1.00E-04|
+        5|  Brent Method|*|-1.74633|1.00E-04|(8,8)
         6|  Newton|1.42755|*
         7|  Secant|1.42755|*
-        8|  Golden Section|1.42755|-1.74633||1E-11
+        8|  Golden Section|1.42755|-1.74633|1E-11||(63,64)
         9|  Parabolic Interpolation|1.42755| 
-        10| Brent Method|*|-1.74633|1E-11
+        10| Brent Method|*|-1.74633|1E-11|(9,10)
 
 
   - **Newton Method**
