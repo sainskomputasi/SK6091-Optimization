@@ -8,8 +8,7 @@ int main()
 {
 	auto xmi = -1.5;
 	SK6091::OneDimension testBrent;
-	std::cout << "maximum occurs at x \t: " << testBrent.brent(objectiveFunc, 0.0, 1.0, 4.0, 0.0001, &xmi, 100);
-	std::cout<<testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
+	std::cout << "minimum occurs at x \t: " << testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

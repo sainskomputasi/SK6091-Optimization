@@ -154,8 +154,7 @@ double SK6091::OneDimension::brent(double(*f)(double), double ax, double bx, dou
 		tol2 = 2.0 * (tol1 = tolerance * std::fabs(x) + ZEPS);
 		if (std::fabs(x - xm) <= (tol2 - 0.5 * (b - a))) {
 			*xmin = x;
-			std::cout << "iterasi\t: " << begin;
-			return fx;
+			return x;
 		}
 		if (std::fabs(e) > tol1) {
 			r = (x - w) * (fx - fv);
@@ -215,8 +214,7 @@ double SK6091::OneDimension::brent(double(*f)(double), double ax, double bx, dou
 		++begin;
 	}
 	*xmin = x;
-	std::cout << "xmin" << *xmin<<std::endl;
-	return *xmin;
+	return x;
 
 }
 #endif

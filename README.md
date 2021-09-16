@@ -51,7 +51,52 @@
     * *tolerance for error*
     * *max iteration*
 
-  - **Fibonacci Search**
+  - **Brent's Method**
+    - Brent's method combines the slow, dependable golden-section search with the faster, but possibly unreliable,parabolic interpolation.The algorithm tries to use the potentially fast-converging secant method or inverse quadratic interpolation if possible, but it falls back to the more robust bisection method if necessary. Matlab has a  professional minimization function that implements the advantages of brent's method called fminbnd. The following code is intended to demonstrate how we call the brent's section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.  
+        ```c++
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main()
+        {
+	        auto xmi = -1.5;
+	        SK6091::OneDimension testBrent;
+	    std::cout << "minimum occurs at x \t: " << 
+            testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
+        }
+        ```
+        After compile the program : 
+        > The minimum occurs at x : -1.74633
+
+        **The Following code is brent's method abstraction**
+        ```c++
+        #ifndef ONE_DIMENSIONAL
+        #define ONE_DIMENSIONAL
+        #include <cmath>
+        #define MAGN(a,b) ((b)>=0.0?std::fabs(a):-std::fabs(a))
+        #define GOLD 0.3819660
+        #define ZEPS 1.0e-10
+        #define SHIFT(a,b,c,d) (a)=(b);(b)=(c);(c)=(d);
+        namespace SK6091 {
+	        class OneDimension {
+	        public:
+		        double brent(double(*)(double), double, double, double,double ,double *, int);
+
+	        private:
+	        };
+        }
+        #include "oneDimensional.hpp"
+        #endif
+        ```
+    **The brent function is consist of 6 parameters:**
+    * *Objective Function (pointer to function type)*
+    * *lower bound*
+    * *auxiliary bound (f(lower)<f(aux)<f(upper))*
+    * *upper bound*
+    * *tolerance for error*
+    * *initial guess (pointer type)
+    * *max iteration*
   - **Golden-Section Search**
     - The golden-section search is a simple, general-purpose, single-variable search technique. It is similar in spirit to the bisection approach for locating root. The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*. 
         ```c++
