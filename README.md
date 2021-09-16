@@ -14,7 +14,7 @@
     This section will describe techniques to find the minimum or maximum of a function of a single variable, f(x).The one-dimensional (1-D) optimization problem refers to an objective function with one variable. In practice, optimization problems with many variables are complex, and rarely does one find a problem with a single variable. However, 1-D optimization algorithms form the basic building blocks for 
     multivariable algorithms. As these algorithms form a subproblem of multivariable optimization problems, numerous methods (or algorithms) have been reported in the literature, each with some unique advantage over the others. As an example, a single-variable objective function could be 
     > **f(x) = 2*sin(x)-((x^2)/10.0)** 
-    Using Gnu-Plot to plot this function will look like 
+    ; Using Gnu-Plot to plot this function will look like 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/plot.jpg)
     
  
