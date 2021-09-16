@@ -10,9 +10,10 @@
   - **How to compile** 
 ## 2.One Dimensional Optimization
   - **Introduction**
-    This section will describe techniques to find the minimum or maximum of a function of a single variable, f(x).The one-dimensional (1-D) optimization problem refers to an objective function with one variable. In practice, optimization problems with many variables are complex, and rarely does one find a problem with a single variable. However, 1-D optimization algorithms form the basic building blocks for 
+    
+    This section will describe techniques to find the minimum or maximum of a function of a single variable, f(x).The one-dimensional (1-D) optimization problem refers to an objective function with one variable. In practice, optimization problems with many variables are complex, and rarely does one find a problem with a single variable. However, 1-D optimization algorithms form the basic building blocks for 
     multivariable algorithms. As these algorithms form a subproblem of multivariable optimization problems, numerous methods (or algorithms) have been reported in the literature, each with some unique advantage over the others. As an example, a single-variable objective function could be 
-    > f(x) = 2*sin(x)-((x*x)/10.0)
+    > f(x) = 2*sin(x)-((x^2)/10.0) **eq (1)**
  
     The following benchmark results have been generated using some numerical experiments.
     
