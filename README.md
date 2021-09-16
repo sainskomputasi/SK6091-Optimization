@@ -13,7 +13,7 @@
     - The following benchmark results have been generated using some numerical experiments.
     
         N   | Method Name   | Maximum Point | Tolerance | Iteration
-        ----|---------------|---------------|-----------|----------
+        ----|---------------|---------------|-----------|-----------------
         1|  Newton|
         2|  Secant|
         3|  Golden Section|
