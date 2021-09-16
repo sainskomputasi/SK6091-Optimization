@@ -52,7 +52,7 @@
     * *max iteration*
 
   - **Brent's Method**
-    - Brent's method combines the slow, dependable golden-section search with the faster, but possibly unreliable,parabolic interpolation.The algorithm tries to use the potentially fast-converging secant method or inverse quadratic interpolation if possible, but it falls back to the more robust bisection method if necessary. Matlab has a  professional minimization function that implements the advantages of brent's method called fminbnd. The following code is intended to demonstrate how we call the brent's section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.  
+    - Brent's method combines the slow, dependable golden-section search with the faster, but possibly unreliable,parabolic interpolation.The algorithm tries to use the potentially fast-converging secant method or inverse quadratic interpolation if possible, but it falls back to the more robust bisection method if necessary. Matlab has a  professional minimization function that implements the advantages of brent's method called fminbnd. The following code is intended to demonstrate how we call the brent's  method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.  
         ```c++
         #include "oneDimen/oneDimensional.hpp"
         double objectiveFunc(double x) {
