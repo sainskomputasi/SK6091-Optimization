@@ -136,7 +136,87 @@ double SK6091::OneDimension::secant(double f(double), double lo, double hi, doub
 				break;
 			}
 		}
+		++begin;
 	}
 	return alpha;
+}
+double SK6091::OneDimension::brent(double(*f)(double), double ax, double bx, double cx, double tolerance, double* xmin, int maxIter) {
+	auto begin = 1;
+	double a, b, d, etemp, fu, fv, fw, fx, p, q, r, tol1, tol2, u, v, w,x, xm;
+	double e = 0.0;
+	a = (ax < cx ? ax : cx);
+	b = (ax > cx ? ax : cx);
+	x = w = v = bx;
+	fw = fv = fx = (*f)(x);
+	while (begin!=maxIter)
+	{
+		xm = 0.5 * (a + b);
+		tol2 = 2.0 * (tol1 = tolerance * std::fabs(x) + ZEPS);
+		if (std::fabs(x - xm) <= (tol2 - 0.5 * (b - a))) {
+			*xmin = x;
+			std::cout << "iterasi\t: " << begin;
+			return fx;
+		}
+		if (std::fabs(e) > tol1) {
+			r = (x - w) * (fx - fv);
+			q = (x - v) * (fx - fw);
+			p = (x - v) * q - (x - w) * r;
+			q = 2.0 * (q - r);
+			if (q > 0.0) {
+				p = -p;
+			}
+			q = std::fabs(q);
+			etemp = e;
+			e = d;
+			if (std::fabs(p) >= std::fabs(0.5 * q * etemp) || p <= q * (a - x) || p >= q * (b - x)) {
+				d = GOLD * (e = (x >= xm ? a - x : b - x));
+			}
+			else {
+				d = p / q;
+				u = x + d;
+				if (u - a < tol2 || b - u < tol2) {
+					d = MAGN(tol1, xm - x);
+				}
+			}
+		}
+		else {
+			d = GOLD * (e = (x >= xm ? a - x : b - x));
+		}
+		u = (std::fabs(d) >= tol1 ? x + d : x + MAGN(tol1, d));
+		fu = (*f)(u);
+		if (fu <= fx) {
+			if (u >= x) {
+				a = x;
+			}
+			else {
+				b = x;
+			}
+			SHIFT(v, w, x, u);
+			SHIFT(fv, fw, fx, fu);
+		}
+		else {
+			if (u < x) {
+				a = u;
+			}
+			else {
+				b = u;
+			}
+			if (fu <= fw || w == x) {
+				v = w;
+				w = u;
+				fv = fw;
+				fw = fu;
+			}
+			else if (fu <= fv || v == x || v == w) {
+				v = u;
+				fv = fu;
+			}
+		}
+		++begin;
+	}
+	*xmin = x;
+	std::cout << "xmin" << *xmin<<std::endl;
+	return *xmin;
+
 }
 #endif
