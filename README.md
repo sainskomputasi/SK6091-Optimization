@@ -11,7 +11,7 @@
 ## 2.One Dimensional Optimization
   - **Introduction**
   - **Newton Method**
-    - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the golden section method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
+    - Newton’s method is an open method similar to Newton-Raphson because it does not require initial guesses that bracket the optimum [a,b]. In the newton method in this library, we need not a first derivative and second derivative to calculate, because we already provide an approximation to them. See The finite-difference derivative approximations for calculating derivatives in the calculating derivative section.The following code is intended to demonstrate how we call the  Newton method through this module. *(Note : namespace for this module is **SK6091** and folowed by it's class)*.   
         ```c++
         #include "oneDimen/oneDimensional.hpp"
         double objectiveFunc(double x) {
