@@ -8,11 +8,10 @@
   - **Introduction**
   - **The Basic Optimization Problem** 
   - **How to compile**
-
-        **Prerequisites**
-        - Windows 7 or newer (Linux)
-        - Git
-        - Visual Studio or Gcc
+    Prerequisites
+    - Windows 7 or newer (Linux)
+    - Git
+    - Visual Studio or Gcc
 
 ## 2.One Dimensional Optimization
   - **Introduction**
