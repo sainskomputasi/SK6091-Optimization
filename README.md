@@ -35,7 +35,7 @@
                 std::pow(y,2.0)-10*std::cos(2*M_PI*y)));
       }
       ```
-      sk6091::optimization library/ module also uses the preprocessor to define header guards. Header guards rely on preprocessor variables. Preprocessor variables have one of two possible states: define or not defined. sk6091::optimization use these facilitiesto guard against multiple inclussion as follows:
+      ** *sk6091::optimization* ** library/ module also uses the preprocessor to define header guards. Header guards rely on preprocessor variables. Preprocessor variables have one of two possible states: define or not defined. sk6091::optimization use these facilitiesto guard against multiple inclussion as follows:
       ```c++        
         #ifndef ONE_DIMENSIONAL
         #define ONE_DIMENSIONAL
