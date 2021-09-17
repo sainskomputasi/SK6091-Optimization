@@ -15,9 +15,24 @@
       }
       ```
       ```c++
-      double twoDrastrigin(double x,y) {
-	    return (20+
-        (std::pow(x,2.0)-10*std::cos(2*M_PI*x)+std::pow(y,2.0)-10*std::cos(2*M_PI*y)));
+      double twoDrastrigin(double x,double y) {
+	    return (20+ (std::pow(x,2.0)-10*std::cos(2*M_PI*x)+
+            std::pow(y,2.0)-10*std::cos(2*M_PI*y)));
+      }
+      ```
+      Rather than defining a new function for each type, we can define a function template. A function template is formula from which we can generate type-specific version of that functions. The template version of Rastarign function looks like
+
+      ```c++
+      template <typename T>
+      inline double oneD_Rastrign(const T& x) {
+	    return (10 + std::pow(x, 2.0) - 10 * std::cos(2 * M_PI * x));
+      }
+      ```
+      ```c++
+      template <typename T>
+      inline double oneD_Rastrign(const T& x) {
+	    return (20+ (std::pow(x,2.0)-10*std::cos(2*M_PI*x)+
+                std::pow(y,2.0)-10*std::cos(2*M_PI*y)));
       }
       ```
   - **How to compile**

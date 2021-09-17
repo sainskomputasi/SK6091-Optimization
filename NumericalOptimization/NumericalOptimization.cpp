@@ -5,7 +5,11 @@
 #include "oneDimen/oneDimensional.hpp"
 #include <chrono>
 #include <cmath>
+#include <math.h>
+#include <corecrt_math_defines.h>
 double objectiveFunc(double);
+template <typename T>
+inline double oneD_Rastrign(const T& x);
 int main()
 {
 	auto start = std::chrono::steady_clock::now();
@@ -20,6 +24,7 @@ int main()
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
+	std::cout << "template \t: " << oneD_Rastrign(90) << std::endl;
 	
 	return 0;
 }
@@ -165,8 +170,14 @@ double MA5171::Optimization::quadInter(double a, double fa, double fpa, double b
 	return xmin;
 }
 double objectiveFunc(double x) {
-	return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+	return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0); 
 }
 double oneDrastrigin(double x) {
 	return (10+std::pow(x,2.0)-10*std::cos(2*M_PI*x));
+}
+
+template <typename T>
+inline double oneD_Rastrign(const T& x,const T& y) {
+	return (10 + std::pow(x, 2.0) - 10 * std::cos(2 * M_PI * x));
+
 }
