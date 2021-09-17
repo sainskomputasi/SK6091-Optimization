@@ -8,6 +8,7 @@
   - **Introduction**
   - **The Basic Optimization Problem** 
   - **How to compile**
+
     Prerequisites
     - Windows 7 or newer (Linux)
     - Git
