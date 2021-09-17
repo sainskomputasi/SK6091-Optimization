@@ -4,6 +4,7 @@
 #include <vector>
 #include "oneDimen/oneDimensional.hpp"
 #include <chrono>
+#include <cmath>
 double objectiveFunc(double);
 int main()
 {
@@ -165,4 +166,7 @@ double MA5171::Optimization::quadInter(double a, double fa, double fpa, double b
 }
 double objectiveFunc(double x) {
 	return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+}
+double oneDrastrigin(double x) {
+	return (10+std::pow(x,2.0)-10*std::cos(2*M_PI*x));
 }
