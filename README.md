@@ -19,6 +19,14 @@
     ```cmd
     > git clone https://github.com/sainskomputasi/SK6091-Optimization.git
     ```
+    Now let's make a simple CMake project with a main file.
+    ```cmake
+    # CMakeLists.txt
+    cmake_minimum_required(VERSION 3.0)
+    project(test)
+
+    add_executable(optimization NumericalOptimization.cpp)
+    ```
 
 ## 2.One Dimensional Optimization
   - **Introduction**
