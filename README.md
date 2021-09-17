@@ -30,7 +30,7 @@
       ```
       ```c++
       template <typename T>
-      inline double oneD_Rastrign(const T& x) {
+      inline double twoD_Rastrign(const T& x) {
 	    return (20+ (std::pow(x,2.0)-10*std::cos(2*M_PI*x)+
                 std::pow(y,2.0)-10*std::cos(2*M_PI*y)));
       }
