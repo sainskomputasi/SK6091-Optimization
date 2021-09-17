@@ -8,7 +8,7 @@
   - **Introduction**
   - **The Basic Optimization Problem & C++** 
 
-      When using this library/ module, you start by writting an objective function that may be single variable or many variable, this objective function always give a return value and normally it's return double data type, double data type has a good preccision rather than float and sometimes it's size equals in the memory. The folowing code is a simple way to return a value from an objective function using c++. 
+      When using this library/ module, you start by writting an objective function that may be single variable or many variable, this objective function always give a return value and normally it's return double data type, double data type has a good preccision rather than float and sometimes it's size equals in the memory. The folowing code is a simple way to return a value from an objective function **(rastrigin function)** using c++. 
       ```c++
       double oneDrastrigin(double x) {
 	    return (10+std::pow(x,2.0)-10*std::cos(2*M_PI*x));
