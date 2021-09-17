@@ -6,6 +6,9 @@
 
 ## 1.The optimization Problem
   - **Introduction**
+      Optimization problems of sorts arise in all quantitative disciplines from computer science and engineering to operations research and economics. In the simplest case, an optimization problem consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function. More generally, optimization includes finding "best available" values of some objective function given a defined domain (or input), including a variety of different types of objective functions and different types of domains. The following graph is illustrated local and global minima/ maxima point.
+        ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/ezgif.com-gif-maker%20(6).gif)
+
   - **The Basic Optimization Problem & C++** 
 
       When using this library/ module, you start by writting an objective function that may be single variable or many variable, this objective function always give a return value and normally it's return double data type, double data type has a good preccision rather than float and sometimes it's size equals in the memory. The folowing code is a simple way to return a value from an objective function **(rastrigin function)** using c++. 
