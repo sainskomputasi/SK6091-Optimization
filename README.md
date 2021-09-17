@@ -14,10 +14,11 @@
     - Git
     - Visual Studio or Gcc
 
-    First download sk6091::optimization itself, it can be installed anywhere. We recommend somewhere like 'C:\optim\testOptimization'
-    '''cmd
+    First download sk6091::optimization itself, it can be installed anywhere. We recommend somewhere like `C:\optim\testOptimization`
+    
+    ```cmd
     > git clone https://github.com/sainskomputasi/SK6091-Optimization.git
-    '''
+    ```
 
 ## 2.One Dimensional Optimization
   - **Introduction**
