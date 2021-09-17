@@ -41,6 +41,12 @@
             testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
     }
      ```
+    Then, we build our project in the normal CMake way:
+    ```cmd
+    > cmake ..
+    ```
+
+
 
 ## 2.One Dimensional Optimization
   - **Introduction**
