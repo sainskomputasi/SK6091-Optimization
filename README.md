@@ -37,24 +37,24 @@
       ```
       **sk6091::optimization** library/ module also uses the preprocessor to define header guards. Header guards rely on preprocessor variables. Preprocessor variables have one of two possible states: define or not defined. sk6091::optimization use these facilitiesto guard against multiple inclussion as follows:
       ```c++        
-        #ifndef ONE_DIMENSIONAL
-        #define ONE_DIMENSIONAL
-        #include <cmath>
-        #define MAGN(a,b) ((b)>=0.0?std::fabs(a):-std::fabs(a))
-        #define GOLD 0.3819660
-        #define ZEPS 1.0e-10
-        #define SHIFT(a,b,c,d) (a)=(b);(b)=(c);(c)=(d);
-        namespace SK6091 {
-	        class OneDimension {
-	        public:
-		        double brent(double(*)(double), double, double, double,double ,double *, int);
+    #ifndef ONE_DIMENSIONAL
+    #define ONE_DIMENSIONAL
+    #include <cmath>
+    #define MAGN(a,b) ((b)>=0.0?std::fabs(a):-std::fabs(a))
+    #define GOLD 0.3819660
+    #define ZEPS 1.0e-10
+    #define SHIFT(a,b,c,d) (a)=(b);(b)=(c);(c)=(d);
+    namespace SK6091 {
+	    class OneDimension {
+	    public:
+		    double brent(double(*)(double), double, double, double,double ,double *, int);
 
-	        private:
-	        };
-        }
-        #include "oneDimensional.hpp"
-        #endif
-        ```
+	    private:
+	    };
+    }
+    #include "oneDimensional.hpp"
+    #endif
+       ```
   - **How to compile**
 
     Prerequisites
