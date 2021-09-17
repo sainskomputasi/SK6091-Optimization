@@ -27,6 +27,20 @@
 
     add_executable(optimization NumericalOptimization.cpp)
     ```
+    ```c++
+        //NumericalOptimization.cpp
+        #include "oneDimen/oneDimensional.hpp"
+        double objectiveFunc(double x) {
+	        return (2 * std::sin(x) - std::pow(x, 2.0) / 10.0);
+        }
+        int main()
+        {
+	        auto xmi = -1.5;
+	        SK6091::OneDimension testBrent;
+	        std::cout << "minimum occurs at x \t: " << 
+                testBrent.brent(objectiveFunc, -4.0, -2.0, 0.01, 0.0001, &xmi, 100);
+        }
+     ```
 
 ## 2.One Dimensional Optimization
   - **Introduction**
