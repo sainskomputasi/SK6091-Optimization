@@ -30,7 +30,7 @@ int main()
 	Eigen::RowVector2d initialPoint;
 	initialPoint << 0.5, 0.3;
 	SK6091::MultiD test;
-	std::cout<< "Minimum Point \t:\n"<<test.stepestDes(initialPoint)<<std::endl;
+	std::cout<< "Minimum Point \t:\n"<<test.newton(initialPoint)<<std::endl;
 
 	
 	return 0;
