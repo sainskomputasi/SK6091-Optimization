@@ -6,13 +6,13 @@ namespace SK6091 {
 	class functionTest
 	{
 	public:
-		double Rosenbrock(Eigen::RowVector2d );
-		double Griewank(Eigen::RowVector2d);
-		double Ackley(Eigen::RowVector2d);
-		double Booth_s(Eigen::RowVector2d);
-		double Michalewicz(Eigen::RowVector2d);
-		double Spring_sys(Eigen::RowVector2d);
-		double Rastrigin(Eigen::RowVector2d);
+		inline double Rosenbrock(Eigen::RowVector2d );
+		inline double Griewank(Eigen::RowVector2d);
+		inline double Ackley(Eigen::RowVector2d);
+		inline double Booth_s(Eigen::RowVector2d);
+		inline double Michalewicz(Eigen::RowVector2d);
+		inline double Spring_sys(Eigen::RowVector2d);
+		inline double Rastrigin(Eigen::RowVector2d);
 
 
 	private:

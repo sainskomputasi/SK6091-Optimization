@@ -7,13 +7,14 @@
 #include <cmath>
 #include <math.h>
 #include <corecrt_math_defines.h>
+#include "specialFunctionImp.hpp"
 double objectiveFunc(double);
 template <typename T>
 inline double oneD_Rastrign(const T& x);
 int main()
 {
 	auto start = std::chrono::steady_clock::now();
-	auto xmi = -1.5;
+	/*auto xmi = -1.5;
 	SK6091::OneDimension testBrent;
 	SK6091::OneDimension testGolden;
 	SK6091::OneDimension testParabolic;
@@ -24,6 +25,12 @@ int main()
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
+	*/
+	std::cout << "Debug Special function " << std::endl;
+	SK6091::functionTest booth;
+	Eigen::RowVector2d point;
+	point << 1.0, 1.0;
+	std::cout << booth.Griewank(point);
 	
 	return 0;
 }
