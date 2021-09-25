@@ -336,6 +336,41 @@
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
   - **Steepest-Descent Method**
+    - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+        ```c++
+        #include "multiDimension/multiDimenImp.hpp"
+        int main()
+        {
+	        Eigen::RowVector2d initialPoint;
+	        initialPoint << 0.5, 0.3;
+	        SK6091::MultiD test;
+	        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<test.stepestDes(initialPoint)<<std::endl;
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The Minimum Point occurs at x,y :  1.02883 1.05855
+
+        **The Following code is Steepest Descent abstraction**
+        ```c++
+            #ifndef MULTI_DIMEN
+            #define MULTI_DIMEN
+            #include <iostream>
+            #include<vector>
+            #include <cmath>
+            #include <Eigen/dense>
+            namespace SK6091{
+                class MultiD{
+                    private:
+
+                    public:
+                        Eigen::RowVector2d stepestDes(Eigen::RowVector2d);
+                };
+            }
+            #include "multiDimenImp.hpp"
+            #endif
+        ```
+        
   - **Newton Method**
   - **Gauss Newton Method**
 ## 4.Quasi-Newton Method 
