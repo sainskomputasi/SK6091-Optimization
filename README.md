@@ -388,7 +388,7 @@
         ```     
         
   - **Newton Method**
-      - Newton Method, The search direction in this method is based on the first and second derivative information.In this method, if the initial starting point is far away from the optimum, the search direction may not always be descent. Often a restart is required with a different starting point to avoid this difficulty. The following code is intended to demonstrate how we can call the Newton method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+      - Newton Method, the search direction in this method is based on the first and second derivative information. In this method, if the initial starting point is far away from the optimum, the search direction may not always be descent. Often a restart is required with a different starting point to avoid this difficulty. The following code is intended to demonstrate how we can call the Newton method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
         #include "multiDimension/multiDimenImp.hpp"
         int main()
@@ -437,7 +437,59 @@
                 + std::pow(1-temp[0],2.0)); 
         }
         #endif
-  - **Gauss Newton Method**
+        ```
+
+  - **Quasi Newton Method**
+     - Quasi-Newton Methods (QNMs) are generally a class of optimization methods that are used in Non-Linear Programming when full Newton’s Methods are either too time consuming or difficult to use. More specifically, these methods are used to find the global minimum of a function f(x) that is twice-differentiable. There are distinct advantages to using Quasi-Newton Methods over the full Newton's Method for expansive and complex non-linear problems. The following code is intended to demonstrate how we can call the Quasi Newton method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
+        ```c++
+        #include "multiDimension/multiDimenImp.hpp"
+        int main()
+        {
+	        Eigen::RowVector2d initialPoint;
+	        initialPoint << 0.5, 0.3;
+	        SK6091::MultiD test;
+	        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+                test.quasiNewton(initialPoint)<<std::endl;
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The Minimum Point occurs at x,y :  1.00007 1.00018
+
+        **The Following code is Quasi Newton abstraction**
+        ```c++
+        #ifndef MULTI_DIMEN
+        #define MULTI_DIMEN
+        #include <iostream>
+        #include<vector>
+        #include <cmath>
+        #include <Eigen/dense>
+        namespace SK6091{
+            class MultiD{
+                private:
+
+                public:
+                    Eigen::RowVector2d quasiNewton(Eigen::RowVector2d);
+            };
+        }
+        #include "multiDimenImp.hpp"
+        #endif
+        ```
+        
+        **The Following code is Griewank implementation**
+        ```c++
+        #ifndef SPECIAL_FUNCTION_IMP
+        #define SPECIAL_FUNCTION_IMP
+        #include <cmath>
+        #include <math.h>
+        #include <eigen/dense>
+        #include "specialFunction.hpp"
+        inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
+	        return (100*(std::pow(temp[1]-std::pow(temp[0],2.0),2.0)) 
+                + std::pow(1-temp[0],2.0)); 
+        }
+        #endif
+        ```
 ## 4.Quasi-Newton Method 
   - **Introduction** 
   - **Generating Matrix S**
