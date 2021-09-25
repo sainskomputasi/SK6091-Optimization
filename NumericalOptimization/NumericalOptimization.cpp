@@ -8,6 +8,7 @@
 #include <math.h>
 #include <corecrt_math_defines.h>
 #include "specialFunctionImp.hpp"
+#include "multiDimension/multiDimenImp.hpp"
 double objectiveFunc(double);
 template <typename T>
 inline double oneD_Rastrign(const T& x);
@@ -26,11 +27,11 @@ int main()
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
 	*/
-	std::cout << "Debug Special function " << std::endl;
-	SK6091::functionTest booth;
-	Eigen::RowVector2d point;
-	point << 1.0, 1.0;
-	std::cout << booth.Griewank(point);
+	Eigen::RowVector2d initialPoint;
+	initialPoint << 0.5, 0.3;
+	SK6091::MultiD test;
+	std::cout<< "Minimum Point \t:\n"<<test.newton(initialPoint)<<std::endl;
+
 	
 	return 0;
 }
