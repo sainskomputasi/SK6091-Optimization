@@ -336,7 +336,7 @@
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
   - **Steepest-Descent Method**
-    - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
+    - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
         #include "multiDimension/multiDimenImp.hpp"
         int main()
@@ -344,7 +344,8 @@
 	        Eigen::RowVector2d initialPoint;
 	        initialPoint << 0.5, 0.3;
 	        SK6091::MultiD test;
-	        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<test.stepestDes(initialPoint)<<std::endl;
+	        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+                test.stepestDes(initialPoint)<<std::endl;
 	        return 0;
         }
         ```
@@ -370,6 +371,22 @@
             #include "multiDimenImp.hpp"
             #endif
         ```
+        
+        **The Following code is Griewank implementation**
+        ```c++
+        #ifndef SPECIAL_FUNCTION_IMP
+        #define SPECIAL_FUNCTION_IMP
+        #include <cmath>
+        #include <math.h>
+        #include <eigen/dense>
+        #include "specialFunction.hpp"
+        inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
+	        return (100*(std::pow(temp[1]-std::pow(temp[0],2.0),2.0)) 
+                + std::pow(1-temp[0],2.0)); 
+        }
+        #endif
+        ```
+        
         
   - **Newton Method**
   - **Gauss Newton Method**
