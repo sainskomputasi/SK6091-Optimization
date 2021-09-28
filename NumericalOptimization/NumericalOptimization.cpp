@@ -27,11 +27,16 @@ int main()
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
 	*/
-	Eigen::RowVector2d initialPoint;
-	initialPoint << 0.5, 0.3;
-	SK6091::MultiD test;
-	std::cout<< "Minimum Point \t:\n"<<test.quasiNewton(initialPoint)<<std::endl;
-
+	Eigen::RowVector2d initalPoint;
+	initalPoint << 1.9, 1.9;
+	SK6091::MultiD bfgs;
+	bfgs.quasiNewton(initalPoint);
+	initalPoint << 0.5, 0.5;
+	bfgs.quasiNewton(initalPoint);
+	initalPoint << -0.5, -0.5;
+	bfgs.quasiNewton(initalPoint);
+	initalPoint << 1.1, 1.2;
+	bfgs.quasiNewton(initalPoint);
 	
 	return 0;
 }

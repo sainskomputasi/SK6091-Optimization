@@ -155,4 +155,4 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 	return temp;
 }
 
-#endif
+#endif	

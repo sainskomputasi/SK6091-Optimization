@@ -336,6 +336,13 @@
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
   - **Steepest-Descent Method**
+    The following benchmark results have been generated using some numerical experiments.
+    
+    N   | Objective Function   | Initial Point | Minimum Point |Iteration | Initial Point | Minimum Point |Iteration | Initial Point | Minimum Point |Iteration |       
+    ----|---------------|---------------|---------------|----------|---------|-------------|-------------|-------------|-------------|-------------
+    1|  Newton|1.42755| *|1.00E-04|
+    2|  Secant|1.42755| *|1.00E-04|
+
     - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
         #include "multiDimension/multiDimenImp.hpp"
