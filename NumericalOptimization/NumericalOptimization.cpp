@@ -31,7 +31,7 @@ int main()
 	initalPoint << 0.1, -0.1;
 	SK6091::MultiD bfgs;
 	bfgs.quasiNewton(initalPoint);
-	initalPoint << 0.000, -0.000;
+	initalPoint << 0.3, 0.3;
 	bfgs.quasiNewton(initalPoint);
 	initalPoint << -0.2, -0.2;
 	bfgs.quasiNewton(initalPoint); 

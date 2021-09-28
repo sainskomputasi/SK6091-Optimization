@@ -118,7 +118,7 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
     auto tolerance = 1e-6;
     Eigen::Matrix2d A;
     A = A.Identity();
-    auto fPrev = SK6091::functionTest::Spring_sys(x);
+    auto fPrev = SK6091::functionTest::Ackley(x);
     auto alpha1 = 0.0, falpa = 0.0;
     auto derivPrev = x;
     auto search = x; 
