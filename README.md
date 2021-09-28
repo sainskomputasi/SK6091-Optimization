@@ -340,8 +340,16 @@
     
      Function   | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N |       
     ---------------|---------------|---------------|----------|---------|-------------|-------------|-------------|-------------|-------------
-    Newton|1.42755| *|1.00E-04|
-    Secant|1.42755| *|1.00E-04|
+    Rosenbrock|1.42755| [0.999301,0.998688]|1.00E-04|
+    Griewank|1.42755| *|1.00E-04|
+    Ackley|1.42755| *|1.00E-04|
+    Booths|1.42755| *|1.00E-04|
+    Michalewicz|1.42755| *|1.00E-04|
+    Rastrigin|1.42755| *|1.00E-04|
+    Spring_sys|1.42755| *|1.00E-04|
+
+
+
 
     - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
         ```c++
