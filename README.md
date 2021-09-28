@@ -341,12 +341,12 @@
      Function   | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N |       
     ---------------|---------------|---------------|----------|---------|-------------|-------------|-------------|-------------|-------------
     Griewank|1.9,1.9|0.999,0.998|10|0.5,0.5|0.999,0.998|27|1.1,1.2|1.000,1.000|21|
-    Rosenbrock|1.42755| *|1.00E-04|
-    Ackley|1.42755| *|1.00E-04|
-    Booths|1.42755| *|1.00E-04|
-    Michalewicz|1.42755| *|1.00E-04|
-    Rastrigin|1.42755| *|1.00E-04|
-    Spring_sys|1.42755| *|1.00E-04|
+    Rosenbrock|
+    Ackley|
+    Booths|
+    Michalewicz|
+    Rastrigin|
+    Spring_sys|
 
 
 
