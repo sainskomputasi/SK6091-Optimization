@@ -28,14 +28,13 @@ int main()
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
 	*/
 	Eigen::RowVector2d initalPoint;
-	initalPoint << 0.1, 0.1;
+	initalPoint << 0.1, -0.1;
 	SK6091::MultiD bfgs;
 	bfgs.quasiNewton(initalPoint);
-	initalPoint << 0.5, 0.5;
+	initalPoint << 0.000, -0.000;
 	bfgs.quasiNewton(initalPoint);
-	initalPoint << 1.1, 1.2;
-	bfgs.quasiNewton(initalPoint);
-	
+	initalPoint << -0.2, -0.2;
+	bfgs.quasiNewton(initalPoint); 
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
