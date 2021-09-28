@@ -335,6 +335,7 @@
     * *tolerance for error*
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
+    
     The following benchmark results have been generated using some numerical experiments.
 
     
