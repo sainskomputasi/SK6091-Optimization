@@ -338,7 +338,7 @@
   - **Steepest-Descent Method**
     The following benchmark results have been generated using some numerical experiments.
     
-     Function   | Initial Point | Minimum Point |Iteration | Initial Point | Minimum Point |Iteration | Initial Point | Minimum Point |Iteration |       
+     Function   | Initial Point | Minimum Point |Iteration| Initial Point | Minimum Point |Iteration| Initial Point | Minimum Point |Iteration|       
     ---------------|---------------|---------------|----------|---------|-------------|-------------|-------------|-------------|-------------
     Newton|1.42755| *|1.00E-04|
     Secant|1.42755| *|1.00E-04|
