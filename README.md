@@ -347,7 +347,7 @@
     Booths|
     Michalewicz|
     Rastrigin|0.1,-0.1|-0.99,0.99|2|0.0,-0.0|-1.3e-05|4|-0.2|-0.99|2|
-    Spring_sys|
+    Spring_sys|0.1,-0.1|0.504;0.121|8|0.0,-0.0|0.504;0.121|6|-0.2|0.504;0.121|8|
 
   - **Steepest-Descent Method**
     - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 

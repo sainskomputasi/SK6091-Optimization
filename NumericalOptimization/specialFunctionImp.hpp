@@ -66,7 +66,7 @@ inline Eigen::RowVector2d SK6091::functionTest::grad(Eigen::RowVector2d vecName)
 		xvec1 = vecName;
 		xvec[i] = vecName[i] + delx;
 		xvec1[i] = vecName[i] - delx;
-		temp[i] = (Rastrigin(xvec) - Rastrigin(xvec1)) / (2 * delx);
+		temp[i] = (Spring_sys(xvec) - Spring_sys(xvec1)) / (2 * delx);
 	}
 	return  temp;
 }
@@ -122,8 +122,8 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 	auto tau = 0.381967;;
 	double alpha1 = a * (1 - tau) + b * tau;
 	double alpha2 = a * tau + b * (1 - tau);
-	double falpha1 = Rastrigin(x + alpha1 * search);
-	double falpha2 = Rastrigin(x + alpha2 * search);
+	double falpha1 = Spring_sys(x + alpha1 * search);
+	double falpha2 = Spring_sys(x + alpha2 * search);
 	auto begin = 1;
 	double epsilon = 1e-5;
 	Eigen::RowVector2d temp;
@@ -135,16 +135,16 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 			alpha1 = alpha2;
 			falpha1 = falpha2;
 			alpha2 = tau * a + (1 - tau) * b;
-			falpha2 = Rastrigin(x + alpha2 * search);
+			falpha2 = Spring_sys(x + alpha2 * search);
 		}
 		else {
 			b = alpha2;
 			alpha2 = alpha1;
 			falpha2 = falpha1;
 			alpha1 = tau * b + (1 - tau) * a;
-			falpha1 = Rastrigin(x + alpha1 * search);
+			falpha1 = Spring_sys(x + alpha1 * search);
 		}
-		if (std::fabs(Rastrigin(x + alpha1 * search) - Rastrigin(x + alpha2 * search)) < epsilon) {
+		if (std::fabs(Spring_sys(x + alpha1 * search) - Spring_sys(x + alpha2 * search)) < epsilon) {
 			temp[0] = alpha1;
 			temp[1] = falpha1;
 			return temp;
