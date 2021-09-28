@@ -340,7 +340,7 @@
     
      Function   | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N | Initial Point | Minimum Point |N |       
     ---------------|---------------|---------------|----------|---------|-------------|-------------|-------------|-------------|-------------
-    Rosenbrock|1.42755| [0.999301,0.998688]|1.00E-04|
+    Rosenbrock|1.427| [0.999,0.998]|1.00E-04|
     Griewank|1.42755| *|1.00E-04|
     Ackley|1.42755| *|1.00E-04|
     Booths|1.42755| *|1.00E-04|
