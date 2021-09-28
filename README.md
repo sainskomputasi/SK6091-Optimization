@@ -346,7 +346,7 @@
     Ackley|
     Booths|
     Michalewicz|
-    Rastrigin|0.1,-0.1|-0.99,0.99|2|0.0,-0.0|-1.3e-05|4|-0.2|-0.99,-0.99|2|
+    Rastrigin|0.1,-0.1|-0.99,0.99|2|0.0,-0.0|-1.3e-05|4|-0.2|-0.99|2|
     Spring_sys|
 
   - **Steepest-Descent Method**
