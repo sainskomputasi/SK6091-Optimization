@@ -28,12 +28,10 @@ int main()
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
 	*/
 	Eigen::RowVector2d initalPoint;
-	initalPoint << 1.9, 1.9;
+	initalPoint << 0.1, 0.1;
 	SK6091::MultiD bfgs;
 	bfgs.quasiNewton(initalPoint);
 	initalPoint << 0.5, 0.5;
-	bfgs.quasiNewton(initalPoint);
-	initalPoint << -0.5, -0.5;
 	bfgs.quasiNewton(initalPoint);
 	initalPoint << 1.1, 1.2;
 	bfgs.quasiNewton(initalPoint);
