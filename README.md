@@ -338,20 +338,21 @@
 
     As for one-dimensional optimization, there are two general classes of multidimensional methods,namely search method and gradient methods. The difference between gradient and direct search methods in multi-dimensional optimization is similar to the difference between these approaches in one-dimensional optimization. Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In thismodule/ library we also provided a saveral function that usually used in optimization. The Header specialFunction.hpp is The abstraction of the special function which is widely used in optimization and we choose to use inline for optimize the our code. 
         **The Following code is specialFunction.hpp implementation**
-        ```c++
-        #ifndef SPECIAL_FUNCTION_IMP
-        #define SPECIAL_FUNCTION_IMP
-        #include <cmath>
-        #include <math.h>
-        #include <eigen/dense>
-        #include "specialFunction.hpp"
-        inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
-	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
-                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * 
-                    temp[1] * std::sqrt(2.0)));
-        }
-        #endif
-        ```
+
+    ```c++
+    #ifndef SPECIAL_FUNCTION_IMP
+    #define SPECIAL_FUNCTION_IMP
+    #include <cmath>
+    #include <math.h>
+    #include <eigen/dense>
+    #include "specialFunction.hpp"
+    inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
+	    return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
+            std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * 
+                temp[1] * std::sqrt(2.0)));
+    }
+    #endif
+    ```
     The following benchmark results have been generated using some numerical experiments.
 
     
