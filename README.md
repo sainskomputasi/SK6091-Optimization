@@ -335,7 +335,8 @@
     * *tolerance for error*
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
-    
+
+    As for one-dimensional optimization, there are two general classes of multidimensional methods,namely search method and gradient methods. The difference between gradient and direct search methods in multi-dimensional optimization is similar to the difference between these approaches in one-dimensional optimization. Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker
     The following benchmark results have been generated using some numerical experiments.
 
     
