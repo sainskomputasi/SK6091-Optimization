@@ -351,6 +351,23 @@
             std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * 
                 temp[1] * std::sqrt(2.0)));
     }
+    inline  double SK6091::functionTest::Rosenbrock(Eigen::RowVector2d temp) {
+	    return (100 * (std::pow(temp[1] - std::pow(temp[0], 2.0), 2.0)) + 
+            std::pow(1 - temp[0], 2.0));
+    }
+    inline double SK6091::functionTest::Ackley(Eigen::RowVector2d temp) {
+	double a = 20.0, b = 0.2, c = 2.0 * M_PI;
+	auto begin = 0, end = 2;
+	auto s1 = 0.0, s2 = 0.0;
+	while (begin!=end)
+	{
+		s1 = s1 + std::pow(temp[begin], 2.0);
+		s2 = s2 + std::cos(c * temp[begin]);
+		++begin;
+	}
+	    return (-a * std::exp(-b * std::sqrt(1.0 / end * s1)) - std::exp(1.0 / end * s2) 
+            + a + std::exp(1.0));
+    }
     #endif
     ```
     The following benchmark results have been generated using some numerical experiments.
