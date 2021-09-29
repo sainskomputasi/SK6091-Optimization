@@ -2,6 +2,7 @@
 #define SPECIAL_FUNCTION
 #include <cmath>
 #include <eigen/dense>
+#include <fstream>
 namespace SK6091 {
 	class functionTest
 	{

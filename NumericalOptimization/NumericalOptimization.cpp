@@ -27,14 +27,22 @@ int main()
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count()<<std::endl;
 	*/
-	Eigen::RowVector2d initalPoint;
-	initalPoint << 2.18,1.53;
+	/*Eigen::RowVector2d initalPoint;
+	initalPoint << 0.5,-0.5;
 	SK6091::MultiD bfgs;
 	bfgs.quasiNewton(initalPoint);
-	initalPoint << 2.20, 1.56;
+	initalPoint << 0.1, 0.1;
 	bfgs.quasiNewton(initalPoint);
-	initalPoint << 1.99, 1.58;
-	bfgs.quasiNewton(initalPoint); 
+	initalPoint << -0.1, -0.1;
+	bfgs.quasiNewton(initalPoint);
+	initalPoint << 0.6, 0.9;
+	bfgs.quasiNewton(initalPoint);
+	initalPoint << 4.9, 4.9;
+	bfgs.quasiNewton(initalPoint); */
+	Eigen::RowVector2d initalPoint;
+	initalPoint << 0.5,-0.5;
+	SK6091::functionTest::grad(initalPoint);
+
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

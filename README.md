@@ -337,7 +337,7 @@
   - **Introduction**
 
     As for one-dimensional optimization, there are two general classes of multidimensional methods,namely search method and gradient methods. The difference between gradient and direct search methods in multi-dimensional optimization is similar to the difference between these approaches in one-dimensional optimization. Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In thismodule/ library we also provided a saveral function that usually used in optimization. The Header specialFunction.hpp is The abstraction of the special function which is widely used in optimization and we choose to use inline for optimize the our code. 
-        **The Following code is specialFunction.hpp implementation**
+    **The Following code is specialFunction.hpp implementation**
 
     ```c++
     #ifndef SPECIAL_FUNCTION_IMP
@@ -545,8 +545,15 @@
   - **Hoshino Method**
   - **Davidon-Fletcher-Powell Method**
 ## 5.Calculating Derivatives
-  - **Finite-Difference Derivative Approximations**
   - **Approximating the Gradient**
+
+    The following benchmark results have been generated using some numerical experiments.
+
+    
+    Objective Function   | Aproximation | Exact Value |Initial Point    
+    ---------------|---------------|---------------|----------|---------|-------------| ------------------
+    Rosenbrock|1.9,1.9|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
   - **Approximating a Sparse Hessian**

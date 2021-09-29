@@ -4,11 +4,11 @@
 #include <math.h>
 #include <eigen/dense>
 #include "specialFunction.hpp"
-inline  double SK6091::functionTest::Rosenbrock(Eigen::RowVector2d temp) {
-	return (100 * (std::pow(temp[1] - std::pow(temp[0], 2.0), 2.0)) + std::pow(1 - temp[0], 2.0));
-}
 inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
 	return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
+}
+inline  double SK6091::functionTest::Rosenbrock(Eigen::RowVector2d temp) {
+	return (100 * (std::pow(temp[1] - std::pow(temp[0], 2.0), 2.0)) + std::pow(1 - temp[0], 2.0));
 }
 inline double SK6091::functionTest::Ackley(Eigen::RowVector2d temp) {
 	double a = 20.0, b = 0.2, c = 2.0 * M_PI;
@@ -56,18 +56,23 @@ inline double SK6091::functionTest::Rastrigin(Eigen::RowVector2d temp) {
 }
 inline Eigen::RowVector2d SK6091::functionTest::grad(Eigen::RowVector2d vecName) {
 	Eigen::RowVector2d temp;
+	std::ofstream write;
+	write.open("gradien.csv", std::ios::app);
 	temp << 0, 0;
 	auto xvec = vecName;
 	auto delx = 1e-3;
 	auto xvec1 = vecName;
+	write << "f'x;f'y" << std::endl;
 	for (size_t i = 0; i != 2; ++i)
 	{
 		xvec = vecName;
 		xvec1 = vecName;
 		xvec[i] = vecName[i] + delx;
 		xvec1[i] = vecName[i] - delx;
-		temp[i] = (Michalewicz(xvec) - Michalewicz(xvec1)) / (2 * delx);
+		temp[i] = (Rastrigin(xvec) - Rastrigin(xvec1)) / (2 * delx);
 	}
+	write << temp[0] << ";" << temp[1] << std::endl;
+	write.close();
 	return  temp;
 }
 Eigen::Matrix2d SK6091::functionTest::hessian(Eigen::RowVector2d vecName) {
@@ -122,8 +127,8 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 	auto tau = 0.381967;;
 	double alpha1 = a * (1 - tau) + b * tau;
 	double alpha2 = a * tau + b * (1 - tau);
-	double falpha1 =	Michalewicz(x + alpha1 * search);
-	double falpha2 = Michalewicz(x + alpha2 * search);
+	double falpha1 =	Griewank(x + alpha1 * search);
+	double falpha2 = Griewank(x + alpha2 * search);
 	auto begin = 1;
 	double epsilon = 1e-5;
 	Eigen::RowVector2d temp;
@@ -135,16 +140,16 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 			alpha1 = alpha2;
 			falpha1 = falpha2;
 			alpha2 = tau * a + (1 - tau) * b;
-			falpha2 = Michalewicz(x + alpha2 * search);
+			falpha2 = Griewank(x + alpha2 * search);
 		}
 		else {
 			b = alpha2;
 			alpha2 = alpha1;
 			falpha2 = falpha1;
 			alpha1 = tau * b + (1 - tau) * a;
-			falpha1 = Michalewicz(x + alpha1 * search);
+			falpha1 = Griewank(x + alpha1 * search);
 		}
-		if (std::fabs(Michalewicz(x + alpha1 * search) - Michalewicz(x + alpha2 * search)) < epsilon) {
+		if (std::fabs(Griewank(x + alpha1 * search) - Griewank(x + alpha2 * search)) < epsilon) {
 			temp[0] = alpha1;
 			temp[1] = falpha1;
 			return temp;

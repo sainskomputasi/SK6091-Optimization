@@ -118,7 +118,7 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
     auto tolerance = 1e-6;
     Eigen::Matrix2d A;
     A = A.Identity();
-    auto fPrev = SK6091::functionTest::Michalewicz(x);
+    auto fPrev = SK6091::functionTest::Griewank(x);
     auto alpha1 = 0.0, falpa = 0.0;
     auto derivPrev = x;
     auto search = x; 
@@ -128,9 +128,9 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
     auto deltag = x;
     auto term1 = A, term2 = A;
     std::ofstream write; //file handling 
-    write.open("data.csv", std::ios::app);
-    //write << "Iteration;x1;x2;f(x);Norm" << std::endl;
-    write << "x;y;iteration" << std::endl;
+    write.open("dataGriewank.csv", std::ios::app);
+    write << "Iteration;x1;x2;f(x);Norm" << std::endl;
+    //write << "x;y;iteration" << std::endl;
     while (begin!=end)
     {
         if (begin == 1) {
@@ -161,7 +161,7 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
             search = -(A.inverse()) * deriv.transpose();//pass
             alpha1 = SK6091::functionTest::goldFunc(x, search.transpose())[0];
             falpa = SK6091::functionTest::goldFunc(x, search.transpose())[1];
-            //write << begin<<";"<<x[0] << ";" << x[1] << ";" << falpa << ";" << deriv.norm() << ";" << std::endl;
+            write << begin<<";"<<x[0] << ";" << x[1] << ";" << falpa << ";" << deriv.norm() << ";" << std::endl;
             //std::cout << "Falpha \t: " << falpa << "fPrev\t: " << fPrev << std::endl;
             if ((std::fabs(falpa - fPrev) < tolerance) || (deriv.norm() < tolerance)) {
                 write << x[0] << ";"<<x[1]<<";" << begin << std::endl;
