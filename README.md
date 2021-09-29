@@ -429,7 +429,8 @@
         #include <eigen/dense>
         #include "specialFunction.hpp"
         inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
-	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
+	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
+                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
         }
         #endif
         ```     
@@ -481,7 +482,8 @@
         #include "specialFunction.hpp"
         inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
 	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
-                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
+                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * 
+                    temp[1] * std::sqrt(2.0)));
         }
         #endif
         ```
@@ -552,7 +554,13 @@
     
     Objective Function   | Aproximation | Exact Value |Initial Point| Difference    
     ---------------|---------------|---------------|----------|---------
-    Rosenbrock|1.9,1.9|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Griewank|0.449,-0.215|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Rosenbrock|149,-150|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Ackley|1.80967,-1.80967|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Booth_s|-33,-39|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Michalewicz|-3.9e-2,-3.8e-1|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Spring_sys|-28.34,-180.6|0.999,0.998|10|0.5,0.5|0.999,0.998|27
+    Rastrigin|1,-1|0.999,0.998|10|0.5,0.5|0.999,0.998|27
 
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
