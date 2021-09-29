@@ -369,20 +369,6 @@
 	        s = std::pow((temp[0] + 2 * temp[1] - 7.0), 2.0) + std::pow((2 * temp[0] + temp[1] - 5.0),2.0);
 	        return s;
         }
-        inline double SK6091::functionTest::Michalewicz(Eigen::RowVector2d temp) {
-	        auto begin = 0, end = 2;
-	        auto s = 0.0;
-	        auto m = 10.0;
-	        while (begin!=end)
-	        {
-		        s = s + std::sin(temp[begin]) *
-			        (std::pow(
-				        std::sin( ((begin+1) * std::pow(temp[begin], 2.0) / M_PI) ), (2.0 * m) )
-				        );
-		        ++begin;
-	        }
-	        return (-s);
-        }
         ```
     The following benchmark results have been generated using some numerical experiments.
 
