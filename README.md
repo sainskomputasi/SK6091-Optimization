@@ -370,6 +370,7 @@
 	        return s;
         }
         ```
+
     The following benchmark results have been generated using some numerical experiments.
 
     
@@ -480,7 +481,8 @@
         #include <eigen/dense>
         #include "specialFunction.hpp"
         inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
-	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
+	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
+                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
         }
         #endif
         ```
@@ -531,7 +533,9 @@
         #include <eigen/dense>
         #include "specialFunction.hpp"
         inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
-	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * temp[1] * std::sqrt(2.0)));
+	        return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
+                std::pow(temp[1], 2.0) - std::cos(temp[0]) * std::cos((1.0 / 2.0) * 
+                    temp[1] * std::sqrt(2.0)));
         }
         #endif
         ```
