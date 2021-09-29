@@ -550,7 +550,7 @@
   - **Approximating the Gradient**
     
     Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In this module/ library we also provided a special function to aproximate a gradient of an objective function
-    The following code is intended to demonstrate how we can call the grad function to aproximate  Gradient of Rastrign function
+    . The following code is intended to demonstrate how we can call the grad function to aproximate  Gradient of Rastrign function
     ```c++
     #include "specialFunctionImp.hpp"
     int main()
@@ -561,7 +561,8 @@
         return 0;
     }
     ```
-
+    After compile the program : 
+    > The Gradient of Rastrign Function :  1.000 -1.000
     The following benchmark results have been generated using some numerical experiments.
 
     
