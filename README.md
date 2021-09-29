@@ -561,6 +561,7 @@
         return 0;
     }
     ```
+
     After compile the program : 
     > The Gradient of Rastrign Function :  1.000 -1.000
     The following benchmark results have been generated using some numerical experiments.
