@@ -66,7 +66,7 @@ inline Eigen::RowVector2d SK6091::functionTest::grad(Eigen::RowVector2d vecName)
 		xvec1 = vecName;
 		xvec[i] = vecName[i] + delx;
 		xvec1[i] = vecName[i] - delx;
-		temp[i] = (Booth_s(xvec) - Booth_s(xvec1)) / (2 * delx);
+		temp[i] = (Michalewicz(xvec) - Michalewicz(xvec1)) / (2 * delx);
 	}
 	return  temp;
 }
@@ -118,12 +118,12 @@ Eigen::Matrix2d SK6091::functionTest::hessian(Eigen::RowVector2d vecName) {
 
 }
 Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::RowVector2d search) {
-	double a = -5.12, b = 5.12;
+	double a = 0.0, b = M_PI;
 	auto tau = 0.381967;;
 	double alpha1 = a * (1 - tau) + b * tau;
 	double alpha2 = a * tau + b * (1 - tau);
-	double falpha1 =	Booth_s(x + alpha1 * search);
-	double falpha2 = Booth_s(x + alpha2 * search);
+	double falpha1 =	Michalewicz(x + alpha1 * search);
+	double falpha2 = Michalewicz(x + alpha2 * search);
 	auto begin = 1;
 	double epsilon = 1e-5;
 	Eigen::RowVector2d temp;
@@ -135,16 +135,16 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 			alpha1 = alpha2;
 			falpha1 = falpha2;
 			alpha2 = tau * a + (1 - tau) * b;
-			falpha2 = Booth_s(x + alpha2 * search);
+			falpha2 = Michalewicz(x + alpha2 * search);
 		}
 		else {
 			b = alpha2;
 			alpha2 = alpha1;
 			falpha2 = falpha1;
 			alpha1 = tau * b + (1 - tau) * a;
-			falpha1 = Booth_s(x + alpha1 * search);
+			falpha1 = Michalewicz(x + alpha1 * search);
 		}
-		if (std::fabs(Booth_s(x + alpha1 * search) - Booth_s(x + alpha2 * search)) < epsilon) {
+		if (std::fabs(Michalewicz(x + alpha1 * search) - Michalewicz(x + alpha2 * search)) < epsilon) {
 			temp[0] = alpha1;
 			temp[1] = falpha1;
 			return temp;
