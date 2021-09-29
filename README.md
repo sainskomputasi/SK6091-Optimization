@@ -550,7 +550,7 @@
     The following benchmark results have been generated using some numerical experiments.
 
     
-    Objective Function   | Aproximation | Exact Value |Initial Point| | |     
+    Objective Function   | Aproximation | Exact Value |Initial Point| x| x|x     
     ---------------|---------------|---------------|----------|---------|-------------| ------------------
     Rosenbrock|1.9,1.9|0.999,0.998|10|0.5,0.5|0.999,0.998|27
 
