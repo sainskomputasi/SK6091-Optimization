@@ -336,7 +336,7 @@
 ## 3.Multi-Dimensional Gradient Method
   - **Introduction**
 
-    As for one-dimensional optimization, there are two general classes of multidimensional methods,namely search method and gradient methods. The difference between gradient and direct search methods in multi-dimensional optimization is similar to the difference between these approaches in one-dimensional optimization. Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In thismodule/ library we also provided a saveral function that usually used in optimization. The Header specialFunction.hpp is The abstraction of the special function which is widely used in optimization and we choose to use inline for optimize the our code. 
+    As for one-dimensional optimization, there are two general classes of multidimensional methods,namely search method and gradient methods. The difference between gradient and direct search methods in multi-dimensional optimization is similar to the difference between these approaches in one-dimensional optimization. Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In this module/ library we also provided a saveral function that usually used in optimization. The Header specialFunction.hpp is The abstraction of the special function which is widely used in optimization and we choose to use inline for optimize the our code. 
     **The Following code is specialFunction.hpp implementation**
 
     ```c++
@@ -548,6 +548,18 @@
   - **Davidon-Fletcher-Powell Method**
 ## 5.Calculating Derivatives
   - **Approximating the Gradient**
+    
+    Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In this module/ library we also provided a special function to aproximate a gradient of an objective function
+    The following code is intended to demonstrate how we can call the grad function to aproximate  Gradient of Rastrign function
+    ```c++
+    int main()
+    {
+    Eigen::RowVector2d initalPoint;
+	initalPoint << 0.5,-0.5;
+	SK6091::functionTest::grad(initalPoint);
+    return 0;
+    }
+    ```
 
     The following benchmark results have been generated using some numerical experiments.
 
