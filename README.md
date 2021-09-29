@@ -344,10 +344,10 @@
     Rosenbrock|1.9,1.9|0.999,0.998|10|0.5,0.5|0.999,0.998|27|1.1,1.2|1.000,1.000|21|
     Griewank|0.1,0.1|0.000,0.001|4|0.5,0.5|-0.00,0.00|4|1.1,1.2|0.0,-0.001|5|
     Ackley|0.1,-0.1|-0.00;0.000|4|0.3,0.3|-0.00;0.000|4|-0.2|-0.00;0.000|6|
-    Booths|
+    Booths|0.5,0.5|1.000,3.000|3|2.3,2.3|1.000,2.999|3|1.4, 2.0|0.999,3.000|4|
     Michalewicz|
     Rastrigin|0.1,-0.1|-0.99,0.99|2|0.0,-0.0|-1.3e-05|4|-0.2|-0.99,-0.99|2|
-    Spring_sys|0.1,-0.1|0.504;0.121|8|0.0,-0.0|0.504;0.121|6|-0.2|0.504;0.121|8|
+    Spring_sys|0.1,-0.1|0.504;0.121|8|0.0,-0.0|0.504;0.121|6|-0.2|0.504,0.121|8|
 
   - **Steepest-Descent Method**
     - The steepest descent method ensures a reduction in the function value at every iteration. If the starting point is far away from the minimum, the gradient will be higher and the function reduction will be maximized in each iteration. The following code is intended to demonstrate how we can call the steepest descent method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)* 
