@@ -128,7 +128,7 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
     auto deltag = x;
     auto term1 = A, term2 = A;
     std::ofstream write; //file handling 
-    write.open("dataGriewank.csv", std::ios::app);
+    write.open("DataAnalisisTri.csv", std::ios::app);
     write << "Iteration;x1;x2;f(x);Norm" << std::endl;
     //write << "x;y;iteration" << std::endl;
     while (begin!=end)

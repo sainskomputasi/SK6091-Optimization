@@ -56,23 +56,18 @@ inline double SK6091::functionTest::Rastrigin(Eigen::RowVector2d temp) {
 }
 inline Eigen::RowVector2d SK6091::functionTest::grad(Eigen::RowVector2d vecName) {
 	Eigen::RowVector2d temp;
-	std::ofstream write;
-	write.open("gradien.csv", std::ios::app);
 	temp << 0, 0;
 	auto xvec = vecName;
 	auto delx = 1e-3;
 	auto xvec1 = vecName;
-	write << "f'x;f'y" << std::endl;
 	for (size_t i = 0; i != 2; ++i)
 	{
 		xvec = vecName;
 		xvec1 = vecName;
 		xvec[i] = vecName[i] + delx;
 		xvec1[i] = vecName[i] - delx;
-		temp[i] = (Rastrigin(xvec) - Rastrigin(xvec1)) / (2 * delx);
+		temp[i] = (Griewank(xvec) - Griewank(xvec1)) / (2 * delx);
 	}
-	write << temp[0] << ";" << temp[1] << std::endl;
-	write.close();
 	return  temp;
 }
 Eigen::Matrix2d SK6091::functionTest::hessian(Eigen::RowVector2d vecName) {
@@ -123,7 +118,7 @@ Eigen::Matrix2d SK6091::functionTest::hessian(Eigen::RowVector2d vecName) {
 
 }
 Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::RowVector2d search) {
-	double a = 0.0, b = M_PI;
+	double a = -5.0, b = 5.0;
 	auto tau = 0.381967;;
 	double alpha1 = a * (1 - tau) + b * tau;
 	double alpha2 = a * tau + b * (1 - tau);
