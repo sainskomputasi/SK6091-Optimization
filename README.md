@@ -570,23 +570,23 @@
     **The following benchmark results have been generated using some numerical experiments to aproximate a gradient of an objective function.**
 
     
-    N |Objective Function   | Aproximation | Exact Value |Initial Point| Difference    
-    --|---------------|---------------|---------------|----------|---------
-    1|Griewank|0.449, -0.215|0.999,0.998|0.5,-0.5|0.5,0.5
-    2|Rosenbrock|149.0, -150.0|0.999,0.998|0.5,-0.5|0.5,0.5
-    3|Ackley|1.80967, -1.809|0.999,0.998|0.5,-0.5|0.5,0.5
-    4|Booth_s|-33.00, -39.00|0.999,0.998|0.5,-0.5|0.5,0.5
-    5|Michalewicz|-3.9e-2, -3.8e-1|0.999,0.998|0.5,-0.5|0.5,0.5
-    6|Spring_sys|-28.34, -180.6|0.999,0.998|0.5,-0.5|0.5,0.5
-    7|Rastrigin|1.00, -1.00|0.999,0.998|0.5,-0.5|0.5,0.5
+    N |Objective Function   | Aproximation |Initial Point  
+    --|---------------------------|--------------------------|--------------
+    1|Griewank|0.449, -0.215|0.5,-0.5
+    2|Rosenbrock|149.0, -150.0|0.5,-0.5
+    3|Ackley|1.80967, -1.809|0.5,-0.5
+    4|Booth_s|-33.00, -39.00|0.5,-0.5
+    5|Michalewicz|-3.9e-2, -3.8e-|0.5,-0.5
+    6|Spring_sys|-28.34, -180.6|0.5,-0.5
+    7|Rastrigin|1.00, -1.00|0.5,-0.5
 
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
 
     The following benchmark results have been generated using some numerical experiments.
 
-    N |Objective Function   | f_xx | f_xy |f_yx| f_yy    
-    --|---------------|---------------|---------------|-------------|------------
+    N |Objective Function       | f_xx | f_xy |f_yx| f_yy    
+    --|-------------------------|-----------------|-----------------|---------------|--------------
     1|Griewank|0.823303|0.117375|0.117375|0.412151
     2|Rosenbrock|502|-200|-200|200
     3|Ackley|-5.63295|1.99064|1.99064|-5.63295
