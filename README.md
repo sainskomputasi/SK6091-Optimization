@@ -582,6 +582,7 @@
 
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
+
     . The following code is intended to demonstrate how we can call the hessian function to aproximate  hesian matrix of Rastrign function
     
     ```c++
