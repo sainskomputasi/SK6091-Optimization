@@ -582,8 +582,23 @@
 
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
+    . The following code is intended to demonstrate how we can call the hessian function to aproximate  hesian matrix of Rastrign function
+    
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+	    Eigen::RowVector2d initalPoint;
+	    initalPoint << 0.5,-0.5;
+	    SK6091::functionTest::hessian(initalPoint);
+	    return 0;
+    }
+    ```
 
-    The following benchmark results have been generated using some numerical experiments.
+    After compile the program : 
+    > The Hessian of Rastrign Function :  -392.783|-2.15611e+06|-2.08095e+06|-392.783
+
+    The following benchmark results have been generated using some numerical experiments to aproximate a hessian of an objective function.
 
     N |Objective Function       | f_xx | f_xy |f_yx| f_yy    
     --|-------------------------|-----------------|-----------------|---------------|--------------
