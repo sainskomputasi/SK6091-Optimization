@@ -77,43 +77,47 @@ Eigen::Matrix2d SK6091::functionTest::hessian(Eigen::RowVector2d vecName) {
 	temp << 0, 0;
 	double term1 = 0.0, term2 = 0.0, term3 = 0.0, term4 = 0.0;
 	temporary << 0, 0, 0, 0;
+	std::ofstream write;
+	write.open("hessian.csv", std::ios::app);
 	for (size_t i = 0; i < 2; ++i)
 	{
 		for (size_t j = 0; j < 2; ++j) {
 			if (i == j) {
 				temp = vecName;
 				temp[i] = vecName[i] + del;
-				term1 = Griewank(temp);
+				term1 = Rastrigin(temp);
 				temp[i] = vecName[i] - del;
-				term2 = Griewank(temp);
-				term3 = Griewank(vecName);
+				term2 = Rastrigin(temp);
+				term3 = Rastrigin(vecName);
 				temporary(i, j) = (term1 - 2.0 * term3 + term2) / (std::pow(del, 2.0));
 			}
 			else {
 				temp = vecName;
 				temp[i] = vecName[i] + del;
 				temp[j] = vecName[j] + del;
-				term1 = Griewank(temp);
+				term1 = Rastrigin(temp);
 
 				temp = vecName;
 				temp[i] = vecName[i] + del;
 				temp[j] = vecName[j] - del;
-				term2 = Griewank(temp);
+				term2 = Spring_sys(temp);
 
 				temp = vecName;
 				temp[i] = vecName[i] - del;
 				temp[j] = vecName[j] + del;
-				term3 = Griewank(temp);
+				term3 = Rastrigin(temp);
 
 
 				temp = vecName;
 				temp[i] = vecName[i] - del;
 				temp[j] = vecName[j] - del;
-				term4 = Griewank(temp);
+				term4 = Rastrigin(temp);
 				temporary(i, j) = (term1 - term2 - term3 + term4) / (4.0 * std::pow(del, 2.0));
 			}
 		}
 	}
+	write << temporary(0, 0) << "|" << temporary(0, 1) << "|"<<temporary(1, 0) << "|"<<temporary(1, 1) << std::endl;
+	write.close();
 	return temporary;
 
 }

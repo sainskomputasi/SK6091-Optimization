@@ -16,6 +16,10 @@ Eigen::RowVector2d SK6091::MultiD::stepestDes(Eigen::RowVector2d x){
     search << 0, 0;
     auto tempAlpha = deriv, tempFalph = deriv;
     double alpha1 = 0.0, falpha1 = 0.0;
+    std::ofstream write; //file handling 
+    write.open("DataAnalisisTri.csv", std::ios::app);
+    write << "Iteration;x1;x2;f(x);Norm" << std::endl;
+
     while (begin!=MAX)
     {
         deriv = SK6091::functionTest::grad(x);
@@ -23,7 +27,7 @@ Eigen::RowVector2d SK6091::MultiD::stepestDes(Eigen::RowVector2d x){
         tempAlpha = SK6091::functionTest::goldFunc(x, search);
         alpha1 = tempAlpha[0];
         falpha1 = tempAlpha[1];
-        std::cout << "test debug\t: " << begin << "\talpha :"  <<alpha1<<"\t f(alpha) : " <<falpha1 << "\tprev :" << falpPrev << "\t grad  : " << deriv << std::endl;
+        write << begin << ";" << x[0] << ";" << x[1] << ";" << falpha1 << ";" << deriv.norm() << ";" << std::endl;
         if ((std::fabs(falpha1 - falpPrev) < eps) || (deriv.norm() < eps1)) {
             return x;
             break;
@@ -31,7 +35,6 @@ Eigen::RowVector2d SK6091::MultiD::stepestDes(Eigen::RowVector2d x){
 
         falpPrev = falpha1;
         x = x + alpha1 * search;
-        std::cout << "place for debug x \t:" << x << std::endl;
         ++begin;
     }
     
@@ -85,6 +88,9 @@ Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x, int maxIter) {
     search << 0, 0;
     Eigen::Vector2d notCoverge;
     double alpha1=0.0, falpha1 = 0.0;
+    std::ofstream write; //file handling 
+    write.open("DataAnalisisTri.csv", std::ios::app);
+    write << "Iteration;x1;x2;f(x);Norm" << std::endl;
     while (begin != maxIter)
     {
         fPrev = SK6091::functionTest::Griewank(x);
@@ -96,6 +102,7 @@ Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x, int maxIter) {
         falpha1 = SK6091::functionTest::goldFunc(x,search)[1];
         //x = (x.transpose() - (inv * deriv.transpose())).transpose();
         f = SK6091::functionTest::Griewank(x);
+        write << begin << ";" << x[0] << ";" << x[1] << ";" << falpha1 << ";" << deriv.norm() << ";" << std::endl;
         if ((std::fabs(falpha1 - fPrev) < eps) || (deriv.norm() < eps))
         {
             return x;
@@ -104,8 +111,6 @@ Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x, int maxIter) {
         fPrev = falpha1;
         x = x + alpha1 * search;
         falpha1 = SK6091::functionTest::Griewank(x);
-        std::cout << "i :" << begin << "\tx : " << x << "\tf: " << falpha1 << "\tnorm : " << deriv.norm() << std::endl;
-
         ++begin;
     }
     if (begin == (maxIter - 1))
@@ -164,7 +169,6 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
             write << begin<<";"<<x[0] << ";" << x[1] << ";" << falpa << ";" << deriv.norm() << ";" << std::endl;
             //std::cout << "Falpha \t: " << falpa << "fPrev\t: " << fPrev << std::endl;
             if ((std::fabs(falpa - fPrev) < tolerance) || (deriv.norm() < tolerance)) {
-                write << x[0] << ";"<<x[1]<<";" << begin << std::endl;
                 return x;
                 break;
             }

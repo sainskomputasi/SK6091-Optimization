@@ -581,6 +581,19 @@
 
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
+
+    The following benchmark results have been generated using some numerical experiments.
+
+    N |Objective Function   | f_xx | f_xy |f_yx| f_yy    
+    --|---------------|---------------|---------------|-------------|------------
+    1|Griewank|0.823303|0.117375|0.117375|0.412151
+    2|Rosenbrock|502|-200|-200|200
+    3|Ackley|-5.63295|1.99064|1.99064|-5.63295
+    4|Booth_s|10|8|8|10
+    5|Michalewicz|-3.16736e-19|0|0|3.0761e-13
+    6|Spring_sys|136.121|107.269|107.269|227.194
+    7|Rastrigin|-392.783|-2.15611e+06|-2.08095e+06|-392.783
+
   - **Approximating a Sparse Hessian**
 ## 6.Heuristic-Optimization
   - **Particle Swarm Optimization**
