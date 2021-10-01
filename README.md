@@ -570,7 +570,7 @@
     **The following benchmark results have been generated using some numerical experiments to aproximate a gradient of an objective function.**
 
     
-    N |Objective Function   | Aproximation |Initial Point  
+    N |Objective Function                 | Aproximation |Initial Point  
     --|---------------------------|--------------------------|--------------
     1|Griewank       |0.449, -0.215|0.5,-0.5
     2|Rosenbrock|149.0, -150.0|0.5,-0.5
