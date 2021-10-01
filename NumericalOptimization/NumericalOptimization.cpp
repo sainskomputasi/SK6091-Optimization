@@ -14,7 +14,7 @@ template <typename T>
 inline double oneD_Rastrign(const T& x);
 int main()
 {
-	auto start = std::chrono::steady_clock::now();
+	//auto start = std::chrono::steady_clock::now();
 	/*auto xmi = -1.5;
 	SK6091::OneDimension testBrent;
 	SK6091::OneDimension testGolden;
@@ -41,9 +41,13 @@ int main()
 	initalPoint << 4.9, 4.9;
 	bfgs.stepestDes(initalPoint); 
 	*/
+	auto start = std::chrono::steady_clock::now();
 	Eigen::RowVector2d initalPoint;
 	initalPoint << 0.5,-0.5;
 	SK6091::functionTest::hessian(initalPoint);
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> sec = end - start;
+	std::cout << "Elapsed time \t:" << sec.count() << std::endl;
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

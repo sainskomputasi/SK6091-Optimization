@@ -599,6 +599,26 @@
     After compile the program : 
     > The Hessian of Rastrign Function :  -392.783|-2.15611e+06|-2.08095e+06|-392.783
 
+    The following code is intended to demonstrate how we can measure a computational time to aproximate hessian matrix of Rastrign function
+    
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+	    auto start = std::chrono::steady_clock::now();
+	    Eigen::RowVector2d initalPoint;
+	    initalPoint << 0.5,-0.5;
+	    SK6091::functionTest::hessian(initalPoint);
+	    auto end = std::chrono::steady_clock::now();
+	    std::chrono::duration<double> sec = end - start;
+	    std::cout << "Elapsed time \t:" << sec.count() << std::endl;
+	    return 0;
+    }
+    ```
+
+    After compile the program : 
+    > Elapsed time    :0.0021832
+
     The following benchmark results have been generated using some numerical experiments to aproximate a hessian of an objective function.
 
     N |Objective Function       | f_xx | f_xy |f_yx| f_yy    
