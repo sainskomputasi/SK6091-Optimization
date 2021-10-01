@@ -583,7 +583,7 @@
   - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
 
-    . The following code is intended to demonstrate how we can call the hessian function to aproximate  hesian matrix of Rastrign function
+    The Hessian matrix or Hessian is a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables. The following code is intended to demonstrate how we can call the hessian function to aproximate  hesian matrix of Rastrign function
     
     ```c++
     #include "specialFunctionImp.hpp"
