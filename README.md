@@ -340,11 +340,6 @@
     **The Following code is specialFunction.hpp implementation**
 
     ```c++
-    #ifndef SPECIAL_FUNCTION_IMP
-    #define SPECIAL_FUNCTION_IMP
-    #include <cmath>
-    #include <math.h>
-    #include <eigen/dense>
     #include "specialFunction.hpp"
     inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
 	    return (1 + (1 / 4000) * std::pow(temp[0], 2.0) + (1.0 / 4000.0) * 
