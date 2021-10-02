@@ -158,5 +158,70 @@ Eigen::RowVector2d SK6091::functionTest::goldFunc(Eigen::RowVector2d x, Eigen::R
 	}
 	return temp;
 }
+inline double SK6091::functionTest::F(int I, Eigen::RowVector3d X) {
+	double f = 0.0;
+
+	switch (I) {
+	case 1:
+		f = 3 * X[0] - cos(X[1] * X[2]) - 0.5;
+		break;
+	case 2:
+		f = X[0] * X[0] - 81 * (X[1] + 0.1) * (X[1] + 0.1) + sin(X[2]) + 1.06;
+		break;
+	case 3:
+		f = exp(-X[0] * X[1]) + 20 * X[2] + (10 * M_PI - 3) / 3;
+		break;
+	}
+	return f;
+
+}
+inline  double SK6091::functionTest::P(int I, int J, Eigen::RowVector3d X) {
+	double p = 0.0;
+
+	switch (I) {
+	case 1:
+		switch (J) {
+		case 1:
+			p = 3;
+			break;
+		case 2:
+			p = X[2] * sin(X[1] * X[2]);
+			break;
+		case 3:
+			p = X[1] * sin(X[1] * X[2]);
+			break;
+		}
+		break;
+	case 2:
+		switch (J) {
+		case 1:
+			p = 2 * X[0];
+			break;
+		case 2:
+			p = -162 * (X[1] + 0.1);
+			break;
+		case 3:
+			p = cos(X[2]);
+			break;
+		}
+		break;
+	case 3:
+		switch (J) {
+		case 1:
+			p = -X[1] * exp(-X[0] * X[1]);
+			break;
+		case 2:
+			p = -X[0] * exp(-X[0] * X[1]);
+			break;
+		case 3:
+			p = 20;
+			break;
+		}
+		break;
+	}
+	return p;
+
+}
+
 
 #endif	

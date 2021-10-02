@@ -17,6 +17,8 @@ namespace SK6091 {
 		inline static Eigen::RowVector2d grad(Eigen::RowVector2d vecName);
 		static Eigen::Matrix2d  hessian(Eigen::RowVector2d vecName);
 		static Eigen::RowVector2d goldFunc(Eigen::RowVector2d, Eigen::RowVector2d);
+		inline static double F(int, Eigen::RowVector3d);
+		inline static double P(int, int, Eigen::RowVector3d);
 
 	private:
 		std::string notFound;

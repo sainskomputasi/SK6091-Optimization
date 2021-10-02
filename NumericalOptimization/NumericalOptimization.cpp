@@ -41,13 +41,46 @@ int main()
 	initalPoint << 4.9, 4.9;
 	bfgs.stepestDes(initalPoint); 
 	*/
-	auto start = std::chrono::steady_clock::now();
+	/*auto start = std::chrono::steady_clock::now();
 	Eigen::RowVector2d initalPoint;
 	initalPoint << 0.5,-0.5;
 	SK6091::functionTest::hessian(initalPoint);
 	auto end = std::chrono::steady_clock::now();
 	std::chrono::duration<double> sec = end - start;
-	std::cout << "Elapsed time \t:" << sec.count() << std::endl;
+	std::cout << "Elapsed time \t:" << sec.count() << std::endl; */
+	//implementation newton system  
+	auto begin = 1;
+	Eigen::RowVector3d X,Y,ftemp;
+	X << 0.1, 0.1, -0.1;
+	Eigen::Matrix3d A;
+	auto tol = 0.0000001;
+	A << 0, 0, 0, 0, 0, 0, 0, 0, 0;
+	std::cout << "x(0)\t x(1) \t x(2)" << std::endl;
+	while (begin!=100)
+	{
+		for (size_t i = 0; i <= 2; i++)
+		{
+			for (size_t j = 0; j <= 2; j++) {
+				A(i , j ) = SK6091::functionTest::P(i+1, j+1, X); //3*3 for jacobian
+			}
+		}
+		for (size_t i = 0; i <= 2; i++)
+		{
+			ftemp(i) = -SK6091::functionTest::F(i+1, X);// 3*1 for -f
+		} 
+		
+		Y = (A.inverse() * ftemp.transpose()).transpose();
+		X = X + Y;
+		std::cout << X[0] << "\t" << X[1] << "\t" <<X[2] << std::endl;
+		if (Y.norm() < tol)
+		{
+			std::cout << "Coverge to .....\t: " << std::endl;
+			std::cout << X << std::endl;
+			break;
+		}
+		++begin;
+	}
+
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
