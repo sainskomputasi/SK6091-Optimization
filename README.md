@@ -622,10 +622,9 @@
   - **Differential evolution**
   - **Evolutionary algorithms**
 ## 7.Nonlinear Equations
-    
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/dsBuffer.bmp.png)
-
   - **Newton's Method**
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/dsBuffer.bmp.png)
+      
   - **Inexact Newton's Method**
   - **Broyden's Method**
   - **Tensor Method** 
