@@ -622,9 +622,8 @@
   - **Differential evolution**
   - **Evolutionary algorithms**
 ## 7.Nonlinear Equations
-    - Optimization problems of sorts arise in all quantitative disciplines from computer science and engineering to operations research and economics. In the simplest case, an optimization problem consists of maximizing or minimizing a real function by systematically choosing input values from within an allowed set and computing the value of the function. More generally, optimization includes finding "best available" values of some objective function given a defined domain (or input), including a variety of different types of objective functions and different types of domains. The following graph is illustrated local and global minima/ maxima.
-     
-        ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/dsBuffer.bmp.png)
+    
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/dsBuffer.bmp.png)
 
   - **Newton's Method**
   - **Inexact Newton's Method**
