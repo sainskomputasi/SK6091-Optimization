@@ -623,7 +623,7 @@
   - **Evolutionary algorithms**
 ## 7.Nonlinear Equations
   - **Newton's Method**
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/dsBuffer.bmp.png)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fix%20equation.png)
       
   - **Inexact Newton's Method**
   - **Broyden's Method**
