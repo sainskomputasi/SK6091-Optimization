@@ -9,6 +9,8 @@
 #include <corecrt_math_defines.h>
 #include "specialFunctionImp.hpp"
 #include "multiDimension/multiDimenImp.hpp"
+#include <random>
+void solveNonLinear(Eigen::Matrix<double,1,4>,Eigen::Matrix<double,1,11>,Eigen::Matrix<double,1,11>);
 double objectiveFunc(double);
 template <typename T>
 inline double oneD_Rastrign(const T& x);
@@ -49,7 +51,7 @@ int main()
 	std::chrono::duration<double> sec = end - start;
 	std::cout << "Elapsed time \t:" << sec.count() << std::endl; */
 	//implementation newton system  
-	auto begin = 1;
+	/*auto begin = 1;
 	Eigen::RowVector3d X,Y,ftemp;
 	X << 0.1, 0.1, -0.1;
 	Eigen::Matrix3d A;
@@ -80,7 +82,161 @@ int main()
 		}
 		++begin;
 	}
+	*/
+	//test for broyden method.... 
+	/*auto begin = 1;
+	Eigen::RowVector3d u,X,z,Y, s, v,vv,w;
+	X << 0.1, 0.1, -0.1;
+	auto p = 0.0;
+	Eigen::Matrix3d A,A1;
+	auto tol = 0.0000001;
+	A << 0, 0, 0, 0, 0, 0, 0, 0, 0;
+	std::cout << "x(0)\t x(1) \t x(2)" << std::endl;
+	for (size_t i = 0; i <= 2; i++)
+	{
+		for (size_t j = 0; j <= 2; j++) {
+			A(i, j) = SK6091::functionTest::P(i + 1, j + 1, X); //3*3 for jacobian
+		}
+	}
+	for (size_t i = 0; i <= 2; i++)
+	{
+		v(i) = SK6091::functionTest::F(i + 1, X);// 3*1 for -f
+	}
+	A1 = A.inverse();
+	s = (-A1 * v.transpose()).transpose();
+	X += s;
+	auto k = 2;
+	while (k<100)
+	{
+		w = v;
 
+		for (size_t i = 0; i <= 2; i++)
+		{
+			v(i) = SK6091::functionTest::F(i + 1, X);// 3*1 for -f
+		}
+		Y = v - w;
+
+		z = (-A1 * Y.transpose()).transpose();
+		p = -s * z.transpose();
+		u = s * A1;
+		A1 = A1 +  (1.0/p)*(s + z).transpose() * u;
+		s = (-A1 * v.transpose()).transpose();
+		X = X + s;
+		if (s.norm()<0.00001)
+		{
+			std::cout << "coverge to .....  with total iteration ... " << k - 1 << std::endl;;
+			std::cout << X << std::endl;
+			break;
+		}
+		++k;
+	}
+	*/
+	//test for steepest descent ...
+	/*auto k = 1;
+	const int max = 100;
+	auto z0 = 0.0;
+	Eigen::RowVector3d g1,X;
+	X << 0.1, 0.1, -0.1;
+	Eigen::RowVector4d G;
+	auto g0 = 0.0, g3 = 0.0, g2 = 0.0;;
+	Eigen::RowVector3d z;
+	auto alpha0=0.0,alpa1 = 0.0, alpha3 = 1.0,alpha2 =0.0;
+	auto h1 = 0.0, h2 = 0.0, h3 = 0.0;
+	auto a0 = 0.0;
+	while (k<max)
+	{
+		G[0] = SK6091::functionTest::sumG(X, 3);
+		for (size_t i = 0; i <3; i++)
+		{
+			z[i] = SK6091::functionTest::sumDerph(i + 1, X);
+		}
+		z0 = z.norm();
+		if (z0==0)
+		{
+			std::cout << "Zero gradient ..... \n" << X << std::endl;
+		}
+		//assign here .... 
+		z = z / z0;
+		g3 = SK6091::functionTest::sumG(X-alpha3*z, 3);
+
+		while (g3>=G[0])
+		{
+			alpha3 = alpha3 / 2.0;
+			if (alpha3< 1.0E-20)
+			{
+				std::cout << "No likely improvement ...." << std::endl;	
+				std::cout << X << std::endl;
+				break;
+			}
+			else {
+				g3 = SK6091::functionTest::sumG(X - alpha3 * z, 3);
+			}
+		}
+		//prepare for interpolation.... 
+		alpha2 = alpha3 / 2.0;
+		g2 = SK6091::functionTest::sumG(X - alpha2 * z, 3);
+		h1 = (g2 - G[0]) / alpha2;
+		h2 = (g3 - g2) / (alpha3 - alpha2);
+		h3 = (h2 - h1) / alpha3;
+		alpha0 = 0.5 * (alpha2 - h1 / h3);
+		g0 = SK6091::functionTest::sumG(X - alpha0 * z,3);
+		a0 = alpha0;
+		
+			if (std::fabs(G[0]) < std::fabs(g0)) {
+				a0 = alpha0;
+				g0 = G[0];
+			}
+			if (std::fabs(g2) < std::fabs(g0)) {
+				a0 = alpha0;
+				g0 = G[1];
+			}
+			if (std::fabs(g3) < std::fabs(g0)) {
+				a0 = alpha0;
+				g0 = G[2];
+			}
+		
+		X = X - a0 * z;
+		if ((g0< 1.0E-20) || (std::fabs(g0 - G[0])< 1.0E-20))
+		{
+			std::cout <<"coverge , with total iteration \t:" << k << std::endl;
+			std::cout << "value\n" << X << std::endl;
+			break;
+		}
+		++k;
+	}
+	*/
+	std::cout << "test for non linear least square" << std::endl;
+	auto x1 = 2.54107 , x2 = 0.259502;
+	Eigen::Matrix<double, 1, 11> t_i;
+	t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;;
+	Eigen::Matrix<double, 1, 11> y_i;
+	/*std::cout << "test coverge to solution \t: [";
+	for (size_t i = 0; i < 5; i++)
+	{
+		std::cout << x1 * std::exp(x2 * t_i(0, i)) <<"| ";
+	}
+	std::cout << "]\n"; */
+	//y_i << 3.2939, 4.2699, 7.1749, 9.3008, 20.259;
+	y_i << 0.0, 3.55, 3.82, 2.98, 2.32, 1.48, 1.02, 0.81, 0.41, 0.42, 0.15;
+	//13.6189 - 0.208505 - 13.6218 - 0.462183
+	//-13.6219 -0.462181    13.619 -0.208506
+	Eigen::Matrix<double, 1, 4> X;
+	X << -13.6218, -0.462183, 13.6189, -0.208505;
+	solveNonLinear(X, y_i, t_i);
+	X << 13.6189, - 0.208505, - 13.6218 ,- 0.462183;
+	solveNonLinear(X, y_i, t_i);
+	std::cout << "Prove solution .... " << std::endl;
+	X << -13.6218, -0.462183, 13.6189, -0.208505;
+
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) <<"| ";
+	}
+	X << 13.6189, -0.208505, -13.6218, -0.462183;
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
+	}
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
@@ -229,6 +385,23 @@ double objectiveFunc(double x) {
 }
 double oneDrastrigin(double x) {
 	return (10+std::pow(x,2.0)-10*std::cos(2*M_PI*x));
+}
+void solveNonLinear(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11>t_i) {
+	auto begin = 1, end = 100;
+	Eigen::Matrix<double, 1, 4> p;
+	p << 0, 0, 0, 0;
+	while (begin != end)
+	{
+		p = SK6091::functionTest::hes(X, y_i, t_i).inverse() * (-SK6091::functionTest::fDerp(X, y_i, t_i));
+		if (p.norm() < 1.e-15)
+		{
+			std::cout << "coverge to :\n";
+			std::cout << X << std::endl;
+			break;
+		}
+		X = X + p;
+		++begin;
+	}
 }
 
 

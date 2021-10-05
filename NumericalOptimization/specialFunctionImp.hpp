@@ -222,6 +222,176 @@ inline  double SK6091::functionTest::P(int I, int J, Eigen::RowVector3d X) {
 	return p;
 
 }
+inline  double SK6091::functionTest::CF(int i, Eigen::RowVector3d X) {
+	double cf = 0.0;
+	switch (i)
+	{
+		case 1:
+			cf = 3 * X[0] - cos(X[1] * X[2]) - 0.5;
+			break;
+		case 2:
+			cf = X[0] * X[0] - 81 * (X[1] + 0.1) * (X[1] + 0.1) + sin(X[2]) + 1.06;
+			break;
+		case 3:
+			cf = exp(-X[0] * X[1]) + 20 * X[2] + (10 * M_PI - 3) / 3;
+			break;
+	}
+	return cf;
+}
+inline  double  SK6091::functionTest::sumDerph(int i, Eigen::RowVector3d X) {
+	double p = 0.0; 
+	switch (i)
+	{
+	case 1:
+		p = 2*(3)*CF(1,X) + 
+			2*(2 * X[0]) * CF(2,X) + 
+			2* (-X[1] * exp(-X[0] * X[1]))* CF(3,X);
+		break;
+	case 2:
+		p = 2 * (X[2] * sin(X[1] * X[2])) * CF(1, X) +
+			2 * (-162 * (X[1] + 0.1)) * CF(2, X) +
+			2 * (-X[0] * exp(-X[0] * X[1])) *CF(3,X);
+		break;
+	case 3:
+		p = 2 * (X[1] * sin(X[1] * X[2])) * CF(1, X)
+			+ 2 * (cos(X[2])) * CF(2, X) +
+			2 * 20 * CF(3, X);
+		break; 
+	}
+	return p;
+}
+inline  double SK6091::functionTest::sumG(Eigen::RowVector3d X, int n) {
+	double f = 0.0, d = 0.0;
+	for (size_t i = 1; i <=n; i++)
+	{
+		d += std::pow(CF(i, X), 2.0);
+	}
+	f = d;
+	return f;
+}
+inline Eigen::Matrix<double, 2, 1>SK6091::functionTest::fDerp(Eigen::Matrix<double, 1, 2> X, Eigen::Matrix<double, 1, 5> y_i, Eigen::Matrix<double, 1, 5> t_i) {
+	Eigen::Matrix<double, 2, 5> gradF;
+	for (size_t i = 0; i < 1; i++)
+	{
+		for (size_t j = 0; j < 5; j++) {
+			gradF(i, j) = std::exp(X(0, 1) * t_i(i, j));
+		}
+	}
+	for (size_t i = 1; i < 2; i++)
+	{
+		for (size_t j = 0; j < 5; j++) {
+			gradF(i, j) = X(0,0)*t_i(i-1,j)*std::exp(X(0, 1) * t_i(i-1, j));
+		}
+	}
+	Eigen::Matrix<double, 5, 1> F;
+	for (size_t i = 0; i < 5; i++)
+	{
+		for (size_t j = 0; j < 1; j++) {
+			F(i, j) = X(0,0)*std::exp(X(0, 1) * t_i(0, i)) -y_i(0,i);
+		}
+	}
+	auto sum = gradF * F;
+	return sum;
+}
+inline Eigen::Matrix<double, 2, 2> SK6091::functionTest::hes(Eigen::Matrix<double, 1, 2> X, Eigen::Matrix<double, 1, 5> y_i, Eigen::Matrix<double, 1, 5> t_i) {
+	Eigen::Matrix<double, 2, 5> gradF;
+	for (size_t i = 0; i < 1; i++)
+	{
+		for (size_t j = 0; j < 5; j++) {
+			gradF(i, j) = std::exp(X(0, 1) * t_i(i, j));
+		}
+	}
+	for (size_t i = 1; i < 2; i++)
+	{
+		for (size_t j = 0; j < 5; j++) {
+			gradF(i, j) = X(0, 0) * t_i(i - 1, j) * std::exp(X(0, 1) * t_i(i - 1, j));
+		}
+	}
+	auto sum = gradF * gradF.transpose();
+	return sum;
+}
+inline Eigen::Matrix<double, 5, 1>SK6091::functionTest::H_x(Eigen::Matrix<double, 1, 2> X, Eigen::Matrix<double, 1, 5>y_i, Eigen::Matrix<double, 1, 5> t_i) {
+	Eigen::Matrix<double, 5, 1> temp;
+	for (size_t i = 0; i < 5; i++)
+	{
+		for (size_t j = 0; j < 1; j++) {
+			temp(i, j) = X(0, 0)  * std::exp(X(0, 1) * t_i(0, i))  - y_i(0,i);
+		}
+	}
+	return temp;
+}
+//test for 11 data
+inline Eigen::Matrix<double, 4, 1>SK6091::functionTest::fDerp(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11> t_i) {
+	Eigen::Matrix<double, 4, 11> gradF;
+	for (size_t i = 0; i < 1; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = std::exp(X(0, 1) * t_i(i, j));
+		}
+	}
+	for (size_t i = 1; i < 2; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = t_i(0,j)* X(0, 0)* std::exp(X(0, 1) * t_i(0, j));
+		}
+	}
+
+	for (size_t i = 2; i < 3; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = std::exp(X(0, 3) * t_i(0, j));
+		}
+	}
+	for (size_t i = 3; i < 4; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = t_i(0, j) * X(0, 2) * std::exp(X(0, 3) * t_i(0, j));
+		}
+	}
+
+
+	Eigen::Matrix<double, 11, 1> F;
+	for (size_t i = 0; i < 11; i++)
+	{
+		for (size_t j = 0; j < 1; j++) {
+			F(i, j) = X(0, 0) * std::exp(X(0, 1) * t_i(0, i))  + X(0, 2) * std::exp(X(0, 3) * t_i(0, i))
+				- y_i(0, i);
+		}
+	}
+	auto sum = gradF * F;
+	return sum;
+}
+inline  Eigen::Matrix<double, 4, 4> SK6091::functionTest::hes(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11> t_i) {
+	Eigen::Matrix<double, 4, 11> gradF;
+	for (size_t i = 0; i < 1; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = std::exp(X(0, 1) * t_i(i, j));
+		}
+	}
+	for (size_t i = 1; i < 2; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = t_i(0, j) * X(0, 0) * std::exp(X(0, 1) * t_i(0, j));
+		}
+	}
+
+	for (size_t i = 2; i < 3; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = std::exp(X(0, 3) * t_i(0, j));
+		}
+	}
+	for (size_t i = 3; i < 4; i++)
+	{
+		for (size_t j = 0; j < 11; j++) {
+			gradF(i, j) = t_i(0, j) * X(0, 2) * std::exp(X(0, 3) * t_i(0, j));
+		}
+	}
+	auto sum = gradF * gradF.transpose();
+	return sum;
+
+}
 
 
 #endif	
