@@ -535,7 +535,7 @@
     
     If least squares were used to select the parameters , then we would solve 
 
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/plot.jpg)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/leastsquare.PNG)
 
   - **Gauss Newton**
   - **Levenberg–Marquardt** 
