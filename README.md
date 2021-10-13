@@ -527,7 +527,7 @@
 ## 4.Optimization - Nonlinear Least Squares 
   - **Introduction** 
 
-    Non-linear least squares is the form of least squares analysis used to fit a set of m observations with a model that is non-linear in n unknown parameters (m ≥ n). It is used in some forms of nonlinear regression. The basis of the method is to approximate the model by a linear one and to refine the parameters by successive iterations. For example, we had collected data consisting of the size of a population of antelope of various times. Here t corresponds to the time at which the population y was counted. Suppose we had the data (**see table 1,2**) where the times are measured in years and the populations are measured in hundreds.    It is common to model populations using exponentials models. 
+    Non-linear least squares is the form of least squares analysis used to fit a set of m observations with a model that is non-linear in n unknown parameters (m ≥ n). It is used in some forms of nonlinear regression. The basis of the method is to approximate the model by a linear one and to refine the parameters by successive iterations. For example, we had collected data consisting of the size of a population of antelope of various times. Here t corresponds to the time at which the population y was counted. Suppose we had the data (**see table 1,2**) where the times are measured in years and the populations are measured in hundreds. It is common to model populations using exponentials models. 
     
     t|1|2|3|4|5
     -|--|--|--|--|--
@@ -547,7 +547,40 @@
 
   - **Gauss Newton**
 
-    There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods. Suppose we have an experimental data and we want find the solution of the following non linear least squares problem 
+    There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods. Suppose we have an experimental data and we want find the solution of the following nonlinear least squares problem 
+
+    t|0|2|4|6|8|10|12|14|16|18|20
+    --|--|--|--|--|--|--|--|--|--|--|--
+    f(t)|0|3.55|3.82|2.98|2.32|1.48|1.02|0.81|0.41|0.42|0.15
+
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/new%20model.PNG)
+
+    Suppose we want to using this module to solve nonlinear least squares problem by gauss newton method, the following ilustration is intended to solve nonlinear least squares problem with the given model above
+
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+        Eigen::Matrix<double, 1, 11> t_i;
+	    t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;;
+	    Eigen::Matrix<double, 1, 11> y_i;
+	    y_i << 0.0, 3.55, 3.82, 2.98, 2.32, 1.48, 1.02, 0.81, 0.41, 0.42, 0.15;
+        Eigen::Matrix<double, 1, 4> X;
+	    X << -12.6218, -0.362183, 13.6189, -0.208505;
+        std::cout<<"Result : "<<SK6091::functionTest::gaussNewton(X,y_i,t_i);
+    }
+    ```
+
+    After compile the program : 
+    > Result : -13.6218, -0.462183, 13.6189, -0.208505;
+
+    The following graph give us knowledge how robust our module to estimate the nonlinear least square problem
+
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20graph.jpg)
+
+  - **Levenberg–Marquardt** 
+
+    In this module/ library we also provide a well known algorithm for nonlinear least squares problems called Levenberg-Marquardt(LM). The LMA is used in many software applications for solving generic curve-fitting problems. However, as with many fitting algorithms, the LMA finds only a local minimum, which is not necessarily the global minimum. The LMA interpolates between the Gauss–Newton algorithm (GNA) and the method of gradient descent. The LMA is more robust than the GNA, which means that in many cases it finds a solution even if it starts very far off the final minimum. These methods compute the search direction using the damped version of newton formula for newton methods. Suppose we have an experimental data and we want find the solution of the following nonlinear least squares problem 
 
     t|0|2|4|6|8|10|12|14|16|18|20
     --|--|--|--|--|--|--|--|--|--|--|--
@@ -578,7 +611,6 @@
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20graph.jpg)
 
-  - **Levenberg–Marquardt** 
   - **Quasi Newton**
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
 ## 5.Calculating Derivatives
