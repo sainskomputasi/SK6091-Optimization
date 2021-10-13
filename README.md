@@ -547,8 +547,14 @@
 
   - **Gauss Newton**
 
-  There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods
+    There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods
   
+   ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss.PNG)
+
+   but replaces the Hessian with this approximation 
+
+   ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20replaces.PNG)
+
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
