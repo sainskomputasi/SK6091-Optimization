@@ -551,8 +551,15 @@
   
    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss.PNG)
 
-   ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20replaces.PNG)
+   Suppose we have an experimental data and we want find the solution of the following non linear least squares problem 
 
+    t|0|2|4|6|8|10|12|14|16|18|20
+    --|--|--|--|--|--|--|--|--|--|--|--
+    f(t)|0|3.55|3.82|2.98|2.32|1.48|1.02|0.81|0.41|0.42|0.15
+
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/new%20model.PNG)
+
+    Suppose we want to using this module to solve nonlinear least squares problem by gauss newton method, the following ilustration is intended to solve non linear least squares problem with the given model above
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
