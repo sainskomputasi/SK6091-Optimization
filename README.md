@@ -550,7 +550,8 @@
     There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods
   
    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss.PNG)
-    but replaces the Hessian with this approximation 
+
+       but replaces the Hessian with this approximation 
 
    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20replaces.PNG)
 
@@ -559,7 +560,7 @@
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
 ## 5.Calculating Derivatives
   - **Approximating the Gradient**
-    
+    s
     Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In this module/ library we also provided a special function to aproximate a gradient of an objective function
     . The following code is intended to demonstrate how we can call the grad function to aproximate  Gradient of Rastrign function
     ```c++
