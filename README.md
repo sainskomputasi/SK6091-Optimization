@@ -582,7 +582,7 @@
 
     In this module/ library we also provide a well known algorithm for nonlinear least squares problems called Levenberg-Marquardt(LM). The LMA is used in many software applications for solving generic curve-fitting problems. However, as with many fitting algorithms, the LMA finds only a local minimum, which is not necessarily the global minimum. The LMA interpolates between the Gauss–Newton algorithm (GNA) and the method of gradient descent. The LMA is more robust than the GNA, which means that in many cases it finds a solution even if it starts very far off the final minimum. These methods compute the search direction using the damped version of newton formula for newton methods. Suppose we have an experimental data and we want find the solution of the following nonlinear least squares problem 
     
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/damped%20newton.jpg)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fix%20damped.png)
 
     t|0|2|4|6|8|10|12|14|16|18|20
     --|--|--|--|--|--|--|--|--|--|--|--
