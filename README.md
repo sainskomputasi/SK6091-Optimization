@@ -524,12 +524,19 @@
         }
         #endif
         ```
-## 4.Quasi-Newton Method 
+## 4.Optimization - Nonlinear Least Squares 
   - **Introduction** 
-  - **Generating Matrix S**
-  - **Rank One Method** 
-  - **Hoshino Method**
-  - **Davidon-Fletcher-Powell Method**
+
+    Non-linear least squares is the form of least squares analysis used to fit a set of m observations with a model that is non-linear in n unknown parameters (m ≥ n). It is used in some forms of nonlinear regression. The basis of the method is to approximate the model by a linear one and to refine the parameters by successive iterations. For example, we had collected data consisting of the size of a population of antelope of various times. Here t corresponds to the time at which the population y was counted. Suppose we had the data (**see table 1**) where the times are measured in years and the populations are measured in hundreds.    It is common to model populations using exponentials models. 
+    
+    t|t(1)|t(2)|t(3)|t(4)|t(5)
+    -|--|--|--|--|--
+    y|3|4|6|11|20
+
+  - **Gauss Newton**
+  - **Levenberg–Marquardt** 
+  - **Quasi Newtono**
+  - **Hybrid Levenberg–Marquardt -Quasi Newton**
 ## 5.Calculating Derivatives
   - **Approximating the Gradient**
     

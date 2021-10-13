@@ -232,11 +232,50 @@ int main()
 	{
 		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) <<"| ";
 	}
-	X << 13.6189, -0.208505, -13.6218, -0.462183;
+	std::cout << "1.experimant model ..." << std::endl;
+	X << -13.5218, -0.462183, 13.6189, -0.208505;
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
 	}
+	std::cout << "2,experimant model ..." << std::endl;
+
+	X << 5.68603 ,- 0.124843 ,- 5.6543 ,- 0.842367;
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
+	}
+	X << 14.6189, -0.108505, -13.6218, -0.262183;
+	std::cout << "\ntest for levenberg method \t:\n";
+	std::cout << SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+
+	//test for dogleg method  .... 
+	//std::cout << "Test for dogled method ...." << std::endl;
+	//std::cout << SK6091::functionTest::dogLeg(X, y_i, t_i) << std::endl;
+	/*std::cout << "test homotopy \t:" << std::endl;
+	Eigen::RowVector3d initialCondition;
+	initialCondition << 0.0, 0.0, 0.0;
+	SK6091::functionTest::homotopy(initialCondition);
+	std::cout << "\ntest for n =2" << std::endl;
+	Eigen::RowVector2d initialCon;
+	initialCon << 0.738688 ,0.673325;
+	SK6091::functionTest::homotopyt(initialCon);
+	std::cout << "debug equation 1\t: " <<std::sin(0.739085 ) - 0.673612 <<std::endl;
+	std::cout <<"debug equation 2\t: "<< std::pow(0.739085, 2.0) + std::pow(0.673612, 2.0) - 1.0 << std::endl;
+	*/
+	/*std::cout << "Polak ribiere implementation " << std::endl;
+	Eigen::RowVector2d initialGuessPolak;
+	initialGuessPolak << 0.8, 0.9;
+	SK6091::functionTest::polakRibere(initialGuessPolak);
+	initialGuessPolak << 1.0, 1.0;
+	SK6091::functionTest::polakRibere(initialGuessPolak);
+	initialGuessPolak << 0.1, 0.1;
+	SK6091::functionTest::polakRibere(initialGuessPolak);
+	*/
+	//test for levenberg
+	/*Eigen::RowVector2d initialGuessPolak;
+	initialGuessPolak << 1.0, 0.5;
+	SK6091::functionTest::levenvergMarquardt(initialGuessPolak); */
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {
