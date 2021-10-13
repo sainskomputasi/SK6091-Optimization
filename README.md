@@ -576,7 +576,7 @@
 
     The following graph give us knowledge how robust our module to estimate the nonlinear least square probles
 
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/new%20model.PNG)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20graph.jpg)
 
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
