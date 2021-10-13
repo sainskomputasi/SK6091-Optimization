@@ -540,6 +540,11 @@
     t|0|2|4|6|8|10|12|14|16|18|20
     --|--|--|--|--|--|--|--|--|--|--|--
     f(t)|0|3.55|3.82|2.98|2.32|1.48|1.02|0.81|0.41|0.42|0.15
+
+    If least squares were used to select the parameters , then we would solve 
+
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/leastsquare.PNG)
+
   - **Gauss Newton**
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
