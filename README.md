@@ -547,9 +547,7 @@
 
   - **Gauss Newton**
 
-    There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods
-  
-    Suppose we have an experimental data and we want find the solution of the following non linear least squares problem 
+    There are numbers of specialized methods for non linear least squares data fitting, in this module we're provide a simplest method called gauss newton. These methods compute the search direction using the the newton formula for newton methods. Suppose we have an experimental data and we want find the solution of the following non linear least squares problem 
 
     t|0|2|4|6|8|10|12|14|16|18|20
     --|--|--|--|--|--|--|--|--|--|--|--
