@@ -556,6 +556,23 @@
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/new%20model.PNG)
 
     Suppose we want to using this module to solve nonlinear least squares problem by gauss newton method, the following ilustration is intended to solve non linear least squares problem with the given model above
+
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+        Eigen::Matrix<double, 1, 11> t_i;
+	    t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;;
+	    Eigen::Matrix<double, 1, 11> y_i;
+	    y_i << 0.0, 3.55, 3.82, 2.98, 2.32, 1.48, 1.02, 0.81, 0.41, 0.42, 0.15;
+        Eigen::Matrix<double, 1, 4> X;
+	    X << -12.6218, -0.362183, 13.6189, -0.208505;
+        std::cout<<"Result : "<<SK6091::functionTest::gaussNewton(X,y_i,t_i);
+    }
+    ```
+
+    After compile the program : 
+    > Result : -13.6218, -0.462183, 13.6189, -0.208505;
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
   - **Hybrid Levenberg–Marquardt -Quasi Newton**

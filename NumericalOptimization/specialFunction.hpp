@@ -48,6 +48,8 @@ namespace SK6091 {
 		inline static Eigen::RowVector2d polakRibere(Eigen::RowVector2d);
 		//implementation of levenberg method.. 
 		inline static Eigen::RowVector2d levenvergMarquardt(Eigen::RowVector2d);
+		inline static Eigen::Matrix<double, 1, 4> gaussNewton(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11>t_i);
+
 	private:
 		std::string notFound;
 	};

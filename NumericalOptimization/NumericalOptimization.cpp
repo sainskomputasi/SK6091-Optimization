@@ -221,8 +221,10 @@ int main()
 	//13.6189 - 0.208505 - 13.6218 - 0.462183
 	//-13.6219 -0.462181    13.619 -0.208506
 	Eigen::Matrix<double, 1, 4> X;
-	X << -13.6218, -0.462183, 13.6189, -0.208505;
+	X << -12.6218, -0.362183, 13.6189, -0.208505;
 	solveNonLinear(X, y_i, t_i);
+	std::cout<<"Result: "<<SK6091::functionTest::gaussNewton(X, y_i, t_i);
+
 	X << 13.6189, - 0.208505, - 13.6218 ,- 0.462183;
 	solveNonLinear(X, y_i, t_i);
 	std::cout << "Prove solution .... " << std::endl;

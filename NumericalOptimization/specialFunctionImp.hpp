@@ -1065,6 +1065,23 @@ inline Eigen::RowVector2d SK6091::functionTest::levenvergMarquardt(Eigen::RowVec
 	}
 	return X;
 }
+inline Eigen::Matrix<double, 1, 4> SK6091::functionTest::gaussNewton(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11>t_i) {
+	auto begin = 1, end = 100;
+	Eigen::Matrix<double, 1, 4> p;
+	p << 0, 0, 0, 0;
+	while (begin != end)
+	{
+		p = SK6091::functionTest::hes(X, y_i, t_i).inverse() * (-SK6091::functionTest::fDerp(X, y_i, t_i));
+		if (p.norm() < 1.e-15)
+		{
+			return X;
+			break;
+		}
+		X = X + p;
+		++begin;
+	}
+	return X;
+}
 
 
 #endif	
