@@ -208,7 +208,7 @@ int main()
 	std::cout << "test for non linear least square" << std::endl;
 	auto x1 = 2.54107 , x2 = 0.259502;
 	Eigen::Matrix<double, 1, 11> t_i;
-	t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;;
+	t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;
 	Eigen::Matrix<double, 1, 11> y_i;
 	/*std::cout << "test coverge to solution \t: [";
 	for (size_t i = 0; i < 5; i++)
