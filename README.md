@@ -573,6 +573,7 @@
 
     After compile the program : 
     > Result : -13.6218, -0.462183, 13.6189, -0.208505;
+
   - **Levenberg–Marquardt** 
   - **Quasi Newton**
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
