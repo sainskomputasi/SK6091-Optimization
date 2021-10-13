@@ -248,9 +248,20 @@ int main()
 		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
 	}
 	X << 14.6189, -0.108505, -13.6218, -0.262183;
+	X << -12.6218, -0.362183, 13.6189, -0.208505;
 	std::cout << "\ntest for levenberg method \t:\n";
-	std::cout << SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+	//std::cout << SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+	X << -6.10177, -0.902389, 6.15153, -0.135121;
+	X << 14.6189, -0.108505, -13.6218, -0.262183;
 
+	//std::cout << SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+	X << 5.68603, -0.124843, -5.6543, -0.842367;
+	std::cout << "3. experimant model ..." << std::endl;
+
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
+	}
 	//test for dogleg method  .... 
 	//std::cout << "Test for dogled method ...." << std::endl;
 	//std::cout << SK6091::functionTest::dogLeg(X, y_i, t_i) << std::endl;

@@ -601,13 +601,14 @@
 	    Eigen::Matrix<double, 1, 11> y_i;
 	    y_i << 0.0, 3.55, 3.82, 2.98, 2.32, 1.48, 1.02, 0.81, 0.41, 0.42, 0.15;
         Eigen::Matrix<double, 1, 4> X;
-	    X << -12.6218, -0.362183, 13.6189, -0.208505;
-        std::cout<<"Result : "<<SK6091::functionTest::gaussNewton(X,y_i,t_i);
+	    X << 14.6189, -0.108505, -13.6218, -0.262183;
+        std::cout << "Result : "<<SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+
     }
     ```
 
     After compile the program : 
-    > Result : -13.6218, -0.462183, 13.6189, -0.208505;
+    > Result : -6.10177, -0.902389, 6.15153, -0.135121
 
     The following graph give us knowledge how robust our module to estimate the nonlinear least square probles
 
