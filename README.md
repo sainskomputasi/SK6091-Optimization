@@ -551,7 +551,8 @@
   
    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss.PNG)
 
-       but replaces the Hessian with this approximation 
+    If least squares were used to select the parameters , then we would solve 
+ 
 
    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20replaces.PNG)
 
