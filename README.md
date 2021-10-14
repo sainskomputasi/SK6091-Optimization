@@ -725,7 +725,33 @@
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/numerik%20tesr.PNG)
 
   - **Newton's Method**
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/numerik%20tesr.PNG)
+
+    In this module we're provide a well known method called Newton method. Newton’s method is an algorithm for finding the roots of di↵erentiable functions, that uses iterated local linearization of a function to approximate its roots. Newton’s method also extends to systems of n differentiable functions in n variables.
+    Suppose we want to using this module to solve nonlinear system of equations problem by newton method, the following ilustration is intended to solve nonlinear system of equation problem (**see figure 1.**)
+
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+        Eigen::Matrix<double, 1, 11> t_i;
+	    t_i << 0.0, 2.0, 4.0, 6.0, 8.0, 10.0, 12.0, 14.0, 16.0, 18.0, 20.0;;
+	    Eigen::Matrix<double, 1, 11> y_i;
+	    y_i << 0.0, 3.55, 3.82, 2.98, 2.32, 1.48, 1.02, 0.81, 0.41, 0.42, 0.15;
+        Eigen::Matrix<double, 1, 4> X;
+	    X << 14.6189, -0.108505, -13.6218, -0.262183;
+        std::cout << "Result : "<<SK6091::functionTest::Levenberg(X, y_i, t_i) << std::endl;
+
+    }
+    ```
+
+    After compile the program : 
+    > Result : -6.10177, -0.902389, 6.15153, -0.135121
+
+    **The Levenberg-Marquardt Method is consist of 3 parameters:**
+    * *Initial Point (as a matrix type)*
+    * *data population t (as matrix type)*
+    * *data population f(t) as matrix type*
+
       
   - **Steepest Descent**
   - **Broyden's Method**
