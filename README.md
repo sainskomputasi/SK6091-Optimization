@@ -781,7 +781,7 @@
     {
         Eigen::RowVector3d X;
 	    X<< 0.1, 0.1, -0.1;
-        std::cout << "Result : "<<SK6091::functionTest::nonLinearNewton(X) << std::endl;
+        std::cout << "Result : "<<SK6091::functionTest::homotopyt(X) << std::endl;
 
     }
     ```
@@ -793,3 +793,22 @@
     * *Initial Point (as a row vector type)*
 
   - **Homotopy** 
+
+    A numerical continuation is an algorithm which takes as input a system of parametrized nonlinear equations and an initial solution and produces a set of points on the solution component. Suppose we want to using this module to solve nonlinear system of equations problem by homotopy/continuation method, the following ilustration is intended to solve nonlinear system of equation problem (**see figure 2.**)
+ 
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+        Eigen::RowVector3d X;
+	    X<< 0.1, 0.1, -0.1;
+        std::cout << "Result : "<<SK6091::functionTest::nonLinearBroyden(X) << std::endl;
+
+    }
+    ```
+
+    After compile the program : 
+    > Result : -6.10177, -0.902389, 6.15153, -0.135121
+
+    **The Homotopy/ continuation Method is consist of 1 parameter:**
+    * *Initial Point (as a row vector type)*

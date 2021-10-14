@@ -1116,5 +1116,52 @@ inline  Eigen::RowVector3d SK6091::functionTest::nonLinearNewton(Eigen::RowVecto
 
 }
 
+inline  Eigen::RowVector3d SK6091::functionTest::nonLinearBroyden(Eigen::RowVector3d X) {
+	auto begin = 1;
+	Eigen::RowVector3d u, z, Y, s, v, vv, w;
+	auto p = 0.0;
+	Eigen::Matrix3d A, A1;
+	auto tol = 0.0000001;
+	A << 0, 0, 0, 0, 0, 0, 0, 0, 0;
+	for (size_t i = 0; i <= 2; i++)
+	{
+		for (size_t j = 0; j <= 2; j++) {
+			A(i, j) = SK6091::functionTest::P(i + 1, j + 1, X); //3*3 for jacobian
+		}
+	}
+	for (size_t i = 0; i <= 2; i++)
+	{
+		v(i) = SK6091::functionTest::F(i + 1, X);// 3*1 for -f
+	}
+	A1 = A.inverse();
+	s = (-A1 * v.transpose()).transpose();
+	X += s;
+	auto k = 2;
+	while (k < 100)
+	{
+		w = v;
+
+		for (size_t i = 0; i <= 2; i++)
+		{
+			v(i) = SK6091::functionTest::F(i + 1, X);// 3*1 for -f
+		}
+		Y = v - w;
+
+		z = (-A1 * Y.transpose()).transpose();
+		p = -s * z.transpose();
+		u = s * A1;
+		A1 = A1 + (1.0 / p) * (s + z).transpose() * u;
+		s = (-A1 * v.transpose()).transpose();
+		X = X + s;
+		if (s.norm() < 0.00001)
+		{
+			return X;
+			break;
+		}
+		++k;
+	}
+	return X;
+}
+
 
 #endif	

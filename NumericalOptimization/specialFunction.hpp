@@ -51,6 +51,8 @@ namespace SK6091 {
 		inline static Eigen::Matrix<double, 1, 4> gaussNewton(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11>t_i);
 		//newton for n nonlinear system
 		inline static Eigen::RowVector3d nonLinearNewton(Eigen::RowVector3d);
+		inline static Eigen::RowVector3d nonLinearBroyden(Eigen::RowVector3d);
+
 	private:
 		std::string notFound;
 	};
