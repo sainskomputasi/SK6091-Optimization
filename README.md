@@ -722,6 +722,8 @@
 
     A system of nonlinear equations is a system of two or more equations in two or more variables containing at least one equation that is not linear. In this module we're provide some robust algorithm like newton, spiral dynamic optimization, broyden method and homotopy for solving n system of nonlinear equation. The following nonlinear equation is intended to test each algorithm   
 
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/numerik%20tesr.PNG)
+
   - **Newton's Method**
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/numerik%20tesr.PNG)
       
