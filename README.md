@@ -590,7 +590,7 @@
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/new%20model.PNG)
 
-    Suppose we want to using this module to solve nonlinear least squares problem by gauss newton method, the following ilustration is intended to solve non linear least squares problem with the given model above
+    Suppose we want to using this module to solve nonlinear least squares problem by Levenberg–Marquardt method, the following ilustration is intended to solve non linear least squares problem with the given model above
 
     ```c++
     #include "specialFunctionImp.hpp"
