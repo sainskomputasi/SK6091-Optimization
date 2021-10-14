@@ -742,6 +742,11 @@
     #include "specialFunctionImp.hpp"
     #endif
     ```
+
+    **The objective function is consist of 2 parameters:**
+    * *index of element (as an integer type)*
+    * *initial value of element (as row vector type)*
+
   - **Newton's Method**
 
     In this module we're provide a well known method called Newton method. Newton’s method is an algorithm for finding the roots of diferentiable functions, that uses iterated local linearization of a function to approximate its roots. Newton’s method also extends to systems of n differentiable functions in n variables.
