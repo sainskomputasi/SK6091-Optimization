@@ -724,9 +724,27 @@
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fig1.PNG)
 
+    **The Following code is objective function abstraction**
+    ```c++
+    #ifndef SPECIAL_FUNCTION
+    #define SPECIAL_FUNCTION
+    #include <cmath>
+    #include <eigen/dense>
+    #include <fstream>
+    namespace SK6091 {
+	    class functionTest
+	    {
+	        public:
+		        inline static double F(int, Eigen::RowVector3d);
+	        private:
+	    };
+    }
+    #include "specialFunctionImp.hpp"
+    #endif
+    ```
   - **Newton's Method**
 
-    In this module we're provide a well known method called Newton method. Newton’s method is an algorithm for finding the roots of di↵erentiable functions, that uses iterated local linearization of a function to approximate its roots. Newton’s method also extends to systems of n differentiable functions in n variables.
+    In this module we're provide a well known method called Newton method. Newton’s method is an algorithm for finding the roots of diferentiable functions, that uses iterated local linearization of a function to approximate its roots. Newton’s method also extends to systems of n differentiable functions in n variables.
     Suppose we want to using this module to solve nonlinear system of equations problem by newton method, the following ilustration is intended to solve nonlinear system of equation problem (**see figure 2.**)
 
     ```c++
