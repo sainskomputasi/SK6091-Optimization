@@ -1082,6 +1082,39 @@ inline Eigen::Matrix<double, 1, 4> SK6091::functionTest::gaussNewton(Eigen::Matr
 	}
 	return X;
 }
+//newton non linear 
+inline  Eigen::RowVector3d SK6091::functionTest::nonLinearNewton(Eigen::RowVector3d X) {
+	auto begin = 1;
+	Eigen::RowVector3d  Y, ftemp;
+	Eigen::Matrix3d A;
+	auto tol = 0.0000001;
+	A << 0, 0, 0, 0, 0, 0, 0, 0, 0;
+	while (begin != 100)
+	{
+		for (size_t i = 0; i <= 2; i++)
+		{
+			for (size_t j = 0; j <= 2; j++) {
+				A(i, j) = SK6091::functionTest::P(i + 1, j + 1, X); //3*3 for jacobian
+			}
+		}
+		for (size_t i = 0; i <= 2; i++)
+		{
+			ftemp(i) = -SK6091::functionTest::F(i + 1, X);// 3*1 for -f
+		}
+
+		Y = (A.inverse() * ftemp.transpose()).transpose();
+		X = X + Y;
+		std::cout << X[0] << "\t" << X[1] << "\t" << X[2] << std::endl;
+		if (Y.norm() < tol)
+		{
+			return X;
+			break;
+		}
+		++begin;
+	}
+	return X;
+
+}
 
 
 #endif	

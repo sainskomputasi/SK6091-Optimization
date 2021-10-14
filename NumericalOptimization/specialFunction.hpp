@@ -49,7 +49,8 @@ namespace SK6091 {
 		//implementation of levenberg method.. 
 		inline static Eigen::RowVector2d levenvergMarquardt(Eigen::RowVector2d);
 		inline static Eigen::Matrix<double, 1, 4> gaussNewton(Eigen::Matrix<double, 1, 4> X, Eigen::Matrix<double, 1, 11> y_i, Eigen::Matrix<double, 1, 11>t_i);
-
+		//newton for n nonlinear system
+		inline static Eigen::RowVector3d nonLinearNewton(Eigen::RowVector3d);
 	private:
 		std::string notFound;
 	};
