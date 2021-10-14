@@ -764,12 +764,34 @@
     ```
 
     After compile the program : 
-    > Result : -6.10177, -0.902389, 6.15153, -0.135121
+    > Result : -6.10177, -0.902389, 6.15153
 
     **The Newton Method is consist of 1 parameter:**
     * *Initial Point (as a row vector type)*
       
   - **Steepest Descent**
+  
+    The classical steepest descent method is one of the oldest methods for the minimization of a general nonlinear function. The steepest descent method, also known as the gradient descent method, was first proposed by Cauchy in 1847 [1]. In the original paper, Cauchy proposed the use of the gradient as a way of solving a nonlinear equation. 
+    Suppose we want to using this module to solve nonlinear system of equations problem by steepest descent method, the following ilustration is intended to solve nonlinear system of equation problem (**see figure 2.**)
+
+    ```c++
+    #include "specialFunctionImp.hpp"
+    int main()
+    {
+        Eigen::RowVector3d X;
+	    X<< 0.1, 0.1, -0.1;
+        std::cout << "Result : "<<SK6091::functionTest::nonLinearSteepestDescent(X) << std::endl;
+
+    }
+    ```
+
+    After compile the program : 
+    > Result : -6.10177, -0.902389, 6.15153
+
+    **The Steepest Descent Method is consist of 1 parameter:**
+    * *Initial Point (as a row vector type)*
+
+
   - **Broyden's Method**
 
     One of the drawbacks of using Newton’s Method to solve a system of nonlinear equations **g(x) = 0** is the computational expense that must be incurred during each iteration to evaluate the partial derivatives of g at **x(k)**, and then solve a system of linear equations involving the resulting Jacobian matrix. The algorithm does not facilitate the re-use of data from previous iterations, and in some cases evaluation of the partial derivatives can be unnecessarily costly. In this module we're also provide a method called Broyden's method that solve computational expense of using newton method. 
@@ -787,7 +809,7 @@
     ```
 
     After compile the program : 
-    > Result : -6.10177, -0.902389, 6.15153, -0.135121
+    > Result : -6.10177, -0.902389, 6.15153
 
     **The Newton Method is consist of 1 parameter:**
     * *Initial Point (as a row vector type)*
@@ -801,14 +823,14 @@
     int main()
     {
         Eigen::RowVector3d X;
-	    X<< 0.1, 0.1, -0.1;
-        std::cout << "Result : "<<SK6091::functionTest::nonLinearBroyden(X) << std::endl;
+	    X<< 0.1, 0.1;
+        std::cout << "Result : "<<SK6091::functionTest::homotopyt(X) << std::endl;
 
     }
     ```
 
     After compile the program : 
-    > Result : -6.10177, -0.902389, 6.15153, -0.135121
+    > Result : -6.10177, -0.902389
 
     **The Homotopy/ continuation Method is consist of 1 parameter:**
     * *Initial Point (as a row vector type)*
