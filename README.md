@@ -628,7 +628,7 @@
   - **Hybrid Levenberg–Marquardt -Quasi Newton**
 ## 5.Calculating Derivatives
   - **Approximating the Gradient**
-    s
+    
     Direct search methods are useful when the derivative of the optimization function is not available to effectively guide the search for the optimum. While direct search methods explore the parameter space in a systematic manner, they are not computationally very efficient. On the other hand, gradient methods use information from the derivatives of the optimization function to more effectively guide the search and find optimum solutions much quicker. In this module/ library we also provided a special function to aproximate a gradient of an objective function
     . The following code is intended to demonstrate how we can call the grad function to aproximate  Gradient of Rastrign function
     ```c++
@@ -718,6 +718,7 @@
   - **Differential evolution**
   - **Evolutionary algorithms**
 ## 7.Nonlinear Equations
+  - **Introduction** 
 
     A system of nonlinear equations is a system of two or more equations in two or more variables containing at least one equation that is not linear. In this module we're provide some robust algorithm like newton, spiral dynamic optimization, broyden method and homotopy for solving n system of nonlinear equation. The following nonlinear equation is intended to test each algorithm   
 
