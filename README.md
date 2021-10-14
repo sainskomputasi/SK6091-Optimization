@@ -574,6 +574,11 @@
     After compile the program : 
     > Result : -13.6218, -0.462183, 13.6189, -0.208505;
 
+    **The Gauss Newton Method is consist of 3 parameters:**
+    * *Initial Point (as a matrix type)*
+    * *data population t (as matrix type)*
+    * *data population f(t) as matrix type*
+
     The following graph give us knowledge how robust our module to estimate the nonlinear least square problem
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/gauss%20graph.jpg)
@@ -609,6 +614,11 @@
 
     After compile the program : 
     > Result : -6.10177, -0.902389, 6.15153, -0.135121
+
+    **The Levenberg-Marquardt Method is consist of 3 parameters:**
+    * *Initial Point (as a matrix type)*
+    * *data population t (as matrix type)*
+    * *data population f(t) as matrix type*
 
     The following graph give us knowledge how robust our module to estimate the nonlinear least square probles
 
