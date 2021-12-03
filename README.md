@@ -628,8 +628,6 @@
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/benchamark.jpg)
 
-  - **Quasi Newton**
-  - **Hybrid Levenberg–Marquardt -Quasi Newton**
 ## 5.Calculating Derivatives
   - **Approximating the Gradient**
     
@@ -663,7 +661,6 @@
     6|Spring_sys|  -28.34,   -180.6|0.5,  -0.5
     7|Rastrigin|  1.00,   -1.00|0.5,  -0.5
 
-  - **Approximating a Sparse Jacobian**
   - **Approximating the Hessian**
 
     The Hessian matrix or Hessian is a square matrix of second-order partial derivatives of a scalar-valued function, or scalar field. It describes the local curvature of a function of many variables. The following code is intended to demonstrate how we can call the hessian function to aproximate  hesian matrix of Rastrign function
@@ -714,7 +711,6 @@
     6|Spring_sys|136.121|107.269|107.269|227.194
     7|Rastrigin|-392.783|-2.15611e+06|-2.08095e+06|-392.783
 
-  - **Approximating a Sparse Hessian**
 ## 6.Heuristic-Optimization
   - **Spiral Dynamic Optimization**
     
@@ -761,6 +757,10 @@
     }
     #endif
     ``` 
+    **The Spiral Dynamic Optimization Method is consist of 2 parameters:**
+    * *Maximum Iteration (as a unsigned int)*
+    * *Dimension of Spiral Optimization Algorithm (as an unsigned int)*
+
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
 
