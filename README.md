@@ -724,8 +724,7 @@
     #include "multiDimension/multiDimenImp.hpp"
     int main()
     {
-
-	    std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+    	std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
         SK6091::Spiral::t_solve(500, 2)<<std::endl;
 	    return 0;
     }
@@ -747,7 +746,6 @@
     namespace SK6091{
         class Spiral {
             private:
-
             public:
                 static Eigen::RowVector2d t_center(Eigen::Matrix<double, 50, 2>, int);
 		        static Eigen::RowVector2d t_move(Eigen::RowVector2d, Eigen::Matrix<double, 2, 2>, 
@@ -758,7 +756,7 @@
     #endif
     ``` 
     **The Spiral Dynamic Optimization Method is consist of 2 parameters:**
-    * *Maximum Iteration (as a unsigned int)*
+    * *Maximum Iteration (as an unsigned int)*
     * *Dimension of Spiral Optimization Algorithm (as an unsigned int)*
 
 ## 7.Optimization-Nonlinear Equations
