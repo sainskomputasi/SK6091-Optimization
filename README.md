@@ -765,7 +765,7 @@
     
     Having transform the constrained optimization problem to unconstrined optimization problem, the general spiral optimization  algorithm for solving optimization  is as follow: 
     
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/nonlinear%20formulation.PNG)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/rn.PNG)
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
