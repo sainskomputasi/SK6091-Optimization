@@ -761,7 +761,7 @@
 
     For constrained optimization problem, our module uses a penalty function to deal with some constrains. Suppose we have the nonlinear constrained optimization problem which has formulated as:
 
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fig1.PNG)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/nonlinear%20formulation.PNG)
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
