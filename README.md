@@ -714,7 +714,7 @@
 ## 6.Heuristic-Optimization
   - **Spiral Dynamic Optimization**
     
-    The spiral optimization (SPO) algorithm is a metaheuristic inspired by spiral phenomena in nature, the first SPO algorithm was proposed for two-dimensional unconstrained optimization based on two-dimensional spiral models. In this module we're also provide a brief overview how to solve constrained optimization problem. The SPO algorithm is a multipoint search algorithm that has no objective function gradient, which uses multiple spiral models that can be described as deterministic dynamical systems.The general SPO algorithm for a minimization problem under the maximum iteration (termination criterion) is as follows :  
+    The spiral optimization (SPO) algorithm is a metaheuristic inspired by spiral phenomena in nature, the first SPO algorithm was proposed for two-dimensional unconstrained optimization based on two-dimensional spiral models. In this module we're also provide a brief overview how to solve constrained optimization problem. The SPO algorithm is a multipoint search algorithm that has no objective function gradient, which uses multiple spiral models that can be described as deterministic dynamical systems.The SPO algorithm for a minimization (R-2) problem under the maximum iteration (termination criterion) is as follows :  
     
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/spiral%20(3).PNG)
     
@@ -761,6 +761,10 @@
 
     For constrained optimization problem, our module uses a penalty function to deal with some constrains. Suppose we have the nonlinear constrained optimization problem which has formulated as:
 
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/nonlinear%20formulation.PNG)
+    
+    Having transform the constrained optimization problem to unconstrined optimization problem, the general spiral optimization  algorithm for solving optimization  is as follow: 
+    
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/nonlinear%20formulation.PNG)
 
 ## 7.Optimization-Nonlinear Equations
