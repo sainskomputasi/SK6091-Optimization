@@ -759,6 +759,10 @@
     * *Maximum Iteration (as an unsigned int)*
     * *Dimension of Spiral Optimization Algorithm (as an unsigned int)*
 
+    For constrained optimization problem, our module uses a penalty function to deal with some constrains. Suppose we have the nonlinear constrained optimization problem which has formulated as:
+
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fig1.PNG)
+
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
 
