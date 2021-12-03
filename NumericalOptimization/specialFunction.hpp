@@ -44,7 +44,7 @@ namespace SK6091 {
 		inline static double Ft(int, Eigen::RowVector2d);
 		inline static double Pt(int, int, Eigen::RowVector2d);
 		inline static Eigen::RowVector2d homotopyt(Eigen::RowVector2d);
-
+		inline static Eigen::RowVector2d homotopyt(Eigen::RowVector2d, double);
 		inline static Eigen::RowVector2d polakRibere(Eigen::RowVector2d);
 		//implementation of levenberg method.. 
 		inline static Eigen::RowVector2d levenvergMarquardt(Eigen::RowVector2d);
@@ -52,6 +52,32 @@ namespace SK6091 {
 		//newton for n nonlinear system
 		inline static Eigen::RowVector3d nonLinearNewton(Eigen::RowVector3d);
 		inline static Eigen::RowVector3d nonLinearBroyden(Eigen::RowVector3d);
+		inline static double strongBacktracking(Eigen::RowVector2d, Eigen::RowVector2d);
+		inline static double zoom_lineSearch(double, double,Eigen::RowVector2d,Eigen::RowVector2d);
+		//hybrid lm with quasi newton... 
+		inline static void LevenbergM(Eigen::RowVector4d&,bool&,bool&,int&, Eigen::Matrix<double, 1, 11>, Eigen::Matrix<double, 1, 11>);
+		//3d 
+		inline static double Griewank(Eigen::RowVector3d, int);
+		inline static double Ackley(Eigen::RowVector3d, int);
+		inline static double Booth_s(Eigen::RowVector3d, int);
+		inline static double Michalewicz(Eigen::RowVector3d, int);
+		inline static double Spring_sys(Eigen::RowVector3d, int);
+		inline static double Rastrigin(Eigen::RowVector3d, int);
+		inline static double boxFunction(Eigen::RowVector3d, int);
+
+		//spiral solve
+		inline static double f_sp1( Eigen::RowVector3d);
+		inline static double f_sp2( Eigen::RowVector3d);
+		inline static double f_sp3(Eigen::RowVector3d);
+		inline static double gSum(Eigen::RowVector3d);
+		//test 2 dimension 
+		inline static double t_sp1(Eigen::RowVector2d);
+		inline static double t_sp2(Eigen::RowVector2d);
+		inline static double t_sp3(Eigen::RowVector2d);
+		inline static double t_gSum(Eigen::RowVector2d);
+
+		//conversi method ...
+		inline static double LeastSquareModel(Eigen::RowVector2d x, Eigen::Matrix<double, 1, 5>, Eigen::Matrix<double, 1, 5>);
 
 	private:
 		std::string notFound;

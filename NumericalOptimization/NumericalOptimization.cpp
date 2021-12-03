@@ -10,6 +10,8 @@
 #include "specialFunctionImp.hpp"
 #include "multiDimension/multiDimenImp.hpp"
 #include <random>
+#include "heuristik/spiralImp.h"
+
 void solveNonLinear(Eigen::Matrix<double,1,4>,Eigen::Matrix<double,1,11>,Eigen::Matrix<double,1,11>);
 double objectiveFunc(double);
 template <typename T>
@@ -221,20 +223,27 @@ int main()
 	//13.6189 - 0.208505 - 13.6218 - 0.462183
 	//-13.6219 -0.462181    13.619 -0.208506
 	Eigen::Matrix<double, 1, 4> X;
-	X << -12.6218, -0.362183, 13.6189, -0.208505;
-	solveNonLinear(X, y_i, t_i);
-	std::cout<<"Result: "<<SK6091::functionTest::gaussNewton(X, y_i, t_i);
+	//X << -12.6218, -0.362183, 13.6189, -0.208505;
+	//solveNonLinear(X, y_i, t_i);
+	//std::cout<<"Result: "<<SK6091::functionTest::gaussNewton(X, y_i, t_i);
 
-	X << 13.6189, - 0.208505, - 13.6218 ,- 0.462183;
-	solveNonLinear(X, y_i, t_i);
-	std::cout << "Prove solution .... " << std::endl;
-	X << -13.6218, -0.462183, 13.6189, -0.208505;
+	X << 5.35701, - 0.123898 ,- 5.35724 ,- 19.8993;
+	//solveNonLinear(X, y_i, t_i);
+	std::cout << "1. Prove solution .... " << std::endl;
+	//X << 5.35734, -0.123896, -5.35758, -9.37799; 
 
 	for (size_t i = 0; i < 11; i++)
 	{
 		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) <<"| ";
 	}
-	std::cout << "1.experimant model ..." << std::endl;
+	//X << -13.6219 ,- 0.462181  ,  13.619 ,- 0.208506;
+	X << 5.3947, - 0.12507, - 5.36702, - 29.9088;
+	std::cout << "\n2. Prove solution .... " << std::endl;
+	for (size_t i = 0; i < 11; i++)
+	{
+		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
+	}
+	/*std::cout << "1.experimant model ..." << std::endl;
 	X << -13.5218, -0.462183, 13.6189, -0.208505;
 	for (size_t i = 0; i < 11; i++)
 	{
@@ -262,6 +271,9 @@ int main()
 	{
 		std::cout << X(0, 0) * std::exp(X(0, 1) * t_i(0, i)) + X(0, 2) * std::exp(X(0, 3) * t_i(0, i)) << "| ";
 	}
+
+	*/
+
 	//test for dogleg method  .... 
 	//std::cout << "Test for dogled method ...." << std::endl;
 	//std::cout << SK6091::functionTest::dogLeg(X, y_i, t_i) << std::endl;
@@ -289,6 +301,134 @@ int main()
 	/*Eigen::RowVector2d initialGuessPolak;
 	initialGuessPolak << 1.0, 0.5;
 	SK6091::functionTest::levenvergMarquardt(initialGuessPolak); */
+	/*
+	std::cout << "\ntest line search, newton";
+	Eigen::RowVector2d x;
+	x << 1.3, 1.3;
+	SK6091::MultiD lineSearchNewton;
+	lineSearchNewton.newton(x,500);
+	x << 3.3, 3.3;
+	lineSearchNewton.newton(x, 500);
+	x << 0.3, 0.2;
+	lineSearchNewton.newton(x, 500);
+	*/
+	//optimasi ....
+
+	/*auto start = std::chrono::steady_clock::now();
+	//std::cout << "test find the current initial point \t:" << SK6091::Spiral::solve(500)<<std::endl;
+	auto end = std::chrono::steady_clock::now();
+	std::chrono::duration<double> sec = end - start;
+	std::cout << "Elapsed time \t:" << sec.count() << std::endl;
+	Eigen::RowVector3d x;
+	x << -12.256500, -22.894900, -2.7898200;
+	std::cout << "1. \t:" << SK6091::functionTest::f_sp1(x) << std::endl;
+	x << -8.943090, -23.271500, -12.912800;
+	std::cout << "1. \t:" << SK6091::functionTest::f_sp1(x) << std::endl;
+	std::cout << "2. \t:" << SK6091::functionTest::f_sp2(x) << std::endl;
+	std::cout << "3. \t:" << SK6091::functionTest::f_sp3(x) << std::endl;
+	std::cout << "test sensitiveness of a function ...." << std::endl;
+	auto y = SK6091::Spiral::solve(100);
+	x << 0.498145, - 0.199606, - 0.528826;
+	std::cout << "1. \t:" << SK6091::functionTest::f_sp1(y) << std::endl;
+	std::cout << "2. \t:" << SK6091::functionTest::f_sp2(y) << std::endl;
+	std::cout << "3. \t:" << SK6091::functionTest::f_sp3(y) << std::endl;
+	*/
+	/*std::cout << "test rosenbrock for 2 dimension \t: ";
+	Eigen::RowVector2d x = SK6091::Spiral::t_solve(500, 0);
+	std::cout << "griewank value \t: " << SK6091::Spiral::t_rosenBrock(x, 2);
+	std::cout << "at point \t: " << x << std::endl; */
+	//Eigen::RowVector2d x = SK6091::Spiral::t_solve(500, 0);
+	//std::cout << "root \t " << x << std::endl;
+	/*
+	Eigen::RowVector2d initialPoint,temp1,temp2,temp3;
+	initialPoint << 0.8, 0.4;
+	//std::cout << "test homotopy \t: " << SK6091::functionTest::homotopyt(initialPoint) <<std::endl;
+	temp1 = SK6091::functionTest::homotopyt(initialPoint);
+
+	initialPoint << 0.6, 0.6;
+	temp2 = SK6091::functionTest::homotopyt(initialPoint);
+	initialPoint << 0.9, 1.0;
+	temp3 = SK6091::functionTest::homotopyt(initialPoint);
+
+	//std::cout << "test homotopy \t: " << SK6091::functionTest::homotopyt(initialPoint) << std::endl;
+	//test converge ...
+	//	SK6091::functionTest::Ft
+	std::cout << "hasil 1 \t: ";
+	for (size_t i = 1; i < 3; i++)
+	{
+		std::cout << SK6091::functionTest::Ft(i, temp1) << "| ";
+	}
+	std::cout << "\nhasil 2 \t: ";
+	for (size_t i = 1; i < 3; i++)
+	{
+		std::cout << SK6091::functionTest::Ft(i, temp2) << "| ";
+	}
+	std::cout << "\nhasil 3 \t: ";
+	for (size_t i = 1; i < 3; i++)
+	{
+		std::cout << SK6091::functionTest::Ft(i, temp3) << "| ";
+	}
+	*/
+	//test non linear least squares 
+	
+	/*std::cout << "test non linear least squares ..." << std::endl;
+	Eigen::Matrix<double, 1, 5> t_iNon, y_iNon;
+	t_iNon << 1.0, 2.0, 4.0, 5.0, 8.0;
+	y_iNon << 3.0, 4.0, 6.0, 11.0, 20.0;
+	std::cout << "result \t: " <<SK6091::Spiral::t_solve(500, t_iNon, y_iNon) << std::endl;
+	for (size_t i = 0; i < 5; i++)
+	{
+		std::cout << 2.54105  * std::exp(0.259505 * t_iNon(0, i)) << "| ";
+	}
+	std::cout << "test " << std::endl;
+	t_iNon << 1.0, 2.0, 3.0, 4.0, 5.0;
+	y_iNon << 8.3, 11.0, 14.7, 19.7, 26.7;
+	std::cout << "result \t: " << SK6091::Spiral::t_solve(500, t_iNon, y_iNon) << std::endl;
+	Eigen::RowVector2d xResult = SK6091::Spiral::t_solve(500, t_iNon, y_iNon);
+	for (size_t i = 0; i < 5; i++)
+	{
+		std::cout << xResult[0] * std::exp(xResult[1] * t_iNon(0, i)) << "| ";
+	}
+	std::cout << "test " << std::endl;
+	*/
+	
+	//another model a*cos(b*ti)+b*sin(a*ti)
+	/*Eigen::Matrix<double, 1, 5> t_iNon, y_iNon;
+	t_iNon << 1.0, 2.0, 4.0, 5.0, 8.0;
+	y_iNon << 3.0, 4.0, 6.0, 11.0, 20.0;
+	for (size_t i = 0; i < 5; i++)
+	{
+		y_iNon(0, i) = 100.0 * std::cos(102.0 * t_iNon(0, i)) + 102.0 * std::sin(100.0 * t_iNon(0, i));
+	}
+	std::cout << "experiment 2 \t: " << y_iNon << std::endl;	
+	t_iNon << 1.0, 2.0, 4.0, 5.0, 8.0;
+	std::cout << y_iNon << std::endl;
+	//std::cout << "result \t: " << SK6091::Spiral::t_solve(500, t_iNon, y_iNon) << std::endl;
+	//-6.45229e-10     0.438393
+	//collect data from rosenbrock function ......
+	Eigen::RowVector2d xResult = SK6091::Spiral::t_solve(1000, t_iNon, y_iNon);
+	for (size_t i = 0; i < 5; i++)
+	{
+		std::cout << xResult[0] * std::cos(xResult[1] * t_iNon(0, i)) + xResult[1] * std::sin(xResult[0] * t_iNon(0, i)) << "| ";
+	}
+	std::cout << "solution \t: " << xResult << std::endl;
+	std::cout << "test " << std::endl;
+	*/
+	//std::cout << "Test rosenbrock function \t: " << SK6091::Spiral::f_solve(500) << std::endl;
+	//SK6091::Spiral::f_solve(500);
+	//SK6091::Spiral::l_solve(1000, y_i, t_i);
+	//std::cout<<SK6091::Spiral::t_solve(500, 2);
+	//auto tempSpiralS = SK6091::Spiral::t_solve(500, 2);
+	Eigen::RowVector2d x;
+	x << 1.95280, 0.088662;
+	double  fx = 1 / 2.0 * std::pow(x[0] - 2.0, 2.0) + 1 / 2.0 * std::pow(x[1] - 1 / 2.0, 2.0);
+	std::cout << "Spiral Hasil \t: " << fx << std::endl;
+	//std::cout << "\n optima \t: " << tempSpiralS;
+	//std::cout << "test inspect \t: " << std::pow(tempSpiralS[0], 2.0) + std::pow(tempSpiralS[1], 2.0);
+
+	Eigen::RowVector2d tempVar; 
+	//tempVar = SK6091::Spiral::t_solve(1000, 2);
+	//std::cout << "\nvalue \t :" << tempVar[0] + tempVar[1] <<"and x : "<<tempVar << std::endl;
 	return 0;
 }
 inline double MA5171::Optimization::f(double x1,double x2) {

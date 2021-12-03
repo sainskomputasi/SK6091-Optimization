@@ -2,6 +2,7 @@
 #define SPECIAL_FUNCTION_IMP
 #include <cmath>
 #include <math.h>
+#include <ctime>
 #include <eigen/dense>
 #include "specialFunction.hpp"
 inline double SK6091::functionTest::Griewank(Eigen::RowVector2d temp){
@@ -24,6 +25,7 @@ inline double SK6091::functionTest::Ackley(Eigen::RowVector2d temp) {
 }
 inline double SK6091::functionTest::Booth_s(Eigen::RowVector2d temp) {
 	auto s = 0.0;
+
 	s = std::pow((temp[0] + 2 * temp[1] - 7.0), 2.0) + std::pow((2 * temp[0] + temp[1] - 5.0),2.0);
 	return s;
 }
@@ -175,6 +177,59 @@ inline double SK6091::functionTest::F(int I, Eigen::RowVector3d X) {
 	return f;
 
 }
+//spiral test 
+inline  double SK6091::functionTest::f_sp1(Eigen::RowVector3d X) {
+	//return (3 * X[0] - cos(X[1] * X[2]) - 0.5);
+	//return ( (X[0] * X[1]) - (X[0] - 2.0 * X[2]) * (X[1] - 2.0 * X[2]) - 165.0); ?incomplete
+	//return (std::pow(X[0], 2.0) + X[1] - 37.0);
+	return (3.0 * std::pow(X[0], 2.0) - std::pow(X[1], 2.0));
+}
+inline  double SK6091::functionTest::f_sp2(Eigen::RowVector3d X) {
+	//return (X[0] * X[0] - 81 * (X[1] + 0.1) * (X[1] + 0.1) + sin(X[2]) + 1.06);	
+	//return ( (X[0] * std::pow(X[1], 3.0) / 12.0) - ( ( (X[0] - 2.0 * X[2]) * std::pow((X[1] - 2.0 * X[2]), 3.0) )/12.0)  - 9369.0);
+	//return (X[0] - std::pow(X[1], 2.0) - 5.0);
+	return (3.0 * std::pow(X[1], 2.0) * X[0] - std::pow(X[0], 3.0) - 1.0);
+}
+inline  double SK6091::functionTest::f_sp3(Eigen::RowVector3d X) {
+	//return (exp(-X[0] * X[1]) + 20 * X[2] + (10 * M_PI - 3) / 3);
+	/*double a = 2.0 * std::pow(X[1] - X[2], 2.0);
+	double b =  std::pow(X[0] - X[2], 2.0)*X[2];
+	double c = X[1] + X[0] - 2.0 * X[2];
+	return ((a * b / c) - 6835.0); */
+	return (X[0] + X[1] + X[2] - 3.0);
+}
+inline double SK6091::functionTest::gSum(Eigen::RowVector3d x) {
+	double s=1.0 / (1.0 + std::pow(SK6091::functionTest::f_sp1(x),2.0) + std::pow(SK6091::functionTest::f_sp2(x),2.0) + 
+		0 );
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
+
+//test spiral 2 dimension ... 
+inline  double SK6091::functionTest::t_sp1(Eigen::RowVector2d x) {
+	//double term1 = std::pow(x[0], 2.0) - std::pow(x[1], 2.0);
+	//double term2 = 2.0 * x[1];
+	//double term1 = std::exp(x[0] - x[1]) - std::sin(x[0] + x[1]); //test 2...
+	double term1 = 0.5 * std::sin(x[0] * x[1]) - 0.25 * x[1] / M_PI - 0.5 * x[0];
+	return (term1);
+}
+inline  double SK6091::functionTest::t_sp2(Eigen::RowVector2d x) {
+	//return (2.0 * x[0] + std::pow(x[1], 2.0) - 6.0);//test 1
+	//double term1 = std::pow(x[0], 2.0) * std::pow(x[1], 2.0) - std::cos(x[0]+x[1]);//test 2
+	double term1 = (1 - 0.25 / M_PI);
+	double term2 = std::exp(2.0 * x[0]) - M_E;
+	double term3 = M_E * x[1] / M_PI - 2.0 * M_E * x[0];
+	return (term1 * term2 + term3);
+}
+inline  double SK6091::functionTest::t_gSum(Eigen::RowVector2d x) {
+	double s = 1.0 / (1.0 + std::pow(SK6091::functionTest::t_sp1(x), 2.0) + std::pow(SK6091::functionTest::t_sp2(x), 2.0) +
+		0);
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
+
 inline  double SK6091::functionTest::P(int I, int J, Eigen::RowVector3d X) {
 	double p = 0.0;
 
@@ -873,10 +928,8 @@ inline double SK6091::functionTest::Ft(int I, Eigen::RowVector2d X) {
 	case 2:
 		f = std::sin(X[0]) - X[1]; //original function
 		break;
-
 	}
 	return f;
-
 }
 inline  double SK6091::functionTest::Pt(int I, int J, Eigen::RowVector2d X) {
 	double p = 0.0;
@@ -918,6 +971,62 @@ inline Eigen::RowVector2d SK6091::functionTest::homotopyt(Eigen::RowVector2d X1)
 	RMM[1] = 0.5;
 	RMM[2] = 1.0;
 	RMM[3] = 0.0;
+	for (size_t i = 1; i < N; i++)
+	{
+		x[i - 1] = X1[i - 1]; // move the initial value to temporary object x..
+	}
+	for (size_t i = 1; i < N; i++)
+	{
+		b[i - 1] = -h * SK6091::functionTest::Ft(i, x);  //step length *f(x)
+	}
+
+	while (iter <= bound) // make 4*4 system of linear eq.. 
+	{
+		for (size_t i = 1; i < N; i++)
+		{
+			x[i - 1] = X1[i - 1]; //update value for x ... contain row vector 1*3
+		}
+		kk = 1;
+		while (kk <= 4)//design for rungga kutta method..
+		{
+			for (size_t i = 1; i < N; i++)
+			{
+				for (size_t j = 1; j < N; j++) {
+					A(i - 1, j - 1) = SK6091::functionTest::Pt(i, j, x);//jacobian matrix... 
+				}
+			}
+			//solve ax  = b here ... 
+			Ainv = A.inverse();//note for singular... assume that A is singular matrix 
+			ki = (Ainv * b.transpose()).transpose(); //find each value for k_i
+
+			for (size_t i = 1; i < N; i++)
+			{
+				xk1(kk - 1, i - 1) = ki[i - 1];
+				x[i - 1] = X1[i - 1] + RMM[kk - 1] * xk1(kk - 1, i - 1);
+			}
+			++kk;//increase kk and move to next rows
+		}
+		for (size_t i = 1; i < N; i++)
+		{
+			X1[i - 1] = X1[i - 1] + (xk1(0, i - 1) + 2 * xk1(1, i - 1) + 2 * xk1(2, i - 1) + xk1(3, i - 1)) / 6.0; //apply runga kutta orde 4
+		}
+
+		std::cout << "x" << std::endl;
+		std::cout << X1 << std::endl;
+
+		//update solution....
+		++iter;
+	}
+	return X1;
+}
+inline Eigen::RowVector2d SK6091::functionTest::homotopyt(Eigen::RowVector2d X1 , double stepLength) {
+	const int N = 3; 
+	const double h = stepLength;  //step length for euler method 
+	unsigned int iter = 1, bound = 4, kk = 1;
+	double RMM[4];
+	Eigen::RowVector2d x, b, ki;
+	Eigen::Matrix<double, 2, 2> A, Ainv;
+	Eigen::Matrix<double, 4, 10>xk1;
 	for (size_t i = 1; i < N; i++)
 	{
 		x[i - 1] = X1[i - 1]; // move the initial value to temporary object x..
@@ -1162,6 +1271,255 @@ inline  Eigen::RowVector3d SK6091::functionTest::nonLinearBroyden(Eigen::RowVect
 	}
 	return X;
 }
+inline double SK6091::functionTest::strongBacktracking(Eigen::RowVector2d X, Eigen::RowVector2d D) {
+	double c1 = 1.e-4, c2 = 0.9;
+	double a0 = 0.0, amax = 1.e11 , a1 = std::max(0.0, amax);
+	unsigned i = 1;
+	double yi_1 = SK6091::functionTest::Griewank(X),yi=0.0;
+	double g0 = SK6091::functionTest::grad(X + D)*D.transpose();
+	double	astar = 0.0;
+	double g = 0.0;
+	while (true)
+	{
+
+		yi = SK6091::functionTest::Griewank(X + D);
+		if (yi>(yi_1 + c1*a1*g0) || (yi>=yi_1) && (i >1) )//ecaluate for first iteration...
+		{
+			astar = zoom_lineSearch(a0, a1 ,X,D);
+			std::cout << "1.a solution " << astar << std::endl;
+			return astar;
+			break;
+		}
+		g = SK6091::functionTest::grad(X + D) * D.transpose();
+		if (std::fabs(g) <=(-c2*g0))
+		{
+			astar = a1;
+			std::cout << "2.a solution " << astar << std::endl;
+			return astar;
+			break;
+		}
+		if (g>=0.0)
+		{
+			astar = zoom_lineSearch(a1, a0,X,D);
+			std::cout << "3.a solution " << astar << std::endl;
+
+			return astar;
+			break;
+		}
+		a0 = a1;
+		a1 = std::max(a1, amax);
+		std::cout << "no  solution " << astar << std::endl;
+
+		++i;
+	}
+}
+inline double SK6091::functionTest::zoom_lineSearch(double alo, double ahi, Eigen::RowVector2d x, Eigen::RowVector2d d) {
+	 double c1 = 1.e-4, c2 = 0.9;
+	//interpolation
+	double alpha = 0.0, aj = 0.0; ;
+	double fx; 
+	double g=0.0,g0=SK6091::functionTest::grad(x)*d.transpose();
+	double ylo = SK6091::functionTest::Griewank(x + alo * d);
+	double y = 0.0;
+	double astar = 0.0;
+	while (true)
+	{
+		std::cout << "Eksekusi zoom" << std::endl;
+		aj = (alo + ahi) / 2.0;
+		y = SK6091::functionTest::Griewank(x + aj * d);
+		g = SK6091::functionTest::grad(x) *d.transpose();//gradient
+		//evaluate (phi(aj))
+		if (y>(ylo+ c1 *aj*g0) ||(y>=ylo))
+		{
+			ahi = aj;
+		}
+		else {
+			g = SK6091::functionTest::grad(x + aj * d) * d.transpose();
+			if (std::fabs(g)<=(-c2*g0))
+			{
+				astar = aj;//note consider to make temporary object here..
+				return aj;
+				break;
+			}
+			else if (g*(ahi-alo)>=0)
+			{
+				ahi = alo;
+			}
+			alo = aj;
+		}
+	}
+	return aj;
+}
+/*
+//hybrid method 
+inline void SK6091::functionTest::LevenbergM(Eigen::RowVector4d& X, bool& found, bool& better, int& method, Eigen::Matrix<double, 1, 11>y_i, Eigen::Matrix<double, 1, 11> t_i) {
+	/*unsigned int k = 0;
+	double v = 2.0;
+	Eigen::Matrix<double, 1, 4> xNew;
+	Eigen::Matrix<double, 4, 4> A;
+	A = SK6091::functionTest::levenbergHessian(X, y_i, t_i);
+	Eigen::Matrix<double, 4, 1>g;
+	g = SK6091::functionTest::levenbergJacobian(X, y_i, t_i);
+	const double tolerance = 1.e-8;
+	bool found = (g.lpNorm<Eigen::Infinity>() <= tolerance);
+	const double  tau = 1.e-9;
+	Eigen::Matrix<double, 1, 4> maxTemp;
+	maxTemp << A(0, 0), A(1, 1), A(2, 2), A(3, 3);
+	double mu = tau * A.maxCoeff();
+	double gainRatio = 0.0, gainRationTerm = 0.0;
+	Eigen::Matrix<double, 4, 1> hlm;
+	Eigen::Matrix<double, 4, 4> identity;
+	identity = identity.Identity();
+	double maxTerm = 0.0;
+	while ((!found && k < 100))
+	{
+		++k;
+		std::cout << "total iteration \t:" << k << std::endl;
+		hlm = (A + mu * A.Identity()).inverse() * -g;
+		if ((hlm.norm() < (tolerance * (X.norm() + tolerance))))
+		{
+			found = true;
+			break;
+		}
+		else {
+			xNew = X + hlm.transpose();
+			gainRationTerm = (1 / 2.0) * hlm.transpose() * (mu * hlm - g);
+			gainRatio = (SK6091::functionTest::fx(X, y_i, t_i) - SK6091::functionTest::fx(xNew, y_i, t_i)) / (gainRationTerm);
+			if (gainRatio > 0)
+			{
+				X = xNew;
+				A = SK6091::functionTest::levenbergHessian(X, y_i, t_i);
+				g = SK6091::functionTest::levenbergJacobian(X, y_i, t_i);
+				found = (g.lpNorm<Eigen::Infinity>() < tolerance);
+				maxTerm = 1 - std::pow(2.0 * gainRatio - 1.0, 3.0);
+				mu = mu * std::max(1.0 / 3.0, maxTerm);
+				v = 2.0;
+			}
+			else {
+				mu = mu * v;
+				v = 2.0 * v;
+			}
+		}
+		std::cout << "test for x ....";
+		std::cout << X;
+	}
+	return X;
+}
+*/
+/*
+Eigen::RowVector2d xnew =X;
+method = 1;
+unsigned int k = 0;
+double v = 2.0;
+Eigen::Matrix<double, 1, 4> xNew;
+Eigen::Matrix<double, 4, 4> A;
+A = SK6091::functionTest::levenbergHessian(X, y_i, t_i);
+Eigen::Matrix<double, 4, 1>g;
+g = SK6091::functionTest::levenbergJacobian(X, y_i, t_i);
+const double tolerance = 1.e-8;
+//bool found = (g.lpNorm<Eigen::Infinity>() <= tolerance);
+const double  tau = 1.e-9;
+//Eigen::Matrix<double, 1, 4> maxTemp;
+//maxTemp << A(0, 0), A(1, 1), A(2, 2), A(3, 3);
+double mu = tau * A.maxCoeff();
+double gainRatio = 0.0, gainRationTerm = 0.0;
+Eigen::Matrix<double, 4, 1> hlm;
+double maxTerm = 0.0; 
+A = A + mu * A.Identity();
+hlm = A.inverse() * -g;
+int  count = 0;
+if (hlm.norm() <=(tolerance *X.norm() +tolerance))
+{
+	found = true;
+}
+else {
+	xnew = X + hlm.transpose();
+	gainRationTerm = (1 / 2.0) * hlm.transpose() * (mu * hlm - g);
+	gainRatio = (SK6091::functionTest::fx(X, y_i, t_i) - SK6091::functionTest::fx(xNew, y_i, t_i)) / (gainRationTerm);
+	if (gainRatio > 0)
+	{
+		better = true;
+		found  = g.norm() ; 
+	}
+}
 
 
+}
+*/
+
+inline double SK6091::functionTest::Griewank(Eigen::RowVector3d x, int n) {
+	unsigned int begin = 0, end = n-1;
+	double s = 0.0;
+	while (begin!=end)
+	{
+		s += 1 + (1 / 4000) * std::pow(x[begin], 2.0) + (1.0 / 4000.0) * std::pow(x[begin+1], 2.0) - std::cos(x[begin]) * std::cos((1.0 / 2.0) * x[begin+1] * std::sqrt(2.0));
+		++begin;
+	}
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
+inline  double SK6091::functionTest::Ackley(Eigen::RowVector3d x, int n) {
+	double a = 20.0, b = 0.2, c = 2.0 * M_PI;
+	auto begin = 0, end = n;
+	auto s1 = 0.0, s2 = 0.0;
+	while (begin != end)
+	{
+		s1 = s1 + std::pow(x[begin], 2.0);
+		s2 = s2 + std::cos(c * x[begin]);
+		++begin;
+	}
+	s2= (-a * std::exp(-b * std::sqrt(1.0 / end * s1)) - std::exp(1.0 / end * s2) + a + std::exp(1.0));
+	double err = 0.0;
+	err = std::pow((-s2 - 0.0), 2.0);
+	return err;
+}
+inline  double SK6091::functionTest::Booth_s(Eigen::RowVector3d x, int n) {
+	auto s = 0.0;
+	unsigned int begin = 0, end = n-1;
+	while (begin!=end)
+	{
+		s += std::pow((x[begin] + 2 * x[begin+1] - 7.0), 2.0) + std::pow((2 * x[begin] + x[begin+1] - 5.0), 2.0);
+		++begin;
+	}
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
+inline  double SK6091::functionTest::Michalewicz(Eigen::RowVector3d x, int n) {
+	auto begin = 0, end = n;
+	auto s = 0.0;
+	auto m = 10.0;
+	while (begin != end)
+	{
+		s +=  std::sin(x[begin]) *
+			(std::pow(
+				std::sin(((begin + 1) * std::pow(x[begin], 2.0) / M_PI)), (2.0 * m))
+				);
+		++begin;
+	}
+	double err = 0.0;
+	err = std::pow((-s - 0.0), 2.0);
+	return err;
+}
+
+inline  double SK6091::functionTest::Rastrigin(Eigen::RowVector3d x, int n) {
+	auto begin = 0, end = n;
+	auto s = 0.0;
+	while (begin != end)
+	{
+		s += (std::pow(x[begin], 2.0) - 10 * std::cos(2.0 * M_PI * x[begin]));
+		++begin;
+	}
+	s = 10 * 3.0 + s;
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
+inline  double SK6091::functionTest::boxFunction(Eigen::RowVector3d x, int n) {
+	double s = std::pow(x[0], 2.0) - 2.0 * x[0] * x[1] + 2 * x[1];
+	double err = 0.0;
+	err = std::pow((s - 0.0), 2.0);
+	return err;
+}
 #endif	

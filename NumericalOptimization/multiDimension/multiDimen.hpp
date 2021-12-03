@@ -13,6 +13,7 @@ namespace SK6091{
             Eigen::RowVector2d newton(Eigen::RowVector2d);
             Eigen::RowVector2d newton(Eigen::RowVector2d,int);
             Eigen::RowVector2d quasiNewton(Eigen::RowVector2d);
+            inline double backtrackingLineSearch(Eigen::RowVector2d, Eigen::RowVector2d);
     };
 }
 #include "multiDimenImp.hpp"

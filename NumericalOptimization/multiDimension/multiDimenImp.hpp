@@ -76,7 +76,7 @@ Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x) {
     return notCoverge;
 }
 Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x, int maxIter) {
-    auto eps = 1e-7;
+    auto eps = 1e-3;
     double fPrev = 0.0, f = 0.0;
     auto deriv = x;
     deriv << 0, 0;
@@ -98,14 +98,19 @@ Eigen::RowVector2d SK6091::MultiD::newton(Eigen::RowVector2d x, int maxIter) {
         hes = SK6091::functionTest::hessian(x);
         inv = hes.inverse();
         search = -inv * deriv.transpose();
-        alpha1 = SK6091::functionTest::goldFunc(x,search)[0];
-        falpha1 = SK6091::functionTest::goldFunc(x,search)[1];
+        std::cout << "backracking start .... " << std::endl;
+        alpha1 = SK6091::MultiD::backtrackingLineSearch(x,search);
+        //alpha1 = SK6091::functionTest::goldFunc(x, search)[0];
+
+        std::cout << "backracking finish .... with alpha \t:  " <<alpha1<< std::endl;
+
         //x = (x.transpose() - (inv * deriv.transpose())).transpose();
         f = SK6091::functionTest::Griewank(x);
-        write << begin << ";" << x[0] << ";" << x[1] << ";" << falpha1 << ";" << deriv.norm() << ";" << std::endl;
-        if ((std::fabs(falpha1 - fPrev) < eps) || (deriv.norm() < eps))
+        std::cout << begin << ";" << x[0] << ";" << x[1] << ";" << falpha1 << ";" << deriv.norm() << ";" << std::endl;
+        if ( (deriv.norm() < eps))
         {
             return x;
+            std::cout << "Total iteration \t: " << begin << "result \t: " << x << std::endl;
             break;
         }
         fPrev = falpha1;
@@ -181,4 +186,19 @@ Eigen::RowVector2d SK6091::MultiD::quasiNewton(Eigen::RowVector2d x) {
     write.close();
     return x;
 }
+inline double SK6091::MultiD::backtrackingLineSearch(Eigen::RowVector2d x, Eigen::RowVector2d s) {
+    double alpha = 1.0;
+    double p = 0.1;
+    double c =0.9;
+    int begin = 0;
+    while (SK6091::functionTest::Griewank(x+alpha*s) >= 
+        (SK6091::functionTest::Griewank(x) + c*alpha*SK6091::functionTest::grad(x)*s.transpose()) )
+    {
+        ++begin;
+        std::cout << "++begin\t: " << ++begin << std::endl;
+        alpha=alpha*p;
+    }
+    return alpha;
+}
+
 #endif
