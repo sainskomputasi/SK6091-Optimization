@@ -724,8 +724,8 @@
     #include "multiDimension/multiDimenImp.hpp"
     int main()
     {
-    	std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
-        SK6091::Spiral::t_solve(500, 2)<<std::endl;
+        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+            SK6091::Spiral::t_solve(500, 2)<<std::endl;
 	    return 0;
     }
     ```
