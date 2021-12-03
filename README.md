@@ -775,14 +775,14 @@
         double fx,c1;
         fx = std::pow(x[0], 2.0) + std::pow(x[1] - 1.0, 2.0);
 	    c1 = x[1] - std::pow(x[0], 2.0);
-	    double sumConstrained = std::pow(c1, 2.0); //handling constrains, problem 5 from our paper nonlinear constrained optimization
+	    double sumConstrained = std::pow(c1, 2.0); 
+        //handling constrains, problem 5 from our paper nonlinear constrained optimization
 	    fx = fx + sumConstrained;
         return fx;
     }
-
     int main()
     {
-        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+        std::cout<< "The Minimum Point occurs at x[0],x[1] \t:\n"<<
             SK6091::Spiral::t_solve(500, 2)<<std::endl;
 	    return 0;
     }
