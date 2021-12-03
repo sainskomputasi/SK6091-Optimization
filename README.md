@@ -793,7 +793,7 @@
 
     In our paper (**Finding Solution Of Nonlinear Constarined Optimization Using Spiral Optimization Algorithm**), we try to  evaluate the effectiveness and the efficiency of the proposed method, with a given the set of nonlinear constrained optimization problems from various benchmarks problems have been tested. We summarize the result as follow (*section 4.2* **Finding Solution Of Nonlinear Constarined Optimization Using Spiral Optimization Algorithm**)
 
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fig1.PNG)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/table%201.PNG)
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
