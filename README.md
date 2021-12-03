@@ -736,10 +736,12 @@
 	    return 0;
     }
     ```
+
     After compile the program : 
     > The Minimum Point occurs at x,y :  1.00007 1.00018
 
     **The Following code is Quasi Newton abstraction**
+
     ```c++
     #ifndef MULTI_DIMEN
     #define MULTI_DIMEN
