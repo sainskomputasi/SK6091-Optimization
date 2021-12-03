@@ -740,24 +740,27 @@
     After compile the program : 
     > The Minimum Point occurs at x,y :  1.00007 1.00018
 
-    **The Following code is Quasi Newton abstraction**
+    **The Following code is Spiral Dynamic Optimization abstraction**
 
     ```c++
-    #ifndef MULTI_DIMEN
-    #define MULTI_DIMEN
-    #include <iostream>
-    #include<vector>
+    #pragma once
+    #ifndef SPIRAL_HEADER
+    #define SPIRAL_HEADER
     #include <cmath>
-    #include <Eigen/dense>
+    #include <math.h>
+    #include <eigen/dense>
+    #include "spiralImp.h"
     namespace SK6091{
-        class MultiD{
+        class Spiral {
             private:
 
             public:
-                Eigen::RowVector2d quasiNewton(Eigen::RowVector2d);
+                static Eigen::RowVector2d t_center(Eigen::Matrix<double, 50, 2>, int);
+		        static Eigen::RowVector2d t_move(Eigen::RowVector2d, Eigen::Matrix<double, 2, 2>, 
+                        Eigen::Matrix<double, 2, 2>, Eigen::RowVector2d);
+		        static Eigen::RowVector2d t_solve(unsigned int,int);
         };
     }
-    #include "multiDimenImp.hpp"
     #endif
     ``` 
 ## 7.Optimization-Nonlinear Equations
