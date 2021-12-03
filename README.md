@@ -728,17 +728,15 @@
     #include "multiDimension/multiDimenImp.hpp"
     int main()
     {
-	    Eigen::RowVector2d initialPoint;
-	    initialPoint << 0.5, 0.3;
-	    SK6091::MultiD test;
+
 	    std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
-            test.quasiNewton(initialPoint)<<std::endl;
+        SK6091::Spiral::t_solve(500, 2)<<std::endl;
 	    return 0;
     }
     ```
 
     After compile the program : 
-    > The Minimum Point occurs at x,y :  1.00007 1.00018
+    > The Minimum Point occurs at x,y :  1.0000 1.000
 
     **The Following code is Spiral Dynamic Optimization abstraction**
 
