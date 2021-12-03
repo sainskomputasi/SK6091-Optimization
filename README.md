@@ -721,7 +721,42 @@
     The spiral optimization (SPO) algorithm is a metaheuristic inspired by spiral phenomena in nature, the first SPO algorithm was proposed for two-dimensional unconstrained optimization based on two-dimensional spiral models. In this module we're also provide a brief overview how to solve constrained optimization problem. The SPO algorithm is a multipoint search algorithm that has no objective function gradient, which uses multiple spiral models that can be described as deterministic dynamical systems.The general SPO algorithm for a minimization problem under the maximum iteration (termination criterion) is as follows :  
     
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/spiral%20(2).PNG)
-     
+    
+    The following code is intended to demonstrate how we can call the Spiral Dynamic OPtimization method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
+        ```c++
+        #include "multiDimension/multiDimenImp.hpp"
+        int main()
+        {
+	        Eigen::RowVector2d initialPoint;
+	        initialPoint << 0.5, 0.3;
+	        SK6091::MultiD test;
+	        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+                test.quasiNewton(initialPoint)<<std::endl;
+	        return 0;
+        }
+        ```
+        After compile the program : 
+        > The Minimum Point occurs at x,y :  1.00007 1.00018
+
+        **The Following code is Quasi Newton abstraction**
+        ```c++
+        #ifndef MULTI_DIMEN
+        #define MULTI_DIMEN
+        #include <iostream>
+        #include<vector>
+        #include <cmath>
+        #include <Eigen/dense>
+        namespace SK6091{
+            class MultiD{
+                private:
+
+                public:
+                    Eigen::RowVector2d quasiNewton(Eigen::RowVector2d);
+            };
+        }
+        #include "multiDimenImp.hpp"
+        #endif
+        ``` 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
 
