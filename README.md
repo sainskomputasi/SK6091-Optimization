@@ -791,7 +791,7 @@
     After compile the program : 
     > The Minimum Point occurs at x,y :  0.001167, 0.50000
 
-    In our paper (*FINDING SOLUTION OF NONLINEAR CONSTARINED OPTIMIZATION USING SPIRAL OPTIMIZATION ALGORITHM*), we try to  evaluate the effectiveness and the efficiency of the proposed method, with a given the set of nonlinear constrained optimization problems from various benchmarks problems have been tested. We summarize the result as follow (refer to *FINDING SOLUTION OF NONLINEAR CONSTARINED OPTIMIZATION USING SPIRAL OPTIMIZATION ALGORITHM*)
+    In our paper (**FINDING SOLUTION OF NONLINEAR CONSTARINED OPTIMIZATION USING SPIRAL OPTIMIZATION ALGORITHM**), we try to  evaluate the effectiveness and the efficiency of the proposed method, with a given the set of nonlinear constrained optimization problems from various benchmarks problems have been tested. We summarize the result as follow (*section 4.2* **FINDING SOLUTION OF NONLINEAR CONSTARINED OPTIMIZATION USING SPIRAL OPTIMIZATION ALGORITHM**)
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
