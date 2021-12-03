@@ -722,7 +722,8 @@
     
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/spiral%20(2).PNG)
     
-    The following code is intended to demonstrate how we can call the Spiral Dynamic OPtimization method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
+    The following code is intended to demonstrate how we can call the Spiral Dynamic Optimization method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
+       
         ```c++
         #include "multiDimension/multiDimenImp.hpp"
         int main()
