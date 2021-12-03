@@ -721,7 +721,7 @@
     The following code is intended to demonstrate how we can call the Spiral Dynamic Optimization method  to minimize Griewank function through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
        
     ```c++
-    #include "multiDimension/multiDimenImp.hpp"
+    #include "multiDimension/SpiralImp.hpp"
     int main()
     {
         std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
@@ -763,9 +763,33 @@
 
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/nonlinear%20formulation.PNG)
     
-    Having transform the constrained optimization problem to unconstrined optimization problem, the general spiral optimization  algorithm for solving optimization  is as follow: 
+    Having transform the constrained optimization problem to unconstrained optimization problem, the general spiral optimization  algorithm for solving optimization  is as follow: 
     
     ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/rn.PNG)
+
+    The following code is intended to demonstrate how we can call the Spiral Dynamic Optimization method  for solving constrained optimization problems through this module *(Note : namespace for this module is **SK6091** and folowed by it's class)*  
+       
+    ```c++
+    #include "multiDimension/Spiralimp.hpp"
+    inline  double SK6091::Spiral::constrainedFun(Eigen::RowVector2d x, int n){
+        double fx,c1;
+        fx = std::pow(x[0], 2.0) + std::pow(x[1] - 1.0, 2.0);
+	    c1 = x[1] - std::pow(x[0], 2.0);
+	    double sumConstrained = std::pow(c1, 2.0); //handling constrains, problem 5 from our paper nonlinear constrained optimization
+	    fx = fx + sumConstrained;
+        return fx;
+    }
+
+    int main()
+    {
+        std::cout<< "The Minimum Point occurs at x,y \t:\n"<<
+            SK6091::Spiral::t_solve(500, 2)<<std::endl;
+	    return 0;
+    }
+    ```
+
+    After compile the program : 
+    > The Minimum Point occurs at x,y :  1.0000 1.000
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
