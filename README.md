@@ -789,7 +789,7 @@
     ```
 
     After compile the program : 
-    > The Minimum Point occurs at x,y :  1.0000 1.000
+    > The Minimum Point occurs at x,y :  0.001167, 0.50000
 
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
