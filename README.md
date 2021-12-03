@@ -719,7 +719,7 @@
   - **Spiral Dynamic Optimization**
     
     The spiral optimization (SPO) algorithm is a metaheuristic inspired by spiral phenomena in nature, the first SPO algorithm was proposed for two-dimensional unconstrained optimization based on two-dimensional spiral models. In this module we're also provide a brief overview how to solve constrained optimization problem. The SPO algorithm is a multipoint search algorithm that has no objective function gradient, which uses multiple spiral models that can be described as deterministic dynamical systems.The general SPO algorithm for a minimization problem under the maximum iteration (termination criterion) is as follows :  
-    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/fig1.PNG)
+    ![This is an image](https://github.com/sainskomputasi/SK6091-Optimization/blob/master/NumericalOptimization/assert/spiral.PNG)
      
 ## 7.Optimization-Nonlinear Equations
   - **Introduction** 
